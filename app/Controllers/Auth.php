@@ -26,11 +26,11 @@ class Auth extends Controller
         if ($users) {
             if (password_verify($password, $users['password'])) {
                 $session->set([
-                    'id' => $users['id_user'],
+                    'id_user' => $users['id_user'],
                     'nama' => $users['nama'],
+                    'email' => $users['email'],
                     'username' => $users['username'],
                     'role' => $users['role'],
-                    'role' => $users['jenis_pelapor'],
                     'foto' => $users['foto'],
                     'logged_in' => true
                 ]);

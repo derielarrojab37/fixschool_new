@@ -11,8 +11,8 @@ $authFilter = ['filter' => 'auth'];
 
 // Variabel Role
 $admin     = ['filter' => 'role:admin'];
-$petugas     = ['filter' => 'role:teknisi'];
-$anggota     = ['filter' => 'role:anggota'];
+$teknisi     = ['filter' => 'role:teknisi'];
+$pelapor     = ['filter' => 'role:pelapor'];
 $allRole   = ['filter' => 'role:admin, teknisi, pelapor'];
 
 // Login
@@ -31,3 +31,7 @@ $routes->get('/users', 'Users::index', $allRole); // menampilkan data user
 $routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole); // form edit user
 $routes->post('/users/update/(:num)', 'Users::update/$1', $allRole); // aksi update user
 $routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole); // aksi hapus user
+
+$routes->get('users/detail/(:num)', 'Users::detail/$1', $allRole); // aksi detail user
+$routes->get('users/print', 'Users::print', $allRole); // aksi print data user
+$routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke whatsapp

@@ -9,11 +9,16 @@
 
         <div>
 
-            <form action="<?= base_url('users/update/' . $user['id']) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('users/update/' . $user['id_user']) ?>" method="post" enctype="multipart/form-data">
 
                 <div>
                     <label>Nama Lengkap</label><br>
                     <input type="text" name="nama" value="<?= $user['nama'] ?>" required>
+                </div>
+                
+                <div>
+                    <label>Email</label><br>
+                    <input type="text" name="email" value="<?= $user['email'] ?>" required>
                 </div>
 
                 <div>
@@ -30,21 +35,10 @@
                     <label>Role</label><br>
                     <select name="role">
                         <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
-                        <option value="teknisi" <?= $user['role'] == 'teknisi' ? 'selected' : '' ?>>teknisi</option>
-                        <option value="pelapor" <?= $user['role'] == 'pelapor' ? 'selected' : '' ?>>pelapor</option>
+                        <option value="teknisi" <?= $user['role'] == 'teknisi' ? 'selected' : '' ?>>Teknisi</option>
+                        <option value="pelapor" <?= $user['role'] == 'pelapor' ? 'selected' : '' ?>>Pelapor</option>
                     </select>
                 </div>
-
-                <div>
-                    <label>jenis_pelapor</label><br>
-                    <select name="jenis_pelapor">
-                        <option value="guru" <?= $user['jenis_pelapor'] == 'guru' ? 'selected' : '' ?>>Guru</option>
-                        <option value="siswa" <?= $user['jenis_pelapor'] == 'siswa' ? 'selected' : '' ?>>Siwa</option>
-                        <option value="staff" <?= $user['jenis_pelapor'] == 'staff' ? 'selected' : '' ?>>Staff</option>
-                        <option value="lainnya" <?= $user['jenis_pelapor'] == 'lainnyaSS' ? 'selected' : '' ?>>Lainnya</option>
-                    </select>
-                </div>
-
 
                 <div>
                     <label>Foto</label><br>

@@ -11,17 +11,17 @@
             <a href="<?= base_url('/logout') ?>">Log Out</a>
         </li>
 
-            <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
-        <a href="<?= base_url('/users') ?>">
-            Users
-        </a><br>
-    <?php endif; ?>
+            <?php if (session()->get('role') == 'admin' || session()->get('role') == 'teknisi') : ?>
+                <a href="<?= base_url('/users') ?>">
+                 Users
+                </a><br>
+            <?php endif; ?>
 
-        <?php $idu = session('id'); ?>
-    <a href="<?= base_url('users/edit/' . $idu) ?>">
-        Setting
-    </a><br>
-    </ul>
+        <?php $idu = session('id_user'); ?>
+            <a href="<?= base_url('users/edit/' . $idu) ?>">
+            Setting
+            </a><br>
+     </ul>
 
     <br>
 Masuk sebagai: <b><?= session('nama'); ?> (<?= session('role'); ?>)</b>

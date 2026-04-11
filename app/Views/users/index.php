@@ -12,21 +12,15 @@
         <select name="role">
             <option value="">-- Semua Role --</option>
             <option value="admin" <?= (($_GET['role'] ?? '') == 'admin') ? 'selected' : '' ?>>Admin</option>
-            <option value="teknisi" <?= (($_GET['role'] ?? '') == 'teknisi') ? 'selected' : '' ?>>Petugas</option>
-            <option value="pelapor" <?= (($_GET['role'] ?? '') == 'pelapor') ? 'selected' : '' ?>>Anggota</option>
-        </select>
-
-        <select name="jenis_pelapor">
-            <option value="">-- Semua jenis_pelapor --</option>
-            <option value="guru" <?= (($_GET['jenis_pelapor'] ?? '') == 'guru') ? 'selected' : '' ?>>Guru</option>
-            <option value="siswa" <?= (($_GET['jenis_pelapor'] ?? '') == 'siswa') ? 'selected' : '' ?>>Siswa</option>
-            <option value="staff" <?= (($_GET['jenis_pelapor'] ?? '') == 'staff') ? 'selected' : '' ?>>Staff</option>
-             <option value="lainnya" <?= (($_GET['jenis_pelapor'] ?? '') == 'lainnya') ? 'selected' : '' ?>>lainya</option>
+            <option value="teknisi" <?= (($_GET['role'] ?? '') == 'teknisi') ? 'selected' : '' ?>>Teknisi</option>
+            <option value="pelapor" <?= (($_GET['role'] ?? '') == 'pelapor') ? 'selected' : '' ?>>Pelapor</option>
         </select>
 
         <button type="submit">Cari</button>
         <a href="<?= base_url('users') ?>">Reset</a>
-    </form>
+                <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" target="_blank">
+            Print </a>
+                </form>
 
     <br>
 
@@ -39,9 +33,9 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>Email</th>
                 <th>Username</th>
                 <th>Role</th>
-                <th>Jenis Pelapor</th>
                 <th>Foto</th>
                 <?php if (session()->get('role') == 'admin') : ?>
                     <th>Aksi</th>
@@ -56,12 +50,12 @@
                     <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $u['nama'] ?></td>
+                        <td><?= $u['email'] ?></td>
                         <td><?= $u['username'] ?></td>
                         <td><?= ucfirst($u['role']) ?></td>
-                         <td><?= $u['jenis_pelapor'] ?></td>
                         <td>
                             <?php if ($u['foto']): ?>
-                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="60">
+                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" wid_userth="60">
                             <?php else: ?>
                                 -
                             <?php endif; ?>
@@ -69,8 +63,10 @@
 
                         <?php if (session()->get('role') == 'admin') : ?>
                             <td>
-                                <a href="<?= base_url('users/edit/' . $u['id']) ?>">Edit</a>
-                                <a href="<?= base_url('users/delete/' . $u['id']) ?>"
+                                <a href="<?= base_url('users/detail/' . $u['id_user']) ?>">Detail</a>
+                                <a href="<?= base_url('users/edit/' . $u['id_user']) ?>">Edit</a>
+                                <a href="<?= base_url('users/wa/' . $u['id_user']) ?>" target="_blank">Kirim WA</a>
+                                <a href="<?= base_url('users/delete/' . $u['id_user']) ?>"
                                     onclick="return confirm('Hapus user ini?')">Hapus</a>
                             </td>
                         <?php endif; ?>

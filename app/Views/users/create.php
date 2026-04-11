@@ -32,6 +32,11 @@
                     </div>
 
                     <div>
+                        <label>Email</label><br>
+                        <input type="text" name="email" required>
+                    </div>
+
+                    <div>
                         <label>Username</label><br>
                         <input type="text" name="username" required>
                     </div>
@@ -48,17 +53,6 @@
                             <option value="admin">Admin</option>
                             <option value="teknisi">Teknisi</option>
                             <option value="pelapor">Pelapor</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label>Jenis Pelapor</label><br>
-                        <select name="jenis_pelapor" required>
-                            <option value="">-- Pilih Role --</option>
-                            <option value="guru">Guru</option>
-                            <option value="siswa">Siswa</option>
-                            <option value="staff">Staff</option>
-                            <option value="lainnya">Lainnya</option>
                         </select>
                     </div>
 
