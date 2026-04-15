@@ -28,21 +28,6 @@
     <?= nl2br($pengaduan['deskripsi']) ?>
 </div>
 
-<?php if(session('role') == 'admin' && $pengaduan['status'] == 'menunggu'): ?>
-    <div class="mt-4 p-3 rounded-4 border-start border-4 border-warning shadow-sm" style="background: #fffdf5;">
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-            <div class="small">
-                <b class="text-dark d-block">Laporan Menunggu Tindakan</b>
-                <span class="text-muted">Segera tugaskan teknisi untuk memproses laporan ini.</span>
-            </div>
-            <a href="<?= base_url('penugasan/create/' . $pengaduan['id_pengaduan']) ?>" 
-               class="btn btn-warning btn-sm fw-bold px-3 shadow-sm">
-                <i class="bi bi-tools me-1"></i> Tugaskan Sekarang
-            </a>
-        </div>
-    </div>
-<?php endif; ?>
-
                 <hr class="my-5 opacity-10">
 
                 <div class="timeline-section">
@@ -84,29 +69,52 @@
             </div>
         </div>
 
-        <div class="col-lg-4">
-    <div class="card border-0 rounded-4 shadow-sm p-4" style="background: white;">
-        <h5 class="fw-bold mb-3" style="color: #2b3674;">Moderasi Laporan</h5>
+        <?php if(strtolower(session('role')) == 'admin'): ?>
+
+<div class="col-lg-4">
+    <div class="card border-0 rounded-4 shadow-sm p-4">
+        <h5 class="fw-bold mb-3">Moderasi Laporan</h5>
         
-        <?php if ($pengaduan['status'] == 'menunggu'): ?>
+        <?php if (strtolower($pengaduan['status']) == 'menunggu'): ?>
             <div class="d-grid gap-2">
-                <a href="<?= base_url('penugasan/create/' . $pengaduan['id_pengaduan']) ?>" class="btn btn-primary rounded-3 py-2 fw-bold shadow-sm">
-                    <i class="bi bi-tools me-2"></i> Tugaskan Teknisi
+
+                <a href="<?= base_url('penugasan/create/' . $pengaduan['id_pengaduan']) ?>" 
+                   class="btn btn-primary">
+                   Tugaskan Teknisi
                 </a>
 
-                <button type="button" class="btn btn-outline-danger rounded-3 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#modalTolak">
-                    <i class="bi bi-x-circle me-2"></i> Tolak Laporan
-                </button>
+                <a href="<?= base_url('pengaduan/tolak/' . $pengaduan['id_pengaduan']) ?>" 
+   class="btn btn-danger rounded-3 py-2 fw-bold">
+    <i class="bi bi-x-circle me-2"></i> Tolak Laporan
+</a>
             </div>
         <?php else: ?>
-            <div class="alert alert-light border-0 text-center">
-                <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Status Saat Ini</small>
-                <h6 class="fw-bold mt-1 text-primary"><?= strtoupper($pengaduan['status']) ?></h6>
+            <div class="alert alert-light text-center">
+                <b>Status: <?= $pengaduan['status'] ?></b>
             </div>
         <?php endif; ?>
 
+    </div>
+</div>
+
+<?php endif; ?>
+
         <hr class="my-4 opacity-5">
+        <?php if (strtolower($pengaduan['status']) == 'ditolak'): ?>
+    <div class="mt-4 p-4 rounded-4 shadow-sm" style="background: #fff5f5; border-left: 5px solid #dc3545;">
         
+        <h6 class="fw-bold text-danger mb-2">
+            <i class="bi bi-x-circle-fill me-1"></i> Laporan Ditolak
+        </h6>
+
+        <p class="mb-0 text-dark">
+            <?= $pengaduan['alasan_ditolak'] ?? 'Tidak ada alasan diberikan.' ?>
+        </p>
+
+    </div>
+<?php endif; ?>
+<hr class="my-4 opacity-5">
+        <hr class="my-4 opacity-5">
         <h6 class="fw-bold mb-2">Informasi Tambahan</h6>
         <p class="small text-muted mb-0">Pastikan penolakan laporan didasari alasan yang kuat dan objektif.</p>
     </div>
@@ -117,5 +125,23 @@
 
     </div>
 </div>
+
+<?php 
+    $bolehEdit = (
+        session('role') == 'pelapor' &&
+        $pengaduan['status'] == 'menunggu' &&
+        empty($tanggapan)
+    );
+?>
+
+<?php if($bolehEdit): ?>
+    <div class="mt-3">
+        <a href="<?= base_url('pengaduan/edit/' . $pengaduan['id_pengaduan']) ?>" 
+           class="btn btn-warning">
+            <i class="bi bi-pencil-square me-1"></i> Ubah Pengaduan
+        </a>
+    </div>
+<?php endif; ?>
+
 
 <?= $this->endSection() ?>

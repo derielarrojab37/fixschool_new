@@ -47,11 +47,17 @@
                             </td>
                             <td class="text-center">
     <?php 
-        $status = strtolower($p['status']);
-        $class = 'status-pending'; // Default untuk 'menunggu'
-        if ($status == 'proses' || $status == 'diproses') $class = 'status-proses';
-        if ($status == 'selesai') $class = 'status-selesai';
-    ?>
+    $status = strtolower($p['status']);
+    $class = 'status-pending'; // Default untuk 'menunggu'
+
+    if ($status == 'proses' || $status == 'diproses') {
+        $class = 'status-proses';
+    } elseif ($status == 'selesai') {
+        $class = 'status-selesai';
+    } elseif ($status == 'ditolak') {
+        $class = 'status-ditolak'; // 🔥 TAMBAHAN INI
+    }
+?>
     <span class="badge-status <?= $class ?>">
         <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
         <?= ucfirst($p['status']) ?>
@@ -73,6 +79,7 @@
                     <?php endif; ?>
                 
                 </tbody>
+                
             </table>
         </div>
     </div>

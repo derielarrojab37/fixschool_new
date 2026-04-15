@@ -10,14 +10,7 @@ use App\Models\NotifikasiModel;
 class Notifikasi extends BaseController
 {
 
-public function index()
-{
-    $data['notif'] = $this->notifikasiModel
-        ->where('id_user', session()->get('id_user'))
-        ->findAll();
 
-    return view('notifikasi/index', $data);
-}
 
 public function index()
 {

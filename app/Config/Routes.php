@@ -61,16 +61,23 @@ $routes->get('/pengaduan/edit/(:num)', 'Pengaduan::edit/$1');
 $routes->post('/pengaduan/update/(:num)', 'Pengaduan::update/$1');
 $routes->get('/pengaduan/delete/(:num)', 'Pengaduan::delete/$1');
 $routes->get('/pengaduan/detail/(:num)', 'Pengaduan::detail/$1');
+$routes->get('/pengaduan/tolak/(:num)', 'Pengaduan::tolakForm/$1');
+$routes->post('/pengaduan/tolak/(:num)', 'Pengaduan::tolak/$1');
 
 // TANGGAPAN
+$routes->get('/tanggapan', 'Tanggapan::index');
+$routes->get('/tanggapan/create/(:num)', 'Tanggapan::create/$1');
 $routes->post('/tanggapan/store', 'Tanggapan::store');
+$routes->get('/tanggapan/edit/(:num)', 'Tanggapan::edit/$1');
+$routes->post('/tanggapan/update/(:num)', 'Tanggapan::update/$1');
 $routes->get('/tanggapan/delete/(:num)', 'Tanggapan::delete/$1');
 
 // PENUGASAN
 $routes->get('/penugasan', 'Penugasan::index');
-$routes->post('/penugasan/assign', 'Penugasan::assign');
+$routes->get('/penugasan/create/(:num)', 'Penugasan::create/$1');
+$routes->post('/penugasan/store', 'Penugasan::store');
+$routes->get('/penugasan/edit/(:num)', 'Penugasan::edit/$1');
 $routes->post('/penugasan/update/(:num)', 'Penugasan::update/$1');
-$routes->get('/penugasan/delete/(:num)', 'Penugasan::delete/$1');
 
 // NOTIFIKASI
 $routes->get('/notifikasi', 'Notifikasi::index');

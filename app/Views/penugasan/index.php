@@ -1,21 +1,29 @@
-<table border="1">
-<?php foreach($penugasan as $p): ?>
+<?= $this->extend('layouts/main') ?>
+<?= $this->section('content') ?>
+
+<h4>Data Penugasan</h4>
+
+<table class="table">
 <tr>
-<td><?= $p['status'] ?></td>
-<td>
-<a href="/penugasan/delete/<?= $p['id_penugasan'] ?>">Hapus</a>
-</td>
+    <th>No</th>
+    <th>Pengaduan</th>
+    <th>Teknisi</th>
+    <th>Status</th>
+    <th>Aksi</th>
+</tr>
+
+<?php $no=1; foreach($penugasan as $p): ?>
+<tr>
+    <td><?= $no++ ?></td>
+    <td><?= $p['judul'] ?></td>
+    <td><?= $p['nama'] ?></td>
+    <td><?= $p['status'] ?></td>
+    <td>
+        <a href="<?= base_url('penugasan/edit/'.$p['id_penugasan']) ?>">Detail / Update</a>
+    </td>
 </tr>
 <?php endforeach; ?>
+
 </table>
 
-<form method="post" action="/penugasan/assign">
-<select name="id_teknisi">
-<?php foreach($teknisi as $t): ?>
-<option value="<?= $t['id_user'] ?>">
-<?= $t['nama'] ?>
-</option>
-<?php endforeach; ?>
-</select>
-<button>Tugaskan</button>
-</form>
+<?= $this->endSection() ?>

@@ -1,61 +1,117 @@
 <?php
 
-// Namespace controller (menentukan lokasi file dalam struktur CI4)
 namespace App\Controllers;
 
-// Menggunakan model PenugasanModel untuk interaksi database
 use App\Models\PenugasanModel;
 
-// Class Penugasan mewarisi BaseController (class utama di CI4)
-class Penugasan extends BaseController {
-
-    public function assign() {
-        $penugasanModel = new PenugasanModel();
-        $notifModel = new NotifikasiModel();
-
-        $penugasanModel->save([
-            'id_pengaduan' => $this->request->getPost('id_pengaduan'),
-            'id_tanggapan' => $this->request->getPost('id_tanggapan'),
-            'id_teknisi' => $this->request->getPost('id_teknisi'),
-            'status' => 'ditugaskan'
-        ]);
-
-        // NOTIF
-        $notifModel->save([
-            'id_user' => $this->request->getPost('id_teknisi'),
-            'pesan' => 'Anda mendapat tugas baru',
-            'status' => 'belum'
-        ]);
-
-        return redirect()->to('/penugasan');
-    }
-
-    public function update($id) {
-        $file = $this->request->getFile('foto_bukti');
-        $nama = $file->getRandomName();
-        $file->move('uploads/', $nama);
-
-        $this->model->update($id, [
-            'status' => $this->request->getPost('status'),
-            'foto_bukti' => $nama
-        ]);
-
-        return redirect()->back();
-    }
-
-    public function index()
+class Penugasan extends BaseController
 {
-    $model = new PenugasanModel();
+    protected $model;
 
-    if(session()->get('role') == 'teknisi'){
-        $data['penugasan'] = $model
-            ->where('id_teknisi', session()->get('id_user'))
-            ->findAll();
-    } else {
-        $data['penugasan'] = $model->findAll();
+    public function __construct()
+    {
+        $this->model = new PenugasanModel();
     }
 
-    return view('penugasan/index', $data);
+    // 🔹 INDEX
+    public function index()
+    {
+        $db = db_connect();
+
+        if(session()->get('role') == 'teknisi'){
+            // teknisi hanya lihat tugas dia
+            $data['penugasan'] = $this->model
+                ->select('penugasan.*, pengaduan.judul, users.nama')
+                ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+                ->join('users', 'users.id_user = penugasan.id_teknisi')
+                ->where('id_teknisi', session()->get('id_user'))
+                ->findAll();
+        } else {
+            // admin lihat semua
+            $data['penugasan'] = $this->model
+                ->select('penugasan.*, pengaduan.judul, users.nama')
+                ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+                ->join('users', 'users.id_user = penugasan.id_teknisi')
+                ->findAll();
+        }
+
+        return view('penugasan/index', $data);
+    }
+
+    // 🔹 CREATE (dari pengaduan)
+    public function create()
+{
+    if(session()->get('role') != 'admin'){
+        return redirect()->to('/');
+    }
+
+    $db = db_connect();
+
+    // ambil semua pengaduan
+    $data['pengaduan'] = $db->table('pengaduan')->get()->getResultArray();
+
+    // ambil semua teknisi
+    $data['teknisi'] = $db->table('users')
+        ->where('role', 'teknisi')
+        ->get()->getResultArray();
+
+    return view('penugasan/create', $data);
 }
 
+    // 🔹 STORE
+    public function store()
+{
+    if(session()->get('role') != 'admin'){
+        return redirect()->to('/');
+    }
+
+    $this->model->save([
+        'id_pengaduan' => $this->request->getPost('id_pengaduan'),
+        'id_teknisi' => $this->request->getPost('id_teknisi'),
+        'tanggal_penugasan' => $this->request->getPost('tanggal_penugasan'),
+        'status' => 'ditugaskan'
+    ]);
+
+    // update status pengaduan
+    db_connect()->table('pengaduan')
+        ->where('id_pengaduan', $this->request->getPost('id_pengaduan'))
+        ->update(['status' => 'diproses']);
+
+    return redirect()->to('/penugasan');
+}
+
+
+    // 🔹 EDIT (untuk teknisi update status)
+    public function edit($id)
+    {
+        $data['penugasan'] = $this->model->find($id);
+
+        return view('penugasan/edit', $data);
+    }
+
+    // 🔹 UPDATE
+    public function update($id)
+{
+    $data = [
+        'status' => $this->request->getPost('status')
+    ];
+
+    // ❗ HANYA ADMIN BOLEH UBAH TANGGAL
+    if(session()->get('role') == 'admin'){
+        $data['tanggal_penugasan'] = $this->request->getPost('tanggal_penugasan');
+    }
+
+    // upload bukti (teknisi)
+    $file = $this->request->getFile('foto_bukti');
+
+    if ($file && $file->isValid()) {
+        $nama = $file->getRandomName();
+        $file->move('uploads/bukti/', $nama);
+        $data['foto_bukti'] = $nama;
+    }
+
+    $this->model->update($id, $data);
+
+    return redirect()->to('/penugasan');
+}
 }

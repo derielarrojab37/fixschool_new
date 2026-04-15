@@ -64,15 +64,33 @@ class Pengaduan extends BaseController {
     return redirect()->to('/pengaduan')->with('success', 'Pengaduan berhasil dikirim');
 }
 
-    public function edit($id) {
-        $data['pengaduan'] = $this->model->find($id);
+    public function edit($id)
+{
+    $pengaduan = $this->model->find($id);
 
-        if ($data['pengaduan']['status'] != 'menunggu') {
-            return redirect()->back()->with('error','Tidak bisa edit');
-        }
+    // ambil tanggapan (validasi)
+    $db = db_connect();
+    $tanggapan = $db->table('tanggapan')
+        ->where('id_pengaduan', $id)
+        ->get()
+        ->getResultArray();
 
-        return view('pengaduan/edit', $data);
+    // VALIDASI (seperti sebelumnya)
+    if (
+        session()->get('role') != 'pelapor' ||
+        $pengaduan['status'] != 'menunggu' ||
+        !empty($tanggapan)
+    ) {
+        return redirect()->to('/pengaduan')->with('error', 'Tidak bisa mengubah pengaduan');
     }
+
+    // 🔥 TAMBAHAN INI (PENTING)
+    $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
+
+    $data['pengaduan'] = $pengaduan;
+
+    return view('pengaduan/edit', $data);
+}
 
     public function update($id) {
         $this->model->update($id, $this->request->getPost());
@@ -104,5 +122,30 @@ class Pengaduan extends BaseController {
         ->getResultArray();
 
     return view('pengaduan/detail', $data);
+}
+
+public function tolakForm($id)
+{
+    if(session()->get('role') != 'admin'){
+        return redirect()->to('/pengaduan');
+    }
+
+    $data['pengaduan'] = $this->model->find($id);
+
+    return view('pengaduan/tolak', $data);
+}
+
+public function tolak($id)
+{
+    if(session()->get('role') != 'admin'){
+        return redirect()->to('/pengaduan');
+    }
+
+    $this->model->update($id, [
+        'status' => 'ditolak',
+        'alasan_ditolak' => $this->request->getPost('alasan')
+    ]);
+
+    return redirect()->to('/pengaduan')->with('success','Laporan ditolak');
 }
 }
