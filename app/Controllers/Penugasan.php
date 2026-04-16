@@ -15,28 +15,48 @@ class Penugasan extends BaseController
 
     // 🔹 INDEX
     public function index()
-    {
-        $db = db_connect();
+{
+    $db = db_connect();
 
-        if(session()->get('role') == 'teknisi'){
-            // teknisi hanya lihat tugas dia
-            $data['penugasan'] = $this->model
-                ->select('penugasan.*, pengaduan.judul, users.nama')
-                ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
-                ->join('users', 'users.id_user = penugasan.id_teknisi')
-                ->where('id_teknisi', session()->get('id_user'))
-                ->findAll();
-        } else {
-            // admin lihat semua
-            $data['penugasan'] = $this->model
-                ->select('penugasan.*, pengaduan.judul, users.nama')
-                ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
-                ->join('users', 'users.id_user = penugasan.id_teknisi')
-                ->findAll();
-        }
+    // ✅ ambil parameter search DI ATAS
+    $pengaduan = $this->request->getGet('pengaduan');
+    $teknisi   = $this->request->getGet('teknisi');
+    $tanggal   = $this->request->getGet('tanggal');
 
-        return view('penugasan/index', $data);
+    // ✅ buat builder dulu (INI KUNCI NYA)
+    $builder = $this->model
+        ->select('penugasan.*, pengaduan.judul, users.nama')
+        ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+        ->join('users', 'users.id_user = penugasan.id_teknisi');
+
+    // 🔐 ROLE FILTER
+    if(session()->get('role') == 'teknisi'){
+        $builder->where('id_teknisi', session()->get('id_user'));
     }
+
+    // 🔍 SEARCH FILTER (DITARUH SEBELUM findAll)
+    if($pengaduan){
+        $builder->like('pengaduan.judul', $pengaduan);
+    }
+
+    if($teknisi){
+        $builder->where('penugasan.id_teknisi', $teknisi);
+    }
+
+    if($tanggal){
+        $builder->where('DATE(penugasan.tanggal_penugasan)', $tanggal);
+    }
+
+    // ✅ EKSEKUSI DI AKHIR
+    $data['penugasan'] = $builder->findAll();
+
+    // dropdown teknisi
+    $data['teknisiList'] = $db->table('users')
+        ->where('role','teknisi')
+        ->get()->getResultArray();
+
+    return view('penugasan/index', $data);
+}
 
     // 🔹 CREATE (dari pengaduan)
     public function create()
@@ -65,17 +85,27 @@ class Penugasan extends BaseController
         return redirect()->to('/');
     }
 
+    $id_pengaduan = $this->request->getPost('id_pengaduan');
+    $id_teknisi   = $this->request->getPost('id_teknisi');
+
     $this->model->save([
-        'id_pengaduan' => $this->request->getPost('id_pengaduan'),
-        'id_teknisi' => $this->request->getPost('id_teknisi'),
+        'id_pengaduan' => $id_pengaduan,
+        'id_teknisi' => $id_teknisi,
         'tanggal_penugasan' => $this->request->getPost('tanggal_penugasan'),
         'status' => 'ditugaskan'
     ]);
 
     // update status pengaduan
     db_connect()->table('pengaduan')
-        ->where('id_pengaduan', $this->request->getPost('id_pengaduan'))
+        ->where('id_pengaduan', $id_pengaduan)
         ->update(['status' => 'diproses']);
+
+    // 🔔 NOTIF KE TEKNISI (cukup 1x, jangan dobel)
+    db_connect()->table('notifikasi')->insert([
+    'id_user' => $id_teknisi,
+    'pesan' => 'Anda mendapatkan tugas baru',
+    'status' => 'belum'
+]);
 
     return redirect()->to('/penugasan');
 }
@@ -89,11 +119,36 @@ class Penugasan extends BaseController
         return view('penugasan/edit', $data);
     }
 
+    // deelete
+    public function delete($id)
+{
+    // 🔐 hanya admin
+    if(session()->get('role') != 'admin'){
+        return redirect()->to('/penugasan')
+            ->with('error','Tidak punya akses');
+    }
+
+    $data = $this->model->find($id);
+
+    // ❌ tidak boleh hapus jika sudah selesai
+    if($data['status'] == 'selesai'){
+        return redirect()->to('/penugasan')
+            ->with('error','Penugasan yang sudah selesai tidak boleh dihapus');
+    }
+
+    $this->model->delete($id);
+
+    return redirect()->to('/penugasan')
+        ->with('success','Penugasan berhasil dihapus');
+}
+
     // 🔹 UPDATE
     public function update($id)
 {
+    $status = $this->request->getPost('status');
+
     $data = [
-        'status' => $this->request->getPost('status')
+        'status' => $status
     ];
 
     // ❗ HANYA ADMIN BOLEH UBAH TANGGAL
@@ -110,8 +165,62 @@ class Penugasan extends BaseController
         $data['foto_bukti'] = $nama;
     }
 
+    // ✅ update penugasan
     $this->model->update($id, $data);
 
+    // 🔥 TAMBAHAN PENTING (SINKRON STATUS)
+    if($status == 'selesai'){
+        $penugasan = $this->model->find($id);
+
+        $db = db_connect();
+        $db->table('pengaduan')
+            ->where('id_pengaduan', $penugasan['id_pengaduan'])
+            ->update(['status' => 'selesai']);
+    }
+    
+    $id_teknisi = $this->request->getPost('id_teknisi');
+
+    if($data['status'] == 'selesai'){
+
+    // ambil data penugasan
+    $penugasan = $this->model->find($id);
+
+    // ambil pengaduan
+    $pengaduan = db_connect()->table('pengaduan')
+        ->where('id_pengaduan', $penugasan['id_pengaduan'])
+        ->get()->getRowArray();
+
+    // 🔔 NOTIF KE PELAPOR
+    db_connect()->table('notifikasi')->insert([
+    'id_user' => $pengaduan['id_user'],
+    'pesan' => 'Pengaduan Anda telah selesai',
+    'status' => 'belum'
+]);
+}
+
     return redirect()->to('/penugasan');
+}
+
+public function print()
+{
+    $data['penugasan'] = $this->model
+        ->select('penugasan.*, pengaduan.judul, users.nama')
+        ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+        ->join('users', 'users.id_user = penugasan.id_teknisi')
+        ->findAll();
+
+    return view('penugasan/print', $data);
+}
+
+public function detail($id)
+{
+    $data['penugasan'] = $this->model
+        ->select('penugasan.*, pengaduan.judul, users.nama')
+        ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+        ->join('users', 'users.id_user = penugasan.id_teknisi')
+        ->where('id_penugasan', $id)
+        ->first();
+
+    return view('penugasan/detail', $data);
 }
 }

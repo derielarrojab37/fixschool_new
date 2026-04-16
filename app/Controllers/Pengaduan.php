@@ -16,13 +16,41 @@ class Pengaduan extends BaseController {
 
     public function index()
 {
-    $data['pengaduan'] = $this->model
-        ->select('pengaduan.*, users.nama')
+    $keyword = $this->request->getGet('keyword');
+    $jenis   = $this->request->getGet('jenis');
+    $tanggal = $this->request->getGet('tanggal');
+
+    $builder = $this->model
+        ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
         ->join('users', 'users.id_user = pengaduan.id_user')
-        ->findAll();
+        ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
+
+    // 🔐 ROLE FILTER
+    if(session()->get('role') == 'pelapor'){
+        $builder->where('pengaduan.id_user', session()->get('id_user'));
+    }
+
+    // 🔍 SEARCH FILTER
+    if($keyword){
+        $builder->like('judul', $keyword);
+    }
+
+    if($jenis){
+        $builder->where('pengaduan.id_jenis', $jenis);
+    }
+
+    if($tanggal){
+        $builder->where('DATE(tanggal)', $tanggal);
+    }
+
+    $data['pengaduan'] = $builder->findAll();
+
+    // ambil jenis pelapor untuk dropdown
+    $data['jenis'] = db_connect()->table('jenis_pelapor')->get()->getResultArray();
 
     return view('pengaduan/index', $data);
 }
+
 
     public function create()
     {
@@ -97,10 +125,37 @@ class Pengaduan extends BaseController {
         return redirect()->to('/pengaduan');
     }
 
-    public function delete($id) {
-        $this->model->delete($id);
-        return redirect()->to('/pengaduan');
+    public function delete($id)
+{
+    // 🔐 hanya admin
+    if(session()->get('role') != 'admin'){
+        return redirect()->to('/pengaduan')
+            ->with('error','Tidak punya akses');
     }
+
+    $data = $this->model->find($id);
+
+    // ❌ JIKA SUDAH SELESAI → TOLAK HAPUS
+    if($data['status'] == 'selesai'){
+        return redirect()->to('/pengaduan')
+            ->with('error','Data yang sudah selesai tidak boleh dihapus');
+    }
+
+    // ❗ OPTIONAL: kalau masih ada penugasan
+    $cek = db_connect()->table('penugasan')
+        ->where('id_pengaduan', $id)
+        ->countAllResults();
+
+    if($cek > 0){
+        return redirect()->to('/pengaduan')
+            ->with('error','Data masih memiliki penugasan');
+    }
+
+    $this->model->delete($id);
+
+    return redirect()->to('/pengaduan')
+        ->with('success','Data berhasil dihapus');
+}
 
     public function detail($id)
 {
@@ -137,15 +192,40 @@ public function tolakForm($id)
 
 public function tolak($id)
 {
-    if(session()->get('role') != 'admin'){
-        return redirect()->to('/pengaduan');
-    }
+    // 🔥 ambil alasan dari form
+    $alasan = $this->request->getPost('alasan');
 
+    // update pengaduan
     $this->model->update($id, [
         'status' => 'ditolak',
-        'alasan_ditolak' => $this->request->getPost('alasan')
+        'alasan_ditolak' => $alasan
     ]);
 
-    return redirect()->to('/pengaduan')->with('success','Laporan ditolak');
+    // ambil data pengaduan
+    $pengaduan = db_connect()->table('pengaduan')
+        ->where('id_pengaduan', $id)
+        ->get()->getRowArray();
+
+    // 🔔 kirim notifikasi
+    $alasan = $this->request->getPost('alasan');
+
+db_connect()->table('notifikasi')->insert([
+    'id_user' => $pengaduan['id_user'],
+    'pesan' => 'Pengaduan ditolak: '.$alasan,
+    'status' => 'belum'
+]);
+
+    return redirect()->to('/pengaduan/detail/'.$id);
+}
+
+public function print()
+{
+    $data['pengaduan'] = $this->model
+        ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
+        ->join('users', 'users.id_user = pengaduan.id_user')
+        ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis')
+        ->findAll();
+
+    return view('pengaduan/print', $data);
 }
 }

@@ -9,10 +9,13 @@
     <textarea name="isi_tanggapan" class="form-control" required></textarea>
 </div>
 
-<div class="mb-2">
-    <label>Foto (Opsional)</label>
-    <input type="file" name="foto" class="form-control">
-</div>
+<?php if(!empty($t['foto'])): ?>
+    <div class="mt-2">
+        <img src="<?= base_url('uploads/tanggapan/' . $t['foto']) ?>" 
+             class="img-fluid rounded"
+             style="max-height:200px;">
+    </div>
+<?php endif; ?>
 
 <button class="btn btn-success">Kirim Tanggapan</button>
 

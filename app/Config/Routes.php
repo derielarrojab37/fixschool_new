@@ -63,6 +63,7 @@ $routes->get('/pengaduan/delete/(:num)', 'Pengaduan::delete/$1');
 $routes->get('/pengaduan/detail/(:num)', 'Pengaduan::detail/$1');
 $routes->get('/pengaduan/tolak/(:num)', 'Pengaduan::tolakForm/$1');
 $routes->post('/pengaduan/tolak/(:num)', 'Pengaduan::tolak/$1');
+$routes->get('/pengaduan/print', 'Pengaduan::print');
 
 // TANGGAPAN
 $routes->get('/tanggapan', 'Tanggapan::index');
@@ -71,6 +72,7 @@ $routes->post('/tanggapan/store', 'Tanggapan::store');
 $routes->get('/tanggapan/edit/(:num)', 'Tanggapan::edit/$1');
 $routes->post('/tanggapan/update/(:num)', 'Tanggapan::update/$1');
 $routes->get('/tanggapan/delete/(:num)', 'Tanggapan::delete/$1');
+$routes->get('/tanggapan/print', 'Tanggapan::print');
 
 // PENUGASAN
 $routes->get('/penugasan', 'Penugasan::index');
@@ -78,7 +80,12 @@ $routes->get('/penugasan/create/(:num)', 'Penugasan::create/$1');
 $routes->post('/penugasan/store', 'Penugasan::store');
 $routes->get('/penugasan/edit/(:num)', 'Penugasan::edit/$1');
 $routes->post('/penugasan/update/(:num)', 'Penugasan::update/$1');
+$routes->get('/penugasan/print', 'Penugasan::print');
+$routes->get('/penugasan/detail/(:num)', 'Penugasan::detail/$1');
+$routes->get('/penugasan/delete/(:num)', 'Penugasan::delete/$1');
 
 // NOTIFIKASI
 $routes->get('/notifikasi', 'Notifikasi::index');
 $routes->get('/notifikasi/read/(:num)', 'Notifikasi::read/$1');
+
+$routes->get('/', 'Dashboard::index');

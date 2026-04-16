@@ -74,25 +74,30 @@
 <div class="col-lg-4">
     <div class="card border-0 rounded-4 shadow-sm p-4">
         <h5 class="fw-bold mb-3">Moderasi Laporan</h5>
+
         
-        <?php if (strtolower($pengaduan['status']) == 'menunggu'): ?>
-            <div class="d-grid gap-2">
+        <?php 
+$status = strtolower($pengaduan['status']);
+if ($status == 'menunggu' || $status == 'diproses'): 
+?>
+    <div class="d-grid gap-2">
 
-                <a href="<?= base_url('penugasan/create/' . $pengaduan['id_pengaduan']) ?>" 
-                   class="btn btn-primary">
-                   Tugaskan Teknisi
-                </a>
+        <a href="<?= base_url('penugasan/create/' . $pengaduan['id_pengaduan']) ?>" 
+           class="btn btn-primary">
+           Tugaskan Teknisi
+        </a>
 
-                <a href="<?= base_url('pengaduan/tolak/' . $pengaduan['id_pengaduan']) ?>" 
-   class="btn btn-danger rounded-3 py-2 fw-bold">
-    <i class="bi bi-x-circle me-2"></i> Tolak Laporan
-</a>
-            </div>
-        <?php else: ?>
-            <div class="alert alert-light text-center">
-                <b>Status: <?= $pengaduan['status'] ?></b>
-            </div>
-        <?php endif; ?>
+        <a href="<?= base_url('pengaduan/tolak/' . $pengaduan['id_pengaduan']) ?>" 
+           class="btn btn-danger">
+           Tolak Laporan
+        </a>
+
+    </div>
+<?php else: ?>
+    <div class="alert alert-light text-center">
+        <b>Status: <?= $pengaduan['status'] ?></b>
+    </div>
+<?php endif; ?>
 
     </div>
 </div>
@@ -101,16 +106,9 @@
 
         <hr class="my-4 opacity-5">
         <?php if (strtolower($pengaduan['status']) == 'ditolak'): ?>
-    <div class="mt-4 p-4 rounded-4 shadow-sm" style="background: #fff5f5; border-left: 5px solid #dc3545;">
-        
-        <h6 class="fw-bold text-danger mb-2">
-            <i class="bi bi-x-circle-fill me-1"></i> Laporan Ditolak
-        </h6>
-
-        <p class="mb-0 text-dark">
-            <?= $pengaduan['alasan_ditolak'] ?? 'Tidak ada alasan diberikan.' ?>
-        </p>
-
+    <div class="alert alert-danger mt-3">
+        <b>Laporan Ditolak</b><br>
+        <?= $pengaduan['alasan_ditolak'] ?>
     </div>
 <?php endif; ?>
 <hr class="my-4 opacity-5">

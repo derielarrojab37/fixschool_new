@@ -2,6 +2,39 @@
 
 <?= $this->section('content') ?>
 
+<form method="get" class="row mb-3">
+
+    <div class="col-md-3">
+        <input type="text" name="keyword" class="form-control" 
+        placeholder="Cari judul..." value="<?= $_GET['keyword'] ?? '' ?>">
+    </div>
+
+    <div class="col-md-3">
+        <select name="jenis" class="form-control">
+            <option value="">Semua Jenis</option>
+            <?php foreach($jenis as $j): ?>
+                <option value="<?= $j['id_jenis'] ?>">
+                    <?= $j['nama_jenis'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <input type="date" name="tanggal" class="form-control"
+        value="<?= $_GET['tanggal'] ?? '' ?>">
+    </div>
+
+    <div class="col-md-3">
+        <button class="btn btn-primary">Cari</button>
+        <a href="<?= base_url('pengaduan') ?>" class="btn btn-secondary">Reset</a>
+    </div>
+
+</form>
+<a href="<?= base_url('pengaduan/print') ?>" target="_blank" class="btn btn-success">
+    <i class="bi bi-printer"></i> Print
+</a>
+<br>
 
 <div class="container-fluid py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -63,7 +96,19 @@
         <?= ucfirst($p['status']) ?>
     </span>
 </td>
-                            </td>
+                            
+
+<td>
+
+            <?php if(session('role') == 'admin' && $p['status'] != 'selesai'): ?>
+    <a href="<?= base_url('pengaduan/delete/'.$p['id_pengaduan']) ?>" 
+       class="btn btn-danger btn-sm"
+       onclick="return confirm('Yakin hapus?')">
+       Hapus
+    </a>
+<?php endif; ?>
+</td>
+
                             <td class="text-center">
                                 <a href="<?= base_url('pengaduan/detail/' . $p['id_pengaduan']) ?>" class="btn-detail">
                                     Detail
@@ -78,6 +123,7 @@
                         </tr>
                     <?php endif; ?>
                 
+                    
                 </tbody>
                 
             </table>

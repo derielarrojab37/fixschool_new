@@ -1,48 +1,91 @@
 <!doctype html>
-
-<head>
+<html lang="en" data-bs-theme="dark"> <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Fix School </title>
+    <title>Fix School | Phoenix Dashboard</title>
 
-    <!-- Bootstrap CSS Lokal -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
 
     <style>
+        :root {
+            --phoenix-bg: #0f111a;
+            --phoenix-card: #141824;
+            --sidebar-width: 255px;
+        }
+
         body {
-            font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--phoenix-bg);
+            color: #eff2f6;
+            margin: 0;
             display: flex;
             min-height: 100vh;
-            overflow-x: auto;
         }
 
-        .sidebar {
-            width: 150px;
-            background-color: #fffbd5ff;
-            position: relative;
+        /* Container Sidebar */
+        .sidebar-wrapper {
+            width: var(--sidebar-width);
+            flex-shrink: 0;
+            z-index: 1000;
         }
 
-        .content {
+        /* Konten Utama */
+        .main-content {
             flex-grow: 1;
-            padding: 15px;
-            background-color: #f8f9fa;
+            min-width: 0; /* Mencegah konten overflow */
+            background-color: var(--phoenix-bg);
+            padding: 2rem;
+            height: 100vh;
+            overflow-y: auto; /* Scroll hanya di bagian konten */
+        }
+
+        /* Scrollbar Styling (Agar serasi dengan Dark Mode) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--phoenix-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #31374a;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3874ff;
+        }
+
+        /* Responsive: Jika layar kecil, sidebar bisa disembunyikan (opsional) */
+        @media (max-width: 992px) {
+            .sidebar-wrapper {
+                display: none; /* Kamu bisa menambahkan toggle JS nantinya */
+            }
+            .main-content {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
+
+    <aside class="sidebar-wrapper">
         <?php include(APPPATH . 'Views/layouts/menu.php'); ?>
-    </div>
+    </aside>
 
-    <!-- Konten Utama -->
-    <div class="content">
+    <main class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4 d-lg-none">
+            <h4 class="mb-0 text-primary fw-bold">FixSchool</h4>
+            <button class="btn btn-outline-light btn-sm"><i class="bi bi-list"></i></button>
+        </div>
+
         <?= $this->renderSection('content') ?>
-    </div>
+        
+        <footer class="mt-5 pt-4 border-top border-secondary-subtle">
+            <p class="text-muted small">&copy; 2026 <strong>Fix School</strong>. Managed by IT Team.</p>
+        </footer>
+    </main>
 
-    <!-- Bootstrap JS Lokal -->
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
 </body>
 
