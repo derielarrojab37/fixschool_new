@@ -89,8 +89,25 @@ class Pengaduan extends BaseController {
         'status' => 'menunggu'
     ]);
 
-    return redirect()->to('/pengaduan')->with('success', 'Pengaduan berhasil dikirim');
-}
+    // 🔔 NOTIF KE ADMIN
+    $db = db_connect();
+    $admin = $db->table('users')
+        ->where('role', 'admin')
+        ->get()
+        ->getResultArray();
+
+    foreach($admin as $a){
+        $db->table('notifikasi')->insert([
+            'id_user' => $a['id_user'],
+            'pesan' => 'Pengaduan baru telah dibuat',
+            'status' => 'belum',
+            'tanggal' => date('Y-m-d H:i:s')
+        ]);
+    }
+
+    return redirect()->to('/pengaduan')
+        ->with('success', 'Pengaduan berhasil dikirim');
+} // ✅ WAJIB ADA INI (penutup function)
 
     public function edit($id)
 {

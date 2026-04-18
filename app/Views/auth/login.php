@@ -3,153 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | Argon Dashboard Style</title>
+    <title>Sign In | Admin One Style</title>
 
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            background-color: #f8f9fe; /* Background light khas Argon */
-            font-family: 'Open Sans', sans-serif;
-            color: #525f7f;
+            /* Background abu-abu muda flat khas Admin One */
+            background-color: #f0f2f5; 
+            font-family: 'Nunito', sans-serif;
+            color: #2d3748;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        /* Background decorative top (opsional, untuk efek lengkung Argon) */
-        .bg-gradient-primary {
-            background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
-            height: 300px;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            z-index: -1;
+
+        /* Logo Placeholder - Gaya Minimalis */
+        .brand-logo {
+            width: 64px;
+            height: 64px;
+            background: #2563eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
         .card {
             border: none;
             background-color: #ffffff;
-            border-radius: 1rem; /* Border radius lebih besar */
-            box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
+            border-radius: 0.75rem;
+            /* Shadow yang lebih dalam dan lembut */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+            transition: transform 0.3s ease;
         }
 
         .card-header {
             background-color: transparent;
             border: 0;
-            padding-top: 2rem;
+            padding: 1.5rem 1.5rem 0.5rem;
+        }
+
+        .login-title {
+            color: #1a202c;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        /* Input Styles */
+        .form-label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #4a5568;
         }
 
         .form-control {
-            border: 1px solid #cad1d7;
+            border: 2px solid #e2e8f0;
             border-radius: 0.5rem;
-            color: #8898aa;
-            padding: 0.625rem 0.75rem;
-            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            transition: all 0.2s ease-in-out;
+            background-color: #f8fafc;
         }
 
         .form-control:focus {
             outline: 0;
-            box-shadow: 0 3px 9px rgba(50, 50, 93, 0.1), 0 1px 7px rgba(0, 0, 0, 0.08);
-            border-color: rgba(94, 114, 228, 0.5);
+            background-color: #fff;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
 
-        /* Styling Button Argon */
+        /* Button Styles dengan Animasi */
         .btn-primary {
-            color: #fff;
-            background-color: #5e72e4;
-            border-color: #5e72e4;
+            background-color: #2563eb;
+            border: none;
             border-radius: 0.5rem;
-            padding: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.025em;
-            transition: all 0.15s ease;
-            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
         }
 
         .btn-primary:hover {
-            background-color: #324cdd;
+            background-color: #1d4ed8;
             transform: translateY(-1px);
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-        .login-title {
-            color: #32325d;
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* Alert Styling */
+        .alert-custom {
+            background-color: #fff5f5;
+            color: #c53030;
+            border: 1px solid #feb2b2;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* Link Styling */
+        .auth-link {
+            color: #4b5563;
+            text-decoration: none;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            transition: color 0.2s;
         }
 
-        .text-muted-custom {
-            color: #8898aa;
+        .auth-link:hover {
+            color: #2563eb;
         }
 
-        /* Switch style untuk Remember Me */
-        .form-check-input:checked {
-            background-color: #5e72e4;
-            border-color: #5e72e4;
+        /* Animasi Masuk */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .input-group-text {
-            background-color: #fff;
-            border: 1px solid #cad1d7;
-            color: #adb5bd;
+        .animate-in {
+            animation: slideUp 0.5s ease-out forwards;
         }
     </style>
 </head>
 
 <body>
-    <div class="bg-gradient-primary"></div>
 
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card shadow p-2" style="width: 100%; max-width: 450px;">
+    <div class="container d-flex justify-content-center">
+        <div class="card p-3 animate-in" style="width: 100%; max-width: 420px;">
+            
             <div class="card-header text-center">
-                <h3 class="login-title">Welcome back</h3>
-                <p class="text-muted-custom small">Gunakan kredensial Anda untuk masuk</p>
+                <div class="brand-logo">
+                    <i class="bi bi-shield-lock-fill"></i>
+                </div>
+                <h3 class="login-title">Sign In</h3>
+                <p class="text-muted small">Enter your credentials to access your account</p>
             </div>
             
-            <div class="card-body px-lg-5 py-lg-4">
+            <div class="card-body">
                 
                 <?php if (session()->getFlashdata('error') || session()->getFlashdata('salahpw')): ?>
-                    <div class="alert alert-danger border-0 small text-white" role="alert" style="background-color: #f5365c;">
-                        <i class="bi bi-exclamation-circle-fill me-2"></i>
-                        <?= session()->getFlashdata('error') ?: session()->getFlashdata('salahpw') ?>
+                    <div class="alert alert-custom mb-4 d-flex align-items-center" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <div>
+                            <?= session()->getFlashdata('error') ?: session()->getFlashdata('salahpw') ?>
+                        </div>
                     </div>
                 <?php endif; ?>
 
                 <form action="<?= base_url('/proses-login') ?>" method="post">
 
-                    <div class="mb-3">
-                        <div class="input-group input-group-merge">
-                            <span class="input-group-text"><i class="bi bi-person"></i></span>
-                            <input type="text" name="username" class="form-control" placeholder="Username" required>
-                        </div>
+                    <div class="mb-4">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" placeholder="Masukan Usernamemu" required>
                     </div>
 
-                    <div class="mb-3">
-                        <div class="input-group input-group-merge">
-                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between">
+                            <label class="form-label">Password</label>
+                            <a href="#" class="auth-link small">Forgot?</a>
                         </div>
+                        <input type="password" name="password" class="form-control" placeholder="Masukan Passwordmu" required>
                     </div>
 
-                    <div class="form-check form-switch my-3">
+                    <div class="form-check mb-4">
                         <input class="form-check-input" type="checkbox" id="remember">
-                        <label class="form-check-label text-muted-custom small" for="remember">Ingat saya</label>
+                        <label class="form-check-label text-muted small" for="remember">
+                            Stay logged in
+                        </label>
                     </div>
 
-                    <div class="text-center">
-                        <button class="btn btn-primary w-100 my-3">Sign In</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mb-3">
+                        Login
+                    </button>
 
                 </form>
 
-                <div class="row mt-3">
-                    <div class="col-6">
-                        <a href="#" class="text-light small"><small class="text-primary fw-bold">Lupa password?</small></a>
-                    </div>
-                    <div class="col-6 text-end">
-                        <a href="<?= base_url('users/create') ?>" class="text-light small"><small class="text-primary fw-bold">Buat Akun</small></a>
-                    </div>
+                <div class="text-center mt-3">
+                    <p class="text-muted small">Don't have an account? 
+                        <a href="<?= base_url('users/create') ?>" class="auth-link">Create Account</a>
+                    </p>
                 </div>
 
             </div>

@@ -22,7 +22,7 @@ $routes->get('/logout', 'Auth::logout');
 
 // Halaman utama
 $routes->get('/', 'Home::index', $authFilter);
-$routes->get('/dashboard', 'Home::index', $authFilter);
+$routes->get('/dashboard', 'Dashboard::index', $authFilter);
 
 $routes->get('/users/create', 'Users::create'); // form tambah user
 $routes->post('/users/store', 'Users::store'); // aksi simpan user

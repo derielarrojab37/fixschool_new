@@ -198,6 +198,24 @@ class Penugasan extends BaseController
 ]);
 }
 
+// 🔔 NOTIF KE ADMIN (status berubah)
+$db = db_connect();
+
+// ambil semua admin
+$admin = $db->table('users')
+    ->where('role', 'admin')
+    ->get()
+    ->getResultArray();
+
+foreach($admin as $a){
+    $db->table('notifikasi')->insert([
+        'id_user' => $a['id_user'],
+        'pesan' => 'Status penugasan diperbarui menjadi: '.$status,
+        'status' => 'belum',
+        'tanggal' => date('Y-m-d H:i:s')
+    ]);
+}
+
     return redirect()->to('/penugasan');
 }
 
