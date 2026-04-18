@@ -354,3 +354,1064 @@ DEBUG - 2026-04-18 04:19:57 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-18 04:20:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-18 04:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-18 04:20:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:05:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:06:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:06:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:06:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:06:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:06:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:07:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:07:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:08:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:08:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:08:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:08:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:10:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:11:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:11:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:12:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:12:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:13:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:14:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:15:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:22:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:37:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:37:06 --> ErrorException: Undefined variable $total_minggu
+[Method: GET, Route: dashboard]
+in APPPATH\Views\layouts\dashboard.php on line 182.
+ 1 APPPATH\Views\layouts\dashboard.php(182): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 182)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:38:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:38:53 --> ErrorException: Undefined variable $total_minggu
+[Method: GET, Route: dashboard]
+in APPPATH\Views\layouts\dashboard.php on line 182.
+ 1 APPPATH\Views\layouts\dashboard.php(182): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 182)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:38:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:38:59 --> ErrorException: Undefined variable $total_minggu
+[Method: GET, Route: dashboard]
+in APPPATH\Views\layouts\dashboard.php on line 182.
+ 1 APPPATH\Views\layouts\dashboard.php(182): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 182)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:42:12 --> ErrorException: Undefined variable $total_minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 185.
+ 1 APPPATH\Views\layouts\dashboard.php(185): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 185)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 06:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:43:21 --> ErrorException: Undefined variable $total_minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:48:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:48:10 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:48:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:48:10 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:48:11 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:48:11 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:50 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:56 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:57 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:57 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:57 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:57 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:57 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:58 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:58 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:51:58 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:52:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:52:09 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:52:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:52:09 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:52:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:52:09 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:54:14 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:54:14 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:54:14 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:54:15 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:54:15 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:37 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:38 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:38 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:38 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:38 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:39 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:39 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:39 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:39 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:39 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:39 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:40 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:40 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:40 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:40 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:40 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:41 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:55:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:55:41 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:56:21 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:56:21 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:56:21 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:56:21 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:56:21 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:56:21 --> ErrorException: Undefined variable $minggu
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 100.
+ 1 APPPATH\Views\layouts\dashboard.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $minggu', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:09 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:10 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:10 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:10 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:10 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:11 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:11 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:11 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 06:57:11 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 102.
+ 1 APPPATH\Views\layouts\dashboard.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 102)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 06:57:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:04:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 07:04:26 --> ErrorException: Undefined variable $stat_mingguan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 95.
+ 1 APPPATH\Views\layouts\dashboard.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stat_mingguan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 95)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 07:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 07:05:17 --> ErrorException: Undefined variable $stat_mingguan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\dashboard.php on line 187.
+ 1 APPPATH\Views\layouts\dashboard.php(187): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $stat_mingguan', 'C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php', 187)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\fixschool_new\\app\\Views\\layouts\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 07:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 07:08:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

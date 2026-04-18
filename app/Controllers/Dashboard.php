@@ -3,29 +3,31 @@
 namespace App\Controllers;
 
 use App\Models\NotifikasiModel;
+use App\Models\PengaduanModel;
 
 class Dashboard extends BaseController
 {
     public function index()
-{
-    $notifModel = new \App\Models\NotifikasiModel();
+    {
+        $notifModel = new NotifikasiModel();
+        $model = new PengaduanModel();
 
-    // ambil semua notif
-    $data['notif'] = $notifModel
-        ->where('id_user', session()->get('id_user'))
-        ->orderBy('tanggal','DESC')
-        ->findAll();
+        // 🔔 NOTIF
+        $data['notif'] = $notifModel
+            ->where('id_user', session()->get('id_user'))
+            ->orderBy('tanggal','DESC')
+            ->findAll();
 
-    // hitung notif belum dibaca
-    $data['jumlah_notif'] = $notifModel
-        ->where('id_user', session()->get('id_user'))
-        ->where('status','belum')
-        ->countAllResults();
-        
-    $notifModel->where('id_user', session()->get('id_user'))
-           ->where('status','belum')
-           ->set(['status' => 'sudah'])
-           ->update();
-    return view('dashboard', $data);
-}
+        $data['jumlah_notif'] = $notifModel
+            ->where('id_user', session()->get('id_user'))
+            ->where('status','belum')
+            ->countAllResults();
+
+        // update notif jadi sudah
+        $notifModel->where('id_user', session()->get('id_user'))
+            ->where('status','belum')
+            ->set(['status' => 'sudah'])
+            ->update();
+
+
 }

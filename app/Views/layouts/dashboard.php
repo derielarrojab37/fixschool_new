@@ -70,6 +70,8 @@
     }
 </style>
 
+
+
 <div class="container-fluid">
     <div class="header-body mb-4">
         <div class="row align-items-center py-4">
@@ -133,6 +135,8 @@
                                 </div>
                             </div>
                         <?php endforeach; ?>
+
+                        
                     <?php else: ?>
                         <div class="text-center py-5">
                             <img src="https://cdn-icons-png.flaticon.com/512/3241/3241430.png" width="80" class="opacity-3 mb-3" alt="Empty">
@@ -171,5 +175,7 @@
         </div>
     </div>
 </div>
+
+
 
 <?= $this->endSection() ?>

@@ -126,6 +126,14 @@
                     </div>
                 <?php endif; ?>
 
+                <?php if (!empty($t['foto'])): ?>
+                    <div class="mt-2">
+                        <img src="<?= base_url('uploads/tanggapan/' . $t['foto']) ?>" 
+                            alt="Foto Tanggapan"
+                            class="img-fluid rounded"
+                            style="max-height: 250px;">
+                    </div>
+<?php endif; ?>    
             </div>
         </div>
 
