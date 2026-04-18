@@ -2,7 +2,7 @@
 
 <form method="post" action="/tanggapan/store" enctype="multipart/form-data">
 
-<input type="hidden" name="id_pengaduan" value="<?= $pengaduan['id_pengaduan'] ?>">
+<input type="hidden" name="id_tanggapan" value="<?= $tanggapan['id_tanggapan'] ?>">
 
 <div class="mb-2">
     <label>Isi Tanggapan</label>

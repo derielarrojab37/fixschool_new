@@ -22,6 +22,11 @@
     <input type="file" name="foto" class="form-control">
 </div>
 
+<a href="<?= base_url('tanggapan') ?>" 
+                       class="btn btn-light btn-sm rounded-pill px-3">
+                        <i class="bi bi-arrow-left"></i> Kembali
+                    </a>
+
 <button class="btn btn-success">Kirim</button>
 
 </form>

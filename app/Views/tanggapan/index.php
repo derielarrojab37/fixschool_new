@@ -1,7 +1,6 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-
 <form method="get" class="row mb-3">
 
     <div class="col-md-4">

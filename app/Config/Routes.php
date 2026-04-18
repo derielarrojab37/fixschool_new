@@ -72,6 +72,7 @@ $routes->post('/tanggapan/store', 'Tanggapan::store');
 $routes->get('/tanggapan/edit/(:num)', 'Tanggapan::edit/$1');
 $routes->post('/tanggapan/update/(:num)', 'Tanggapan::update/$1');
 $routes->get('/tanggapan/delete/(:num)', 'Tanggapan::delete/$1');
+$routes->get('tanggapan/detail/(:num)', 'Tanggapan::detail/$1');
 $routes->get('/tanggapan/print', 'Tanggapan::print');
 
 // PENUGASAN

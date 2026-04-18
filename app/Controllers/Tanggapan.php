@@ -150,4 +150,9 @@ db_connect()->table('notifikasi')->insert([
 
     return view('tanggapan/print', $data);
 }
+public function detail($id)
+{
+    $data['tanggapan'] = $this->model->find($id);
+    return view('tanggapan/detail', $data);
+}
 }
