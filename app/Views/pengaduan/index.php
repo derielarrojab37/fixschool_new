@@ -1,190 +1,191 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<!-- 🔍 FORM SEARCH -->
-<form method="get" class="row g-2 align-items-center mb-4">
+<style>
+    /* Admin One Table Design */
+    .admin-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+    }
 
-    <!-- INPUT -->
-    <div class="col-md-3">
-        <input type="text" name="keyword" class="form-control" 
-               placeholder="Cari judul..."
-               value="<?= $_GET['keyword'] ?? '' ?>">
-    </div>
+    .admin-table thead th {
+        background-color: #f9fafb;
+        color: #4b5563;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 1rem;
+        border-bottom: 2px solid #e5e7eb;
+    }
 
-    <!-- JENIS -->
-    <div class="col-md-3">
-        <select name="jenis" class="form-select">
-            <option value="">Semua Jenis</option>
-            <?php foreach($jenis as $j): ?>
-                <option value="<?= $j['id_jenis'] ?>">
-                    <?= $j['nama_jenis'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+    .admin-table tbody td {
+        padding: 1rem;
+        vertical-align: middle;
+        color: #374151;
+        border-bottom: 1px solid #f3f4f6;
+    }
 
-    <!-- TANGGAL -->
-    <div class="col-md-2">
-        <input type="date" name="tanggal" class="form-control"
-               value="<?= $_GET['tanggal'] ?? '' ?>">
-    </div>
+    /* Soft Badge Status */
+    .badge-soft {
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 0.35rem 0.75rem;
+        border-radius: 0.375rem;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
 
-    <!-- TOMBOL -->
-    <div class="col-md-4 d-flex gap-2">
+    .status-pending { background-color: #fef3c7; color: #92400e; } /* Amber */
+    .status-proses { background-color: #e0e7ff; color: #3730a3; }  /* Indigo */
+    .status-selesai { background-color: #d1fae5; color: #065f46; } /* Emerald */
+    .status-ditolak { background-color: #fee2e2; color: #991b1b; } /* Red */
 
-        <button class="btn btn-primary flex-fill">
-            <i class="bi bi-search me-1"></i> Cari
-        </button>
+    /* Action Buttons */
+    .btn-action {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.375rem;
+        transition: all 0.2s;
+        border: none;
+    }
+    
+    .bg-info-soft { background-color: #e0f2fe; color: #0369a1; }
+    .bg-red-soft { background-color: #fee2e2; color: #dc2626; }
+</style>
 
-        <a href="<?= base_url('pengaduan') ?>" 
-           class="btn btn-secondary flex-fill">
-            Reset
-        </a>
-
-        <a href="<?= base_url('pengaduan/print') ?>" 
-           target="_blank" 
-           class="btn btn-success flex-fill">
-            <i class="bi bi-printer"></i>
-        </a>
-
-    </div>
-
-</form>
-
-<!-- 📦 CONTENT -->
-<div class="container-fluid py-4">
-
-    <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-end mb-4">
         <div>
-            <h3 class="fw-bold mb-1" style="color: #9297b4;">Data Pengaduan</h3>
-            <p class="text-muted small mb-0">
-                Kelola laporan kerusakan dari warga sekolah.
-            </p>
+            <h2 class="fw-800 text-dark mb-1">Data Pengaduan</h2>
+            <p class="text-muted small mb-0">Monitor dan kelola laporan kerusakan infrastruktur sekolah.</p>
         </div>
-
-        <?php if(session()->get('role') == 'pelapor'): ?>
-            <a href="<?= base_url('/pengaduan/create') ?>" 
-               class="btn btn-primary px-4">
-                + Tambah
+        <div class="d-flex gap-2">
+            <a href="<?= base_url('pengaduan/print?' . http_build_query($_GET)) ?>" target="_blank" class="btn btn-outline-secondary btn-sm fw-bold px-3">
+                <i class="bi bi-printer me-1"></i> Cetak Laporan
             </a>
-        <?php endif; ?>
+            <?php if(session()->get('role') == 'pelapor'): ?>
+                <a href="<?= base_url('/pengaduan/create') ?>" class="btn btn-primary btn-sm fw-bold px-3">
+                    <i class="bi bi-plus-lg me-1"></i> Buat Laporan
+                </a>
+            <?php endif; ?>
+        </div>
     </div>
 
-    <!-- TABLE -->
-    <div class="card border-0 shadow-sm rounded-4">
+    <div class="admin-card mb-4">
         <div class="card-body p-3">
+            <form method="get" action="" class="row g-2 align-items-center">
+                <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-muted"></i></span>
+                        <input type="text" name="keyword" class="form-control border-start-0" placeholder="Cari judul laporan..." value="<?= $_GET['keyword'] ?? '' ?>">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <select name="jenis" class="form-select form-select-sm">
+                        <option value="">Semua Jenis</option>
+                        <?php foreach($jenis as $j): ?>
+                            <option value="<?= $j['id_jenis'] ?>" <?= (($_GET['jenis'] ?? '') == $j['id_jenis']) ? 'selected' : '' ?>>
+                                <?= $j['nama_jenis'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" name="tanggal" class="form-control form-control-sm" value="<?= $_GET['tanggal'] ?? '' ?>">
+                </div>
+                <div class="col-md-auto">
+                    <button type="submit" class="btn btn-dark btn-sm fw-bold px-3">Filter</button>
+                    <a href="<?= base_url('pengaduan') ?>" class="btn btn-link btn-sm text-muted">Reset</a>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            <div class="table-responsive">
-                <table class="table align-middle">
-
-                    <!-- HEADER -->
-                    <thead class="table-light">
-                        <tr>
-                            <th width="60" class="text-center">No</th>
-                            <th>Laporan</th>
-                            <th>Pelapor</th>
-                            <th>Jenis</th>
-                            <th>Lokasi</th>
-                            <th class="text-center">Status</th>
-                            <th class="text-center" width="160">Aksi</th>
-                        </tr>
-                    </thead>
-
-                    <!-- BODY -->
-                    <tbody>
+    <div class="admin-card">
+        <div class="table-responsive">
+            <table class="table admin-table mb-0">
+                <thead>
+                    <tr>
+                        <th class="text-center" width="60">No</th>
+                        <th>Informasi Laporan</th>
+                        <th>Pelapor</th>
+                        <th>Kategori & Lokasi</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-end">Opsi</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <?php if (!empty($pengaduan)): ?>
                         <?php $no=1; foreach ($pengaduan as $p): ?>
-
+                        
                         <?php 
-                            $status = strtolower($p['status']);
-                            $class = 'status-pending';
-
-                            if ($status == 'proses' || $status == 'diproses') {
-                                $class = 'status-proses';
-                            } elseif ($status == 'selesai') {
-                                $class = 'status-selesai';
-                            } elseif ($status == 'ditolak') {
-                                $class = 'status-ditolak';
-                            }
+                            $statusRaw = strtolower($p['status']);
+                            $statusClass = 'status-pending';
+                            if (in_array($statusRaw, ['proses', 'diproses'])) $statusClass = 'status-proses';
+                            elseif ($statusRaw == 'selesai') $statusClass = 'status-selesai';
+                            elseif ($statusRaw == 'ditolak') $statusClass = 'status-ditolak';
                         ?>
 
                         <tr>
-                            <!-- NO -->
-                            <td class="text-center text-muted"><?= $no++ ?></td>
-
-                            <!-- JUDUL -->
+                            <td class="text-center text-muted font-monospace small"><?= $no++ ?></td>
                             <td>
-                                <div class="fw-semibold"><?= $p['judul'] ?></div>
-                                <small class="text-muted">
-                                    ID: #PGN-0<?= $p['id_pengaduan'] ?>
-                                </small>
+                                <div class="fw-bold text-dark mb-0"><?= $p['judul'] ?></div>
+                                <div class="text-muted" style="font-size: 0.75rem;">ID: #PGN-<?= str_pad($p['id_pengaduan'], 4, '0', STR_PAD_LEFT) ?></div>
                             </td>
-
-                            <!-- NAMA -->
                             <td>
-                                <i class="bi bi-person-circle me-1 text-primary"></i>
-                                <?= $p['nama'] ?>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 30px; height: 30px;">
+                                        <i class="bi bi-person text-primary"></i>
+                                    </div>
+                                    <span class="small fw-semibold"><?= $p['nama'] ?></span>
+                                </div>
                             </td>
-
-                            <!-- JENIS -->
                             <td>
-                                <span class="badge bg-info text-dark">
-                                    <?= $p['nama_jenis'] ?>
-                                </span>
+                                <span class="d-block small fw-bold text-info"><i class="bi bi-tag me-1"></i><?= $p['nama_jenis'] ?></span>
+                                <span class="d-block small text-muted"><i class="bi bi-geo-alt me-1"></i><?= $p['lokasi'] ?></span>
                             </td>
-
-                            <!-- LOKASI -->
-                            <td>
-                                <i class="bi bi-geo-alt me-1"></i>
-                                <?= $p['lokasi'] ?>
-                            </td>
-
-                            <!-- STATUS -->
                             <td class="text-center">
-                                <span class="badge-status <?= $class ?>">
-                                    <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
+                                <span class="badge-soft <?= $statusClass ?>">
+                                    <i class="bi bi-dot fs-4"></i>
                                     <?= ucfirst($p['status']) ?>
                                 </span>
                             </td>
-
-                            <!-- AKSI -->
-                            <td class="text-center">
-                                <div class="d-flex justify-content-center gap-2">
-
-                                    <a href="<?= base_url('pengaduan/detail/' . $p['id_pengaduan']) ?>" 
-                                       class="btn btn-sm btn-info px-3">
-                                        Detail
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end gap-2">
+                                    <a href="<?= base_url('pengaduan/detail/' . $p['id_pengaduan']) ?>" class="btn-action bg-info-soft" title="Detail">
+                                        <i class="bi bi-eye"></i>
                                     </a>
-
                                     <?php if(session('role') == 'admin' && $p['status'] != 'selesai'): ?>
                                         <a href="<?= base_url('pengaduan/delete/'.$p['id_pengaduan']) ?>" 
-                                           class="btn btn-sm btn-danger px-3"
-                                           onclick="return confirm('Yakin hapus?')">
-                                           Hapus
+                                           class="btn-action bg-red-soft" 
+                                           onclick="return confirm('Yakin ingin menghapus laporan ini?')"
+                                           title="Hapus">
+                                            <i class="bi bi-trash"></i>
                                         </a>
                                     <?php endif; ?>
-
                                 </div>
                             </td>
                         </tr>
-
                         <?php endforeach ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" class="text-center py-5 text-muted">
-                                Belum ada data pengaduan.
+                            <td colspan="6" class="text-center py-5">
+                                <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" width="60" class="opacity-25 mb-3" alt="Empty">
+                                <p class="text-muted small">Tidak ada data pengaduan yang ditemukan.</p>
                             </td>
                         </tr>
                     <?php endif; ?>
-                    </tbody>
-
-                </table>
-            </div>
-
+                </tbody>
+            </table>
         </div>
     </div>
-
 </div>
 
 <?= $this->endSection() ?>
