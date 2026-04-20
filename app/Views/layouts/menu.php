@@ -62,18 +62,49 @@
     }
 
     /* Profile Box di bagian bawah Sidebar */
-    .sidebar-user-panel {
-        margin-top: auto;
-        padding: 1rem;
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 0.75rem;
-        margin-top: 2rem;
-    }
+    /* Container Panel */
+.sidebar-user-panel {
+    margin-top: auto;
+    padding: 0.85rem;
+    background-color: rgba(255, 255, 255, 0.05); /* Sedikit lebih terang agar elegan */
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    .user-avatar {
-        border: 2px solid #374151;
-        padding: 2px;
-    }
+/* 🎯 SOLUSI UTAMA: Mengunci ukuran foto agar tidak gepeng */
+.sidebar-profile-img {
+    width: 45px !important;      /* Paksa ukuran tetap */
+    height: 45px !important;     /* Paksa ukuran tetap */
+    min-width: 45px;             /* Mencegah penciutan */
+    min-height: 45px;
+    object-fit: contain;         /* 'contain' jika logo, 'cover' jika foto orang */
+    background: white;           /* Latar belakang putih jika gambar transparan */
+    border-radius: 50%;          /* Membuat bulat sempurna */
+    padding: 4px;                /* Memberi ruang nafas untuk logo */
+    border: 2px solid #374151;
+}
+
+/* Status Dot */
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #10b981;
+    border: 2px solid #1f2937; /* Sesuaikan dengan warna bg sidebar */
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 2;
+}
+
+/* Mencegah teks meluber */
+.user-info-text {
+    margin-left: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+}
 
     .status-indicator {
         width: 10px;
@@ -129,16 +160,20 @@
         <i class="bi bi-box-arrow-right"></i> Log Out
     </a>
 
-    <div class="sidebar-user-panel d-flex align-items-center mt-auto">
-        <div class="position-relative">
-            <img src="<?= session()->get('foto') ? base_url('uploads/users/' . session()->get('foto')) : base_url('assets/img/default-user.png') ?>" 
-                 class="rounded-circle user-avatar" 
-                 width="42" height="42" style="object-fit: cover;">
-            <span class="status-indicator"></span>
-        </div>
-        <div class="ms-3 overflow-hidden">
-            <h6 class="mb-0 text-white small fw-bold text-truncate"><?= session('nama'); ?></h6>
-            <span class="text-muted extra-small fw-bold" style="font-size: 0.65rem;"><?= strtoupper(session('role')); ?></span>
-        </div>
+    <div class="sidebar-user-panel mt-auto">
+    <div class="position-relative">
+        <img src="<?= session()->get('foto') ? base_url('uploads/users/' . session()->get('foto')) : base_url('assets/img/default-user.png') ?>" 
+             class="sidebar-profile-img" 
+             alt="Logo">
+        <span class="status-indicator"></span>
+    </div>
+    
+    <div class="user-info-text">
+        <h6 class="mb-0 text-white small fw-bold text-truncate" style="max-width: 130px;">
+            <?= session('nama'); ?>
+        </h6>
+        <p class="text-muted mb-0 fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">
+            <?= strtoupper(session('role')); ?>
+        </p>
     </div>
 </div>

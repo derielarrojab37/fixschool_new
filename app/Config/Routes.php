@@ -68,6 +68,7 @@ $routes->get('/pengaduan/print', 'Pengaduan::print');
 // TANGGAPAN
 $routes->get('/tanggapan', 'Tanggapan::index');
 $routes->get('/tanggapan/create/(:num)', 'Tanggapan::create/$1');
+$routes->get('/penugasan/create', 'Penugasan::create');
 $routes->post('/tanggapan/store', 'Tanggapan::store');
 $routes->get('/tanggapan/edit/(:num)', 'Tanggapan::edit/$1');
 $routes->post('/tanggapan/update/(:num)', 'Tanggapan::update/$1');
@@ -88,5 +89,5 @@ $routes->get('/penugasan/delete/(:num)', 'Penugasan::delete/$1');
 // NOTIFIKASI
 $routes->get('/notifikasi', 'Notifikasi::index');
 $routes->get('/notifikasi/read/(:num)', 'Notifikasi::read/$1');
+$routes->get('/notifikasi/read-all', 'Notifikasi::readAll');
 
-$routes->get('/', 'Dashboard::index');

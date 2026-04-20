@@ -44,14 +44,48 @@
     .status-dikerjakan { background: #fef3c7; color: #92400e; }
     .status-selesai { background: #d1fae5; color: #065f46; }
 
-    .btn-action {
-        padding: 0.4rem 0.7rem;
-        border-radius: 0.5rem;
-        font-weight: 600;
-        font-size: 0.8rem;
+    /* 🎯 User Management Style Buttons */
+    .btn-action-group {
+        display: flex;
+        gap: 0.4rem;
+        justify-content: center;
+    }
+
+    .btn-circle {
+        width: 32px;
+        height: 32px;
+        padding: 0;
         display: inline-flex;
         align-items: center;
-        gap: 0.25rem;
+        justify-content: center;
+        border-radius: 0.5rem; /* Kotak membulat khas Admin One */
+        transition: all 0.2s;
+        border: 1px solid transparent;
+    }
+
+    .btn-view {
+        background-color: #f3f4f6;
+        color: #374151;
+    }
+    .btn-view:hover {
+        background-color: #e5e7eb;
+        color: #111827;
+    }
+
+    .btn-edit {
+        background-color: #fef3c7;
+        color: #92400e;
+    }
+    .btn-edit:hover {
+        background-color: #fde68a;
+    }
+
+    .btn-delete {
+        background-color: #fee2e2;
+        color: #991b1b;
+    }
+    .btn-delete:hover {
+        background-color: #fecaca;
     }
 </style>
 
@@ -62,10 +96,10 @@
             <p class="text-muted small mb-0">Pantau dan kelola pengerjaan laporan oleh tim teknis.</p>
         </div>
         <?php if (session('role') == 'admin'): ?>
-        <a href="<?= base_url('penugasan/create') ?>" class="btn btn-primary fw-bold shadow-sm">
+        <a href="<?= base_url('penugasan/create') ?>" class="btn btn-primary fw-bold shadow-sm px-4">
             <i class="bi bi-plus-lg me-1"></i> Tambah Tugas
         </a>
-        <?php endif; ?>
+        <?php endif; ?> 
     </div>
 
     <div class="admin-card shadow-sm">
@@ -105,11 +139,11 @@
             <table class="table mb-0">
                 <thead>
                     <tr>
-                        <th class="text-center">No</th>
+                        <th class="text-center" width="60">No</th>
                         <th>Informasi Laporan</th>
                         <th>Teknisi</th>
                         <th class="text-center">Status Progress</th>
-                        <th class="text-center">Aksi</th>
+                        <th class="text-center" width="150">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -123,8 +157,8 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="avatar-sm bg-indigo bg-opacity-10 text-indigo rounded-circle p-2 me-2">
-                                            <i class="bi bi-person-gear"></i>
+                                        <div class="avatar-sm bg-indigo bg-opacity-10 text-indigo rounded-circle p-2 me-2" style="width:30px; height:30px; display:flex; align-items:center; justify-content:center;">
+                                            <i class="bi bi-person-gear small"></i>
                                         </div>
                                         <span class="fw-semibold small"><?= $p['nama'] ?></span>
                                     </div>
@@ -137,22 +171,22 @@
                                     <span class="badge-status <?= $statusClass ?>"><?= $statusLabel ?></span>
                                 </td>
                                 <td class="text-center">
-                                    <div class="d-flex justify-content-center gap-1">
+                                    <div class="btn-action-group">
                                         <a href="<?= base_url('penugasan/detail/' . $p['id_penugasan']) ?>" 
-                                           class="btn btn-light btn-action border" title="Detail">
-                                            <i class="bi bi-eye"></i>
+                                           class="btn btn-circle btn-view" title="Detail">
+                                            <i class="bi bi-eye-fill"></i>
                                         </a>
 
                                         <a href="<?= base_url('penugasan/edit/' . $p['id_penugasan']) ?>" 
-                                           class="btn btn-warning btn-action text-white" title="Update Status">
-                                            <i class="bi bi-arrow-repeat"></i> Update
+                                           class="btn btn-circle btn-edit" title="Update Status">
+                                            <i class="bi bi-pencil-fill"></i>
                                         </a>
 
                                         <?php if (session('role') == 'admin' && $p['status'] != 'selesai'): ?>
                                             <a href="<?= base_url('penugasan/delete/' . $p['id_penugasan']) ?>" 
-                                               class="btn btn-danger btn-action"
+                                               class="btn btn-circle btn-delete"
                                                onclick="return confirm('Yakin hapus penugasan ini?')" title="Hapus">
-                                                <i class="bi bi-trash"></i>
+                                                <i class="bi bi-trash-fill"></i>
                                             </a>
                                         <?php endif; ?>
                                     </div>
@@ -164,7 +198,7 @@
                             <td colspan="5" class="text-center py-5">
                                 <div class="text-muted">
                                     <i class="bi bi-inbox display-4 d-block mb-2"></i>
-                                    Tidak ada data penugasan yang ditemukan.
+                                    Tidak ada data penugasan.
                                 </div>
                             </td>
                         </tr>

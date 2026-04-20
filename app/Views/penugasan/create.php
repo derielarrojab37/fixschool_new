@@ -2,86 +2,121 @@
 <?= $this->section('content') ?>
 
 <style>
-    /* Admin One Task Design */
-    .admin-card {
+    /* 🎯 THEME CUSTOMIZATION */
+    :root {
+        --primary-gradient: linear-gradient(135deg, #6366f1, #4f46e5);
+    }
+
+    .admin-card-wrapper {
         background: #ffffff;
         border: 1px solid #e5e7eb;
-        border-radius: 0.75rem;
+        border-radius: 1.25rem;
         overflow: hidden;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
     }
 
-    .form-header-task {
-        background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+    .form-header-gradient {
+        background: var(--primary-gradient);
         padding: 2rem;
-        color: white;
+        color: #ffffff;
     }
 
+    /* 🎯 FORM STYLING */
     .form-label {
         font-weight: 700;
-        font-size: 0.85rem;
-        color: #374151;
+        font-size: 0.75rem;
+        color: #4b5563;
         text-transform: uppercase;
-        letter-spacing: 0.025em;
+        letter-spacing: 0.05em;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
+        gap: 8px;
     }
 
     .form-control, .form-select {
         border: 1px solid #e5e7eb;
         padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
+        border-radius: 0.75rem;
+        font-size: 0.95rem;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #f9fafb;
     }
 
     .form-control:focus, .form-select:focus {
+        background-color: #ffffff;
         border-color: #6366f1;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        outline: none;
+    }
+
+    /* 🎯 INTERACTIVE ELEMENTS */
+    .input-group-text {
+        background-color: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        color: #6366f1;
+        border-radius: 0.75rem 0 0 0.75rem;
+        font-weight: bold;
     }
 
     .btn-assign {
-        background: #6366f1;
-        color: white;
+        background: var(--primary-gradient);
+        color: #ffffff;
         font-weight: 700;
-        padding: 0.75rem 2rem;
+        padding: 0.8rem 2rem;
         border: none;
-        border-radius: 0.5rem;
-        transition: all 0.2s;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
     }
 
     .btn-assign:hover {
-        background: #4f46e5;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        color: #fff;
     }
 
-    .input-group-text {
-        background-color: #f9fafb;
-        border-color: #e5e7eb;
+    .btn-outline-custom {
+        border: 1px solid #e5e7eb;
         color: #6b7280;
+        border-radius: 0.75rem;
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    .btn-outline-custom:hover {
+        background-color: #f3f4f6;
+        color: #374151;
+        border-color: #d1d5db;
+    }
+
+    .info-alert {
+        background-color: #eef2ff;
+        border: 1px solid #e0e7ff;
+        border-radius: 1rem;
+        padding: 1.25rem;
     }
 </style>
 
-<div class="container-fluid py-4">
+<div class="container-fluid py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            
+
             <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb small fw-bold">
-                    <li class="breadcrumb-item"><a href="<?= base_url('pengaduan') ?>" class="text-decoration-none text-muted">Pengaduan</a></li>
-                    <li class="breadcrumb-item active text-indigo" aria-current="page" style="color: #6366f1;">Penugasan Teknisi</li>
+                <ol class="breadcrumb bg-transparent p-0">
+                    <li class="breadcrumb-item"><a href="<?= base_url('pengaduan') ?>" class="text-decoration-none text-muted fw-medium">Pengaduan</a></li>
+                    <li class="breadcrumb-item active fw-bold" style="color: #6366f1;">Penugasan Teknisi</li>
                 </ol>
             </nav>
 
-            <div class="admin-card shadow-sm">
-                <div class="form-header-task">
-                    <div class="d-flex align-items-center">
-                        <div class="bg-white bg-opacity-20 rounded-circle p-3 me-3">
-                            <i class="bi bi-tools fs-3"></i>
-                        </div>
-                        <div>
-                            <h3 class="fw-800 mb-0">Tugaskan Teknisi</h3>
-                            <p class="mb-0 opacity-75 small">Delegasikan laporan kepada tim teknis yang tersedia</p>
-                        </div>
+            <div class="admin-card-wrapper shadow-sm">
+                <div class="form-header-gradient d-flex align-items-center gap-4">
+                    <div class="bg-white bg-opacity-20 rounded-3 p-3">
+                        <i class="bi bi-person-plus-fill fs-3 text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-0">Manajemen Penugasan</h4>
+                        <p class="mb-0 text-white-50 small">Sistem delegasi teknisi lapangan terintegrasi</p>
                     </div>
                 </div>
 
@@ -89,39 +124,38 @@
                     <form method="post" action="<?= base_url('penugasan/store') ?>">
                         <?= csrf_field() ?>
 
-                        <div class="row">
-                            <div class="col-md-12 mb-4">
+                        <div class="row g-4">
+                            <div class="col-md-12">
                                 <label class="form-label">
-                                    <i class="bi bi-clipboard-check me-2"></i> Pilih Laporan Pengaduan
+                                    <i class="bi bi-journal-text"></i> Pilih Laporan Pengaduan
                                 </label>
                                 <select name="id_pengaduan" class="form-select" required>
-                                    <option value="" disabled selected>-- Cari judul laporan atau lokasi --</option>
+                                    <option value="" disabled selected>-- Pilih laporan yang perlu ditangani --</option>
                                     <?php foreach($pengaduan as $p): ?>
                                         <option value="<?= $p['id_pengaduan'] ?>">
                                             [#<?= $p['id_pengaduan'] ?>] <?= $p['judul'] ?> — <?= $p['lokasi'] ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="form-text small">Hanya menampilkan laporan dengan status 'Menunggu' atau 'Diproses'.</div>
                             </div>
 
-                            <div class="col-md-7 mb-4">
+                            <div class="col-md-7">
                                 <label class="form-label">
-                                    <i class="bi bi-person-badge me-2"></i> Pilih Teknisi
+                                    <i class="bi bi-tools"></i> Teknisi Pelaksana
                                 </label>
                                 <select name="id_teknisi" class="form-select" required>
-                                    <option value="" disabled selected>-- Pilih anggota tim --</option>
+                                    <option value="" disabled selected>-- Pilih teknisi tersedia --</option>
                                     <?php foreach($teknisi as $t): ?>
                                         <option value="<?= $t['id_user'] ?>">
-                                            <?= $t['nama'] ?> (Teknisi)
+                                            <?= $t['nama'] ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
 
-                            <div class="col-md-5 mb-4">
+                            <div class="col-md-5">
                                 <label class="form-label">
-                                    <i class="bi bi-calendar-event me-2"></i> Tanggal Penugasan
+                                    <i class="bi bi-calendar-event"></i> Tanggal Tugas
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-calendar3"></i></span>
@@ -130,25 +164,31 @@
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center border-top pt-4 mt-2">
-                            <a href="<?= base_url('pengaduan') ?>" class="btn btn-link text-muted fw-bold text-decoration-none">
-                                <i class="bi bi-arrow-left me-1"></i> Kembali
-                            </a>
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-5 pt-4 border-top gap-3">
+                            <div class="d-flex gap-2">
+                                <a href="<?= base_url('pengaduan') ?>" class="btn btn-outline-custom btn-sm">
+                                    <i class="bi bi-clipboard me-1"></i> Data Pengaduan
+                                </a>
+                                <a href="<?= base_url('penugasan') ?>" class="btn btn-outline-custom btn-sm">
+                                    <i class="bi bi-list-task me-1"></i> List Penugasan
+                                </a>
+                            </div>
+
                             <button type="submit" class="btn btn-assign">
-                                Simpan Penugasan <i class="bi bi-chevron-right ms-2"></i>
+                                Konfirmasi Penugasan <i class="bi bi-send-check ms-2"></i>
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div class="admin-card bg-light border-0 mt-4 p-3 d-flex align-items-center">
-                <div class="bg-indigo bg-opacity-10 p-2 rounded-3 me-3" style="background-color: rgba(99, 102, 241, 0.1);">
-                    <i class="bi bi-info-circle text-indigo fs-5" style="color: #6366f1;"></i>
-                </div>
+            <div class="info-alert mt-4 d-flex align-items-start gap-3">
+                <i class="bi bi-info-circle-fill text-primary fs-5"></i>
                 <div>
+                    <h6 class="fw-bold text-primary mb-1">Informasi Otomasi</h6>
                     <p class="small text-muted mb-0">
-                        Setelah ditugaskan, status pengaduan akan otomatis berubah menjadi <b>"Diproses"</b> dan teknisi akan menerima notifikasi di dashboard mereka.
+                        Menyimpan penugasan ini akan otomatis mengubah status laporan menjadi <span class="badge bg-primary">Diproses</span>. 
+                        Teknisi akan menerima notifikasi tugas baru di dashboard mereka secara <i>real-time</i>.
                     </p>
                 </div>
             </div>
