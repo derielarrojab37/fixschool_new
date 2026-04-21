@@ -8,25 +8,31 @@ use App\Models\UsersModel;
 
 class Dashboard extends BaseController
 {
-    public function index()
+    // Dashboard.php
+public function index()
 {
+    // Pastikan user sudah login
+    if (!session()->get('id_user')) {
+        return redirect()->to('/login');
+    }
+
     $notifModel = new NotifikasiModel();
-    $db = db_connect();
+    $db = \Config\Database::connect();
 
-    // 🔔 NOTIF
-    $data['notif'] = $notifModel
-        ->where('id_user', session()->get('id_user'))
-        ->orderBy('tanggal','DESC')
-        ->findAll();
-
-    // 👥 USER
-    $data['total_user'] = $db->table('users')->countAllResults();
-
-    // 📊 PENGADUAN
-    $data['selesai'] = $db->table('pengaduan')->where('status','selesai')->countAllResults();
-    $data['diproses'] = $db->table('pengaduan')->where('status','diproses')->countAllResults();
-    $data['ditolak'] = $db->table('pengaduan')->where('status','ditolak')->countAllResults();
-    $data['menunggu'] = $db->table('pengaduan')->where('status','menunggu')->countAllResults();
+    $data = [
+        // Ambil notif berdasarkan user yang login
+        'notif'      => $notifModel->where('id_user', session()->get('id_user'))
+                                   ->orderBy('tanggal', 'DESC')
+                                   ->findAll(),
+                                   
+        'total_user' => $db->table('users')->countAllResults(),
+        
+        // Menggunakan countAllResults agar builder di-reset tiap query
+        'selesai'    => $db->table('pengaduan')->where('status', 'selesai')->countAllResults(),
+        'diproses'   => $db->table('pengaduan')->where('status', 'diproses')->countAllResults(),
+        'ditolak'    => $db->table('pengaduan')->where('status', 'ditolak')->countAllResults(),
+        'menunggu'   => $db->table('pengaduan')->where('status', 'menunggu')->countAllResults(),
+    ];
 
     return view('layouts/dashboard', $data);
 }

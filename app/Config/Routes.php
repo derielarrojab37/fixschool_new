@@ -91,3 +91,10 @@ $routes->get('/notifikasi', 'Notifikasi::index');
 $routes->get('/notifikasi/read/(:num)', 'Notifikasi::read/$1');
 $routes->get('/notifikasi/read-all', 'Notifikasi::readAll');
 
+$routes->get('/restore', 'Restore::index');
+$routes->post('/restore/auth', 'Restore::auth');
+$routes->get('/restore/form', 'Restore::form');
+$routes->post('/restore/process', 'Restore::process');
+
+$routes->get('/backup', 'Backup::index');
+

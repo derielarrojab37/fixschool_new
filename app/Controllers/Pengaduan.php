@@ -237,11 +237,32 @@ db_connect()->table('notifikasi')->insert([
 
 public function print()
 {
-    $data['pengaduan'] = $this->model
-        ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
-        ->join('users', 'users.id_user = pengaduan.id_user')
-        ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis')
-        ->findAll();
+    $keyword = $this->request->getGet('keyword');
+    $jenis   = $this->request->getGet('jenis');
+    $tanggal = $this->request->getGet('tanggal');
+
+    // 1. Inisialisasi Builder dari model
+    $builder = $this->model->builder();
+
+    // 2. Susun Query
+    $builder->select('pengaduan.*, users.nama as nama_pelapor, jenis_pelapor.nama_jenis, tanggapan.isi_tanggapan');
+    $builder->join('users', 'users.id_user = pengaduan.id_user');
+    $builder->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
+    $builder->join('tanggapan', 'tanggapan.id_pengaduan = pengaduan.id_pengaduan', 'left'); // Ini cara nulis left join yang benar
+
+    // 3. Filter (sama dengan di index)
+    if ($keyword) {
+        $builder->like('pengaduan.judul', $keyword);
+    }
+    if ($jenis) {
+        $builder->where('pengaduan.id_jenis', $jenis);
+    }
+    if ($tanggal) {
+        $builder->where('DATE(pengaduan.tanggal)', $tanggal);
+    }
+
+    // 4. Eksekusi
+    $data['pengaduan'] = $builder->get()->getResultArray();
 
     return view('pengaduan/print', $data);
 }

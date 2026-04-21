@@ -121,7 +121,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center border-top pt-4">
-                            <a href="<?= base_url('pengaduan/show/'.$pengaduan['id_pengaduan']) ?>" class="btn btn-link text-muted fw-bold text-decoration-none">
+                            <a href="<?= base_url('pengaduan/detail/'.$pengaduan['id_pengaduan']) ?>" class="btn btn-link text-muted fw-bold text-decoration-none">
                                 <i class="bi bi-arrow-left me-1"></i> Kembali ke Detail
                             </a>
                             <button type="submit" class="btn btn-send">

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laporan Data User - Fix School</title>
+    <title>Laporan Pengaduan - Fix School</title>
     <style>
-        body { font-family: sans-serif; padding: 30px; color: #333; }
-        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #333; padding-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th { background-color: #f2f2f2; text-align: left; padding: 12px; border: 1px solid #ddd; }
-        td { padding: 10px; border: 1px solid #ddd; font-size: 14px; }
-        tr:nth-child(even) { background-color: #fafafa; }
-        .footer { margin-top: 30px; text-align: right; font-size: 12px; }
+        body { font-family: sans-serif; padding: 20px; color: #333; line-height: 1.4; }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 3px double #333; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; table-layout: fixed; }
+        th { background-color: #f2f2f2; text-align: center; padding: 12px; border: 1px solid #000; font-size: 12px; text-transform: uppercase; }
+        td { padding: 10px; border: 1px solid #000; font-size: 11px; vertical-align: top; word-wrap: break-word; }
+        .text-center { text-align: center; }
+        .footer { margin-top: 30px; text-align: right; font-size: 11px; font-style: italic; }
+        @media print {
+            @page { margin: 1cm; }
+            .no-print { display: none; }
+        }
     </style>
 </head>
 <body onload="window.print()">
     <div class="header">
         <h2 style="margin:0;">FIX SCHOOL MANAGEMENT</h2>
-        <p style="margin:5px 0;">KELUHAN PENGADUAN MASYARAKAT</p>
+        <p style="margin:5px 0; font-weight: bold;">KELUHAN PENGADUAN MASYARAKAT</p>
         <p style="margin:5px 0;">SMK AL MAMUN SUMEDANG</p>
     </div>
 
@@ -23,29 +27,45 @@
         <thead>
             <tr>
                 <th width="5%">No</th>
-                <th>Nama Pelapor</th>
-                <th>Tanggal Penerimaan Keluhan</th>
-                <th>Uraian Keluhan / Pengaduan</th>
-                <th>Tindak Lanjut Penyelesaian Keluhan / Pengaduan</th>
+                <th width="15%">Nama Pelapor</th>
+                <th width="15%">Tanggal Laporan</th>
+                <th width="30%">Uraian Keluhan / Pengaduan</th>
+                <th width="35%">Tindak Lanjut Penyelesaian</th>
             </tr>
         </thead>
         <tbody>
-            <?php if (!empty($users)): $no = 1; foreach ($users as $u): ?>
+            <?php if (!empty($pengaduan)): ?>
+                <?php $no = 1; foreach ($pengaduan as $p): ?>
                 <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $u['id_user'] ?></td>
-                    <td><?= $u['tanggal'] ?></td>
-                    <td><?= $u['deskripsi'] ?></td>
-                    <td><?= $u['isi_tanggapan'] ?></td>
+                    <td class="text-center"><?= $no++ ?></td>
+                    <td><?= $p['nama_pelapor'] ?></td>
+                    <td class="text-center"><?= date('d/m/Y', strtotime($p['tanggal'])) ?></td>
+                    <td>
+                        <strong>[<?= $p['nama_jenis'] ?>]</strong><br>
+                        <?= $p['judul'] ?><br>
+                        <small>Lokasi: <?= $p['lokasi'] ?></small>
+                    </td>
+                    <td>
+                        <?php if($p['status'] == 'ditolak'): ?>
+                            <span style="color: red;">DITOLAK: <?= $p['alasan_ditolak'] ?></span>
+                        <?php elseif(!empty($p['isi_tanggapan'])): ?>
+                            <?= $p['isi_tanggapan'] ?>
+                        <?php else: ?>
+                            <span style="color: #666;">Sedang dalam status: <?= strtoupper($p['status']) ?></span>
+                        <?php endif; ?>
+                    </td>
                 </tr>
-            <?php endforeach; else: ?>
-                <tr><td colspan="5" style="text-align:center;">Tidak ada data ditemukan</td></tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="5" class="text-center">Tidak ada data ditemukan untuk periode/filter ini.</td>
+                </tr>
             <?php endif; ?>
         </tbody>
     </table>
 
     <div class="footer">
-        Dicetak pada: <?= date('d/m/Y H:i:s') ?>
+        Dicetak otomatis oleh sistem pada: <?= date('d/m/Y H:i:s') ?>
     </div>
 </body>
 </html>
