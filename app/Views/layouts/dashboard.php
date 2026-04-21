@@ -165,7 +165,11 @@
                         <span class="p-2 bg-light rounded-3 me-2"><i class="bi bi-stack text-primary"></i></span>
                         Log Aktivitas Eksklusif
                     </h5>
-                    <a href="#" class="text-decoration-none small fw-bold text-primary">Bersihkan Semua</a>
+                    <a href="<?= base_url('notifikasi/clear') ?>" 
+   onclick="return confirm('Yakin hapus semua notifikasi?')" 
+   class="text-decoration-none small fw-bold text-danger">
+   Bersihkan Semua
+</a>
                 </div>
                 <div class="card-body p-0">
                     <?php if(!empty($notif)): ?>

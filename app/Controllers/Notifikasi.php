@@ -23,4 +23,13 @@ public function index()
     return view('notifikasi/index', $data);
 }
 
+public function clear()
+{
+    $model = new NotifikasiModel();
+
+    $model->where('id_user', session()->get('id_user'))->delete();
+
+    return redirect()->to('/dashboard')->with('success', 'Notifikasi berhasil dibersihkan');
+}
+
 }

@@ -90,11 +90,14 @@ $routes->get('/penugasan/delete/(:num)', 'Penugasan::delete/$1');
 $routes->get('/notifikasi', 'Notifikasi::index');
 $routes->get('/notifikasi/read/(:num)', 'Notifikasi::read/$1');
 $routes->get('/notifikasi/read-all', 'Notifikasi::readAll');
+$routes->get('/notifikasi/clear', 'Notifikasi::clear');
 
+// restore database
 $routes->get('/restore', 'Restore::index');
 $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
 
+//backup database
 $routes->get('/backup', 'Backup::index');
 

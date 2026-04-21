@@ -103,6 +103,27 @@ class Pengaduan extends BaseController {
             'status' => 'belum',
             'tanggal' => date('Y-m-d H:i:s')
         ]);
+
+        $kategori = $this->request->getPost('kategori');
+
+//
+$kategori = $this->request->getPost('kategori');
+
+// hitung deadline
+if ($kategori == 'ringan') {
+    $deadline = date('Y-m-d H:i:s', strtotime('+2 days'));
+} else {
+    $deadline = date('Y-m-d H:i:s', strtotime('+7 days'));
+}
+
+$this->model->save([
+    'judul' => $this->request->getPost('judul'),
+    'kategori' => $kategori,
+    'deadline' => $deadline,
+    'status' => 'menunggu',
+    'status_sla' => 'aman'
+]);
+}
     }
 
     return redirect()->to('/pengaduan')

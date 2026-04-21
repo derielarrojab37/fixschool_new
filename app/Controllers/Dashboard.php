@@ -34,6 +34,42 @@ public function index()
         'menunggu'   => $db->table('pengaduan')->where('status', 'menunggu')->countAllResults(),
     ];
 
+    $db = db_connect();
+$now = date('Y-m-d H:i:s');
+
+// TERLAMBAT
+$db->table('pengaduan')
+    ->set('status_sla', 'terlambat')
+    ->where('deadline <', $now)
+    ->where('status !=', 'selesai')
+    ->update();
+
+// HAMPIR
+$db->table('pengaduan')
+    ->set('status_sla', 'hampir')
+    ->where('deadline >=', $now)
+    ->where('deadline <=', date('Y-m-d H:i:s', strtotime('+1 day')))
+    ->update();
+
+// AMAN
+$db->table('pengaduan')
+    ->set('status_sla', 'aman')
+    ->where('deadline >', date('Y-m-d H:i:s', strtotime('+1 day')))
+    ->update();
+
+    $telat = $db->table('pengaduan')
+    ->where('status_sla', 'terlambat')
+    ->get()->getResultArray();
+
+foreach ($telat as $t) {
+    $db->table('notifikasi')->insert([
+        'id_user' => 1,
+        'pesan' => 'Pengaduan "' . $t['judul'] . '" melewati deadline!',
+        'status' => 'belum',
+        'tanggal' => date('Y-m-d H:i:s')
+    ]);
+}
+
     return view('layouts/dashboard', $data);
 }
 }

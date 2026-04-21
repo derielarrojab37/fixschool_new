@@ -18,16 +18,33 @@
         }
 
         body {
-            /* Background dengan gradasi subtle agar tidak monoton */
-            background: radial-gradient(circle at top right, #f8fafc, #e2e8f0);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--slate-800);
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    /* 1. Kita buat gradient lebih halus dengan banyak titik (stop) */
+    /* Warna f8fafc (solid) ditarik lebih ke atas (mulai dari 20%) agar tidak ada garis potong */
+    background: linear-gradient(to bottom, 
+                    rgba(248, 250, 252, 0) 10%, 
+                    rgba(248, 250, 252, 0.4) 20%, 
+                    rgba(248, 250, 252, 0.8) 30%, 
+                    rgba(248, 250, 252, 1) 40%), 
+                url('<?= base_url("assets/img/sky.gif") ?>');
+
+    /* 2. Ubah size menjadi 'cover' tapi posisinya di 'top' */
+    /* Menggunakan 'cover' menghilangkan resiko garis akibat pengulangan atau pemotongan pixel */
+    background-size: cover; 
+    background-position: top center;
+    background-repeat: no-repeat;
+    
+    /* 3. Pastikan warna background body sama dengan warna akhir gradient */
+    background-color: #f8fafc;
+    background-attachment: fixed; /* Menjaga background tetap tenang saat ada scroll */
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--slate-800);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
         /* Container Glassmorphism Effect */
         .auth-container {
