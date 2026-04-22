@@ -229,10 +229,48 @@
                     </div>
                     <h6 class="fw-bold mb-0">Concierge IT</h6>
                 </div>
-                <p class="text-muted small mb-4">Butuh bantuan eksklusif mengenai fungsionalitas sistem atau kendala teknis?</p>
-                <a href="mailto:it@school.id" class="btn btn-dark w-100 fw-bold py-2 shadow-sm rounded-3">
-                    Buka Tiket Support
-                </a>
+                <?php if(session()->get('role') == 'pelapor'): ?>
+
+<p class="text-muted small mb-4">
+    Butuh bantuan eksklusif mengenai fungsionalitas sistem atau kendala teknis?
+</p>
+
+<a href="<?= base_url('support/create') ?>" 
+   class="btn btn-dark w-100 fw-bold py-2 shadow-sm rounded-3">
+    Buka Tiket Support
+</a>
+
+<?php endif; ?>
+
+
+<div class="card border-0 shadow-sm p-4 bg-white" style="border-radius: 1.5rem;">
+    <div class="d-flex align-items-center mb-4">
+        <div class="bg-primary-subtle p-3 rounded-4 me-3 text-primary">
+            <i class="bi bi-headset fs-4"></i>
+        </div>
+        <h6 class="fw-bold mb-0">Concierge IT</h6>
+    </div>
+
+    <p class="text-muted small mb-4">
+        <?= session()->get('role') == 'admin' 
+            ? 'Kelola dan tanggapi semua tiket bantuan dari pengguna secara real-time.' 
+            : 'Pantau status kendala Anda atau buat laporan bantuan baru di sini.' 
+        ?>
+    </p>
+
+    <a href="<?= base_url('support') ?>" 
+       class="btn btn-primary w-100 fw-bold py-2 shadow-sm rounded-3">
+        <i class="bi bi-ticket-perforated me-2"></i> 
+        <?= session()->get('role') == 'admin' ? 'Lihat & Tanggapi Tiket' : 'Lihat Tiket Saya' ?>
+    </a>
+
+    <?php if(session()->get('role') == 'pelapor'): ?>
+        <a href="<?= base_url('support/create') ?>" 
+           class="btn btn-outline-dark w-100 fw-bold py-2 mt-2 rounded-3 border-dashed">
+            <i class="bi bi-plus-lg me-1"></i> Buat Tiket Baru
+        </a>
+    <?php endif; ?>
+</div>
             </div>
         </div>
     </div>

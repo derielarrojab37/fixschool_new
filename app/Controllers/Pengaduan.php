@@ -79,6 +79,16 @@ class Pengaduan extends BaseController {
         $file->move('uploads/pengaduan/', $namaFoto);
     }
 
+    // ✅ SLA LOGIC (LETARUH DI SINI, BUKAN DI LOOP)
+    $kategori = $this->request->getPost('kategori');
+
+    if ($kategori == 'ringan') {
+        $deadline = date('Y-m-d H:i:s', strtotime('+2 days'));
+    } else {
+        $deadline = date('Y-m-d H:i:s', strtotime('+7 days'));
+    }
+
+    // ✅ SAVE SEKALI SAJA
     $this->model->save([
         'id_user' => session()->get('id_user'),
         'id_jenis' => $this->request->getPost('id_jenis'),
@@ -86,7 +96,12 @@ class Pengaduan extends BaseController {
         'deskripsi' => $this->request->getPost('deskripsi'),
         'lokasi' => $this->request->getPost('lokasi'),
         'foto' => $namaFoto,
-        'status' => 'menunggu'
+        'status' => 'menunggu',
+
+        // SLA
+        'kategori' => $kategori,
+        'deadline' => $deadline,
+        'status_sla' => 'aman'
     ]);
 
     // 🔔 NOTIF KE ADMIN
@@ -103,32 +118,13 @@ class Pengaduan extends BaseController {
             'status' => 'belum',
             'tanggal' => date('Y-m-d H:i:s')
         ]);
-
-        $kategori = $this->request->getPost('kategori');
-
-//
-$kategori = $this->request->getPost('kategori');
-
-// hitung deadline
-if ($kategori == 'ringan') {
-    $deadline = date('Y-m-d H:i:s', strtotime('+2 days'));
-} else {
-    $deadline = date('Y-m-d H:i:s', strtotime('+7 days'));
-}
-
-$this->model->save([
-    'judul' => $this->request->getPost('judul'),
-    'kategori' => $kategori,
-    'deadline' => $deadline,
-    'status' => 'menunggu',
-    'status_sla' => 'aman'
-]);
-}
     }
 
+    // ✅ RETURN HARUS DI DALAM FUNCTION
     return redirect()->to('/pengaduan')
         ->with('success', 'Pengaduan berhasil dikirim');
-} // ✅ WAJIB ADA INI (penutup function)
+}
+// ✅ WAJIB ADA INI (penutup function)
 
     public function edit($id)
 {

@@ -101,3 +101,9 @@ $routes->post('/restore/process', 'Restore::process');
 //backup database
 $routes->get('/backup', 'Backup::index');
 
+//Pusat bantuan
+$routes->get('/support', 'Support::index');
+$routes->get('/support/create', 'Support::create');
+$routes->post('/support/store', 'Support::store'); // 🔥 WAJIB ADA
+$routes->get('/support/detail/(:num)', 'Support::detail/$1');
+$routes->post('/support/reply/(:num)', 'Support::reply/$1');
