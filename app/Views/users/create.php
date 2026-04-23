@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- ===================== HEAD ===================== -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Enterprise | System Registration</title>
 
+    <!-- 🔹 CSS -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- ===================== STYLE ===================== -->
     <style>
         :root {
             --primary-dark: #0f172a;
@@ -19,6 +22,7 @@
             --slate-800: #1e293b;
         }
 
+        /* ===================== BODY ===================== */
         body {
             background: radial-gradient(circle at top right, #f8fafc, #e2e8f0);
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -26,7 +30,7 @@
             min-height: 100vh;
         }
 
-        /* Brand Statement */
+        /* ===================== BRAND ===================== */
         .brand-section {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -62,7 +66,7 @@
             font-weight: 500;
         }
 
-        /* Card Luxury Style */
+        /* ===================== CARD ===================== */
         .card {
             border: 1px solid rgba(255, 255, 255, 0.8);
             background: rgba(255, 255, 255, 0.9);
@@ -71,6 +75,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08) !important;
         }
 
+        /* ===================== FORM ===================== */
         .form-label {
             font-weight: 700;
             font-size: 0.75rem;
@@ -80,7 +85,8 @@
             margin-bottom: 0.6rem;
         }
 
-        .form-control, .form-select {
+        .form-control,
+        .form-select {
             border: 1.5px solid #e2e8f0;
             border-radius: 0.75rem;
             padding: 0.75rem 1rem;
@@ -90,7 +96,8 @@
             transition: all 0.2s ease;
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-control:focus,
+        .form-select:focus {
             background-color: #fff;
             border-color: var(--accent-blue);
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
@@ -98,7 +105,7 @@
             color: var(--primary-dark);
         }
 
-        /* Custom File Upload Styling */
+        /* ===================== FILE INPUT ===================== */
         input[type="file"]::file-selector-button {
             background-color: var(--primary-dark);
             color: white;
@@ -116,7 +123,7 @@
             cursor: pointer;
         }
 
-        /* Button Premium */
+        /* ===================== BUTTON ===================== */
         .btn-primary {
             background: var(--primary-dark);
             border: none;
@@ -133,6 +140,7 @@
             box-shadow: 0 12px 20px -5px rgba(15, 23, 42, 0.25);
         }
 
+        /* ===================== ALERT ===================== */
         .alert-custom {
             background-color: #fef2f2;
             color: #991b1b;
@@ -142,6 +150,7 @@
             font-size: 0.85rem;
         }
 
+        /* ===================== LINK ===================== */
         .auth-link {
             color: var(--accent-blue);
             text-decoration: none;
@@ -154,6 +163,7 @@
             text-decoration: underline;
         }
 
+        /* ===================== ANIMATION ===================== */
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -165,12 +175,16 @@
     </style>
 </head>
 
+<!-- ===================== BODY ===================== -->
 <body>
 
     <div class="container py-5">
         <div class="row justify-content-center">
+
+            <!-- 🔹 MAIN COLUMN -->
             <div class="col-lg-8 col-xl-6 animate-in">
-                
+
+                <!-- 🔹 BRAND -->
                 <div class="brand-section">
                     <div class="brand-logo">
                         <i class="bi bi-person-plus"></i>
@@ -179,9 +193,11 @@
                     <p class="subtitle-text">Create your administrative credentials</p>
                 </div>
 
+                <!-- 🔹 CARD -->
                 <div class="card shadow-sm">
                     <div class="card-body p-4 p-md-5">
-                        
+
+                        <!-- 🔹 ALERT -->
                         <?php if (session()->getFlashdata('error')): ?>
                             <div class="alert alert-custom d-flex align-items-center mb-4">
                                 <i class="bi bi-shield-exclamation me-2 fs-5"></i>
@@ -189,9 +205,12 @@
                             </div>
                         <?php endif; ?>
 
+                        <!-- 🔹 FORM -->
                         <form action="<?= base_url('users/store') ?>" method="post" enctype="multipart/form-data">
-                            
+
                             <div class="row g-4">
+
+                                <!-- FULL NAME -->
                                 <div class="col-12">
                                     <label class="form-label">Full Name</label>
                                     <div class="input-group">
@@ -199,21 +218,30 @@
                                     </div>
                                 </div>
 
+                                <!-- EMAIL -->
                                 <div class="col-12">
                                     <label class="form-label">Work Email Address</label>
                                     <input type="email" name="email" class="form-control" placeholder="name@enterprise.com" required>
                                 </div>
 
+                                <!-- USERNAME -->
                                 <div class="col-md-6">
                                     <label class="form-label">Username</label>
                                     <input type="text" name="username" class="form-control" placeholder="id_account" required>
                                 </div>
 
+                                <!-- PASSWORD -->
                                 <div class="col-md-6">
                                     <label class="form-label">Access Password</label>
-                                    <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                                    <div class="input-group">
+                                        <input type="password" name="password" id="accessPassword" class="form-control" placeholder="••••••••" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="btnToggleAccess">
+                                            <i class="bi bi-eye" id="iconToggleAccess"></i>
+                                        </button>
+                                    </div>
                                 </div>
 
+                                <!-- ROLE -->
                                 <div class="col-12">
                                     <label class="form-label">Administrative Role</label>
                                     <select name="role" class="form-select" required>
@@ -224,6 +252,7 @@
                                     </select>
                                 </div>
 
+                                <!-- FOTO -->
                                 <div class="col-12">
                                     <label class="form-label">Profile Identification</label>
                                     <input type="file" name="foto" class="form-control" accept="image/*">
@@ -231,17 +260,24 @@
                                         <i class="bi bi-info-circle me-1"></i> Formats: JPEG, PNG. Max size 2MB.
                                     </div>
                                 </div>
+
                             </div>
 
+                            <!-- SUBMIT -->
                             <div class="mt-5">
                                 <button type="submit" class="btn btn-primary w-100 shadow-sm">
-                                    Finalize Registration <i class="bi bi-arrow-right ms-2"></i>
+                                    Finalize Registration 
+                                    <i class="bi bi-arrow-right ms-2"></i>
                                 </button>
                             </div>
 
+                            <!-- LOGIN LINK -->
                             <div class="text-center mt-4 pt-2 border-top">
-                                <p class="small text-muted mb-0">Already a member? 
-                                    <a href="<?= base_url('login') ?>" class="auth-link">Sign In to Dashboard</a>
+                                <p class="small text-muted mb-0">
+                                    Already a member? 
+                                    <a href="<?= base_url('login') ?>" class="auth-link">
+                                        Sign In to Dashboard
+                                    </a>
                                 </p>
                             </div>
 
@@ -249,6 +285,7 @@
                     </div>
                 </div>
 
+                <!-- FOOTER -->
                 <div class="text-center mt-5">
                     <p style="font-size: 0.75rem; color: var(--slate-400); letter-spacing: 0.05em;">
                         SECURED ENTERPRISE SYSTEM &bull; &copy; 2026
@@ -259,7 +296,22 @@
         </div>
     </div>
 
-    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
-</body>
+    <!-- ===================== SCRIPT ===================== -->
+    <script>
+        const btnToggleAccess = document.querySelector('#btnToggleAccess');
+        const accessField = document.querySelector('#accessPassword');
+        const iconToggleAccess = document.querySelector('#iconToggleAccess');
 
+        btnToggleAccess.addEventListener('click', function () {
+            const isPassword = accessField.getAttribute('type') === 'password';
+            accessField.setAttribute('type', isPassword ? 'text' : 'password');
+
+            iconToggleAccess.classList.toggle('bi-eye');
+            iconToggleAccess.classList.toggle('bi-eye-slash');
+        });
+    </script>
+
+    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+
+</body>
 </html>

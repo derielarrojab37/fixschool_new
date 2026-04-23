@@ -180,7 +180,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Admin Master Password</label>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="••••••••" required autofocus>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Masukan password" required autofocus>
                     </div>
 
                     <div class="form-check mb-4">

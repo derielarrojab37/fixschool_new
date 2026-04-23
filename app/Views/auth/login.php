@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
+
+<!-- ===================== HEAD ===================== -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Sign In | Enterprise System</title>
 
+    <!-- 🔹 CSS -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- ===================== STYLE ===================== -->
     <style>
         :root {
             --primary-dark: #0f172a;
@@ -17,36 +21,32 @@
             --slate-800: #1e293b;
         }
 
+        /* ===================== BODY ===================== */
         body {
-    /* 1. Kita buat gradient lebih halus dengan banyak titik (stop) */
-    /* Warna f8fafc (solid) ditarik lebih ke atas (mulai dari 20%) agar tidak ada garis potong */
-    background: linear-gradient(to bottom, 
-                    rgba(248, 250, 252, 0) 10%, 
-                    rgba(248, 250, 252, 0.4) 20%, 
-                    rgba(248, 250, 252, 0.8) 30%, 
-                    rgba(248, 250, 252, 1) 40%), 
-                url('<?= base_url("assets/img/sky.gif") ?>');
+            background: linear-gradient(to bottom, 
+                        rgba(248, 250, 252, 0) 10%, 
+                        rgba(248, 250, 252, 0.4) 20%, 
+                        rgba(248, 250, 252, 0.8) 30%, 
+                        rgba(248, 250, 252, 1) 40%), 
+                    url('<?= base_url("assets/img/sky.gif") ?>');
 
-    /* 2. Ubah size menjadi 'cover' tapi posisinya di 'top' */
-    /* Menggunakan 'cover' menghilangkan resiko garis akibat pengulangan atau pemotongan pixel */
-    background-size: cover; 
-    background-position: top center;
-    background-repeat: no-repeat;
-    
-    /* 3. Pastikan warna background body sama dengan warna akhir gradient */
-    background-color: #f8fafc;
-    background-attachment: fixed; /* Menjaga background tetap tenang saat ada scroll */
+            background-size: cover; 
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-color: #f8fafc;
+            background-attachment: fixed;
 
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--slate-800);
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--slate-800);
+            height: 100vh;
+            margin: 0;
 
-        /* Container Glassmorphism Effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===================== AUTH CONTAINER ===================== */
         .auth-container {
             width: 100%;
             max-width: 440px;
@@ -62,7 +62,7 @@
             padding: 1.5rem;
         }
 
-        /* Brand Statement */
+        /* ===================== BRAND ===================== */
         .brand-section {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -79,7 +79,7 @@
             color: white;
             font-size: 1.5rem;
             margin-bottom: 1.25rem;
-            transform: rotate(-5deg); /* Memberikan statement/karakter */
+            transform: rotate(-5deg);
             box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.3);
         }
 
@@ -97,7 +97,7 @@
             font-weight: 500;
         }
 
-        /* Input Luxury Style */
+        /* ===================== FORM ===================== */
         .form-label {
             font-weight: 700;
             font-size: 0.8rem;
@@ -132,7 +132,7 @@
             color: var(--primary-dark);
         }
 
-        /* Button Statement */
+        /* ===================== BUTTON ===================== */
         .btn-primary {
             background: var(--primary-dark);
             border: none;
@@ -149,7 +149,7 @@
             box-shadow: 0 12px 20px -5px rgba(15, 23, 42, 0.25);
         }
 
-        /* Alert Refined */
+        /* ===================== ALERT ===================== */
         .alert-custom {
             background-color: #fef2f2;
             color: #991b1b;
@@ -159,6 +159,7 @@
             font-size: 0.85rem;
         }
 
+        /* ===================== LINKS ===================== */
         .auth-link {
             color: var(--accent-blue);
             text-decoration: none;
@@ -171,7 +172,7 @@
             color: var(--primary-dark);
         }
 
-        /* Footer Utilities */
+        /* ===================== FOOTER ===================== */
         .footer-utils {
             margin-top: 2rem;
             padding-top: 1.5rem;
@@ -191,6 +192,7 @@
             color: white;
         }
 
+        /* ===================== ANIMATION ===================== */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -202,9 +204,13 @@
     </style>
 </head>
 
+<!-- ===================== BODY ===================== -->
 <body>
 
+    <!-- 🔹 AUTH CONTAINER -->
     <div class="auth-container animate-fade">
+
+        <!-- 🔹 BRAND -->
         <div class="brand-section">
             <div class="brand-logo">
                 <i class="bi bi-layers-half"></i>
@@ -213,9 +219,11 @@
             <p class="login-subtitle">Please enter your details to sign in</p>
         </div>
 
+        <!-- 🔹 CARD -->
         <div class="card">
             <div class="card-body p-2">
-                
+
+                <!-- 🔹 ALERT -->
                 <?php if (session()->getFlashdata('error') || session()->getFlashdata('salahpw')): ?>
                     <div class="alert alert-custom mb-4 d-flex align-items-center animate-fade" role="alert">
                         <i class="bi bi-x-circle-fill me-2"></i>
@@ -225,26 +233,41 @@
                     </div>
                 <?php endif; ?>
 
+                <!-- 🔹 FORM -->
                 <form action="<?= base_url('/proses-login') ?>" method="post">
+
+                    <!-- USERNAME -->
                     <div class="mb-4">
                         <label class="form-label">Identity</label>
                         <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <span class="input-group-text">
+                                <i class="bi bi-person"></i>
+                            </span>
                             <input type="text" name="username" class="form-control" placeholder="Username" required>
                         </div>
                     </div>
 
+                    <!-- PASSWORD -->
                     <div class="mb-4">
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <label class="form-label mb-0">Security Key</label>
                             <a href="#" class="auth-link small" style="font-size: 0.75rem;">Recover?</a>
                         </div>
+
                         <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-key"></i></span>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            <span class="input-group-text">
+                                <i class="bi bi-key"></i>
+                            </span>
+
+                            <input type="password" name="password" id="passwordField" class="form-control" placeholder="Password" required>
+
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="bi bi-eye" id="toggleIcon"></i>
+                            </button>
                         </div>
                     </div>
 
+                    <!-- REMEMBER -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="remember">
@@ -254,30 +277,56 @@
                         </div>
                     </div>
 
+                    <!-- SUBMIT -->
                     <button type="submit" class="btn btn-primary w-100 mb-3 shadow-sm">
-                        Access Dashboard <i class="bi bi-arrow-right ms-2"></i>
+                        Access Dashboard 
+                        <i class="bi bi-arrow-right ms-2"></i>
                     </button>
                 </form>
 
+                <!-- REGISTER -->
                 <div class="text-center mt-2">
-                    <p class="text-muted small fw-medium">New member? 
-                        <a href="<?= base_url('users/create') ?>" class="auth-link">Create Account</a>
+                    <p class="text-muted small fw-medium">
+                        New member? 
+                        <a href="<?= base_url('users/create') ?>" class="auth-link">
+                            Create Account
+                        </a>
                     </p>
                 </div>
 
+                <!-- RESTORE -->
                 <div class="footer-utils text-center">
                     <a href="<?= base_url('restore') ?>" class="btn btn-restore btn-sm px-3">
                         <i class="bi bi-database me-1"></i> System Restore
                     </a>
                 </div>
+
             </div>
         </div>
-        
+
+        <!-- FOOTER -->
         <p class="text-center text-muted mt-4" style="font-size: 0.7rem; opacity: 0.6;">
             &copy; <?= date('Y') ?> Enterprise Internal System. All rights reserved.
         </p>
     </div>
-    
+
+    <!-- ================== SCRIPT SHOW / HIDE PASSWORD ================== -->
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordField = document.querySelector('#passwordField');
+        const toggleIcon = document.querySelector('#toggleIcon');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+
+            this.classList.toggle('active');
+            toggleIcon.classList.toggle('bi-eye');
+            toggleIcon.classList.toggle('bi-eye-slash');
+        });
+    </script>
+
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+
 </body>
 </html>
