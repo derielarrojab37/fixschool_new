@@ -161,7 +161,6 @@ class Pengaduan extends BaseController {
 
     public function delete($id)
 {
-    // 🔐 hanya admin
     if(session()->get('role') != 'admin'){
         return redirect()->to('/pengaduan')
             ->with('error','Tidak punya akses');
@@ -169,21 +168,16 @@ class Pengaduan extends BaseController {
 
     $data = $this->model->find($id);
 
-    // ❌ JIKA SUDAH SELESAI → TOLAK HAPUS
-    if($data['status'] == 'selesai'){
+    // ✅ hanya boleh hapus jika selesai / ditolak
+    if(!in_array($data['status'], ['selesai','ditolak'])){
         return redirect()->to('/pengaduan')
-            ->with('error','Data yang sudah selesai tidak boleh dihapus');
+            ->with('error','Data hanya bisa dihapus jika selesai atau ditolak');
     }
 
-    // ❗ OPTIONAL: kalau masih ada penugasan
-    $cek = db_connect()->table('penugasan')
+    // 🔥 optional: hapus relasi dulu
+    db_connect()->table('penugasan')
         ->where('id_pengaduan', $id)
-        ->countAllResults();
-
-    if($cek > 0){
-        return redirect()->to('/pengaduan')
-            ->with('error','Data masih memiliki penugasan');
-    }
+        ->delete();
 
     $this->model->delete($id);
 

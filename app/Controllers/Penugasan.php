@@ -68,7 +68,10 @@ class Penugasan extends BaseController
     $db = db_connect();
 
     // ambil semua pengaduan
-    $data['pengaduan'] = $db->table('pengaduan')->get()->getResultArray();
+    $data['pengaduan'] = $db->table('pengaduan')
+    ->where('status', 'diproses')
+    ->get()
+    ->getResultArray();
 
     // ambil semua teknisi
     $data['teknisi'] = $db->table('users')
@@ -130,13 +133,10 @@ class Penugasan extends BaseController
 
     $data = $this->model->find($id);
 
-    // ❌ tidak boleh hapus jika sudah selesai
-    if($data['status'] == 'selesai'){
-        return redirect()->to('/penugasan')
-            ->with('error','Penugasan yang sudah selesai tidak boleh dihapus');
-    }
-
-    $this->model->delete($id);
+if($data['status'] != 'selesai'){
+    return redirect()->to('/penugasan')
+        ->with('error','Hanya penugasan selesai yang boleh dihapus');
+}
 
     return redirect()->to('/penugasan')
         ->with('success','Penugasan berhasil dihapus');
@@ -145,6 +145,12 @@ class Penugasan extends BaseController
     // 🔹 UPDATE
     public function update($id)
 {
+    // 🔐 HANYA TEKNISI BOLEH UPDATE STATUS
+    if(session()->get('role') != 'teknisi'){
+        return redirect()->to('/penugasan')
+            ->with('error','Hanya teknisi yang boleh mengubah status');
+    }
+
     $status = $this->request->getPost('status');
 
     $data = [

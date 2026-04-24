@@ -182,7 +182,7 @@
                                             <i class="bi bi-pencil-fill"></i>
                                         </a>
 
-                                        <?php if (session('role') == 'admin' && $p['status'] != 'selesai'): ?>
+                                        <?php if (session('role') == 'admin' && $p['status'] == 'selesai'): ?>
                                             <a href="<?= base_url('penugasan/delete/' . $p['id_penugasan']) ?>" 
                                                class="btn btn-circle btn-delete"
                                                onclick="return confirm('Yakin hapus penugasan ini?')" title="Hapus">

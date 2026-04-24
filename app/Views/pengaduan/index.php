@@ -196,20 +196,28 @@
                                 </span>
                             </td>
                             <td class="text-end">
-                                <div class="d-flex justify-content-end gap-2">
-                                    <a href="<?= base_url('pengaduan/detail/' . $p['id_pengaduan']) ?>" class="btn-action bg-info-soft" title="Lihat Detail">
-                                        <i class="bi bi-arrow-right-short fs-4"></i>
-                                    </a>
-                                    <?php if(session('role') == 'admin' && $p['status'] != 'selesai'): ?>
-                                        <a href="<?= base_url('pengaduan/delete/'.$p['id_pengaduan']) ?>" 
-                                           class="btn-action bg-red-soft" 
-                                           onclick="return confirm('Hapus laporan ini dari database?')"
-                                           title="Hapus Laporan">
-                                            <i class="bi bi-trash-fill small"></i>
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
-                            </td>
+    <div class="d-flex justify-content-end gap-2">
+        
+        <a href="<?= base_url('pengaduan/detail/' . $p['id_pengaduan']) ?>" 
+           class="btn-action bg-info-soft" 
+           title="Lihat Detail">
+            <i class="bi bi-arrow-right-short fs-4"></i>
+        </a>
+
+        <?php if(
+            session('role') == 'admin' && 
+            in_array($p['status'], ['selesai','ditolak'])
+        ): ?>
+            <a href="<?= base_url('pengaduan/delete/'.$p['id_pengaduan']) ?>" 
+               class="btn-action bg-red-soft" 
+               onclick="return confirm('Hapus laporan ini dari database?')"
+               title="Hapus Laporan">
+                <i class="bi bi-trash-fill small"></i>
+            </a>
+        <?php endif; ?>
+
+    </div>
+</td>
                         </tr>
                         <?php endforeach ?>
                     <?php else: ?>
