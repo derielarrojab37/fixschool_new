@@ -1,6 +1,7 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
+<!-- ===================== STYLE ===================== -->
 <style>
 :root {
     --primary: #2563eb;
@@ -20,7 +21,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* 🔹 CARD REFINEMENT */
+/* 🔹 CARD */
 .card-clean {
     border: none;
     border-radius: 1.5rem;
@@ -28,7 +29,7 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.02);
 }
 
-/* 🔹 STAT CARDS (Grey, Green, Blue, Red) */
+/* 🔹 STAT CARD */
 .stat-card {
     border: none;
     border-radius: 1.25rem;
@@ -53,7 +54,7 @@ body {
     font-size: 1.5rem;
 }
 
-/* 🔹 LOG AKTIVITAS ICON */
+/* 🔹 LOG ICON */
 .log-header-icon {
     width: 42px;
     height: 42px;
@@ -66,7 +67,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* 🔹 NOTIF/ACTIVITY ITEMS */
+/* 🔹 NOTIFICATION */
 .notif-item {
     border-bottom: 1px solid #f1f5f9;
     padding: 1.25rem 1.5rem;
@@ -87,7 +88,7 @@ body {
     justify-content: center;
 }
 
-/* 🔹 SIDEBAR BOXES */
+/* 🔹 SIDEBAR */
 .card-dark {
     background: linear-gradient(135deg, #1e293b, #0f172a);
     color: #fff;
@@ -109,80 +110,82 @@ body {
 }
 </style>
 
+<!-- ===================== MAIN CONTAINER ===================== -->
 <div class="container-fluid px-lg-5 py-4">
 
+    <!-- ===================== HEADER ===================== -->
     <div class="d-flex justify-content-between align-items-end mb-4">
         <div>
             <div class="d-flex align-items-center gap-2 mb-1">
                 <i class="bi bi-grid-1x2-fill text-primary"></i>
-                <span class="text-uppercase fw-bold text-muted small" style="letter-spacing: 2px;">Overview</span>
+                <span class="text-uppercase fw-bold text-muted small" style="letter-spacing: 2px;">
+                    Overview
+                </span>
             </div>
+
             <h1 class="dashboard-title mb-0">Dashboard</h1>
-            <p class="text-muted mb-0">Selamat datang kembali, <b><?= session()->get('nama') ?></b></p>
+
+            <p class="text-muted mb-0">
+                Selamat datang kembali, <b><?= session()->get('nama') ?></b>
+            </p>
         </div>
+
         <div class="text-end">
             <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm">
-                <i class="bi bi-shield-lock me-1 text-primary"></i> <?= strtoupper(session()->get('role')) ?>
+                <i class="bi bi-shield-lock me-1 text-primary"></i>
+                <?= strtoupper(session()->get('role')) ?>
             </span>
         </div>
     </div>
 
+    <!-- ===================== ADMIN STATS ===================== -->
     <?php if(session()->get('role') == 'admin'): ?>
 
-    <div class="row g-4 mb-5">
+        <div class="row g-4 mb-5">
 
-        <?php 
+            <?php 
+            $stats = [
+                ['title' => 'TOTAL PENGGUNA', 'val' => $total_user ?? 0, 'icon' => 'bi-people', 'color' => 'secondary'],
+                ['title' => 'LAPORAN SELESAI', 'val' => $selesai ?? 0, 'icon' => 'bi-check-all', 'color' => 'success'],
+                ['title' => 'DALAM PROSES', 'val' => $diproses ?? 0, 'icon' => 'bi-arrow-repeat', 'color' => 'primary'],
+                ['title' => 'LAPORAN DITOLAK', 'val' => $ditolak ?? 0, 'icon' => 'bi-exclamation-triangle', 'color' => 'danger'],
+            ];
 
-        $stats = [
+            foreach($stats as $s): ?>
 
-            ['title' => 'TOTAL PENGGUNA', 'val' => $total_user ?? 0, 'icon' => 'bi-people', 'color' => 'secondary'],
+                <div class="col-md-3">
+                    <div class="card stat-card p-4">
+                        <div class="d-flex justify-content-between align-items-start">
 
-            ['title' => 'LAPORAN SELESAI', 'val' => $selesai ?? 0, 'icon' => 'bi-check-all', 'color' => 'success'],
+                            <div>
+                                <h6 class="text-muted small mb-2 fw-bolder text-uppercase" style="letter-spacing: 1px;">
+                                    <?= $s['title'] ?>
+                                </h6>
+                                <h2 class="fw-bold mb-0 text-dark"><?= $s['val'] ?></h2>
+                            </div>
 
-            ['title' => 'DALAM PROSES', 'val' => $diproses ?? 0, 'icon' => 'bi-arrow-repeat', 'color' => 'primary'],
+                            <div class="stat-icon bg-<?= $s['color'] ?>-subtle text-<?= $s['color'] ?> d-flex align-items-center justify-content-center">
+                                <i class="bi <?= $s['icon'] ?>"></i>
+                            </div>
 
-            ['title' => 'LAPORAN DITOLAK', 'val' => $ditolak ?? 0, 'icon' => 'bi-exclamation-triangle', 'color' => 'danger'],
-
-        ];
-
-        foreach($stats as $s): ?>
-
-        <div class="col-md-3">
-
-            <div class="card stat-card p-4">
-
-                <div class="d-flex justify-content-between align-items-start">
-
-                    <div>
-
-                        <h6 class="text-muted small mb-2 fw-bolder text-uppercase" style="letter-spacing: 1px;"><?= $s['title'] ?></h6>
-
-                        <h2 class="fw-bold mb-0 text-dark"><?= $s['val'] ?></h2>
-
+                        </div>
                     </div>
-
-                    <div class="stat-icon bg-<?= $s['color'] ?>-subtle text-<?= $s['color'] ?> d-flex align-items-center justify-content-center">
-
-                        <i class="bi <?= $s['icon'] ?>"></i>
-
-                    </div>
-
                 </div>
 
-            </div>
+            <?php endforeach; ?>
 
         </div>
 
-        <?php endforeach; ?>
-
-    </div>
-
     <?php endif; ?>
 
+    <!-- ===================== CONTENT ===================== -->
     <div class="row g-4">
 
+        <!-- 🔹 LEFT (LOG AKTIVITAS) -->
         <div class="col-lg-8">
             <div class="card card-clean overflow-hidden">
+
+                <!-- HEADER -->
                 <div class="card-header bg-white py-4 px-4 d-flex justify-content-between align-items-center border-0">
                     <div class="d-flex align-items-center gap-3">
                         <div class="log-header-icon shadow-sm">
@@ -190,95 +193,73 @@ body {
                         </div>
                         <h5 class="mb-0 fw-bold text-dark">Log Aktivitas Eksklusif</h5>
                     </div>
-                    <a href="<?= base_url('notifikasi/clear') ?>" onclick="return confirm('Hapus semua notifikasi?')" class="btn btn-sm btn-light text-danger fw-bold rounded-pill px-3">
+
+                    <a href="<?= base_url('notifikasi/clear') ?>" 
+                       onclick="return confirm('Hapus semua notifikasi?')" 
+                       class="btn btn-sm btn-light text-danger fw-bold rounded-pill px-3">
                         Bersihkan
                     </a>
                 </div>
-                
+
+                <!-- BODY -->
                 <div class="card-body p-0">
                     <?php if(!empty($notif)): ?>
+
                         <?php foreach($notif as $n): ?>
                             <div class="notif-item d-flex align-items-start <?= $n['status'] == 'belum' ? 'notif-unread' : '' ?>">
+
                                 <div class="notif-bullet <?= $n['status'] == 'belum' ? 'bg-primary text-white' : 'bg-light text-muted' ?> me-3 shadow-sm">
                                     <i class="bi <?= $n['status'] == 'belum' ? 'bi-lightning-charge-fill' : 'bi-app-indicator' ?>"></i>
                                 </div>
+
                                 <div class="flex-grow-1">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <h6 class="mb-1 fw-bold <?= $n['status'] == 'belum' ? 'text-dark' : 'text-muted' ?>">
                                             <?= $n['status'] == 'belum' ? 'Update Prioritas' : 'Notifikasi' ?>
                                         </h6>
+
                                         <small class="text-muted" style="font-size: 0.7rem;">
-                                            <i class="bi bi-clock me-1"></i> <?= date('H:i', strtotime($n['tanggal'])) ?> WIB
+                                            <i class="bi bi-clock me-1"></i> 
+                                            <?= date('H:i', strtotime($n['tanggal'])) ?> WIB
                                         </small>
                                     </div>
+
                                     <p class="text-muted small mb-0"><?= $n['pesan'] ?></p>
+
                                     <small class="text-primary fw-bold" style="font-size: 0.65rem;">
                                         <?= date('D, d M Y', strtotime($n['tanggal'])) ?>
                                     </small>
                                 </div>
+
                             </div>
                         <?php endforeach; ?>
+
                     <?php else: ?>
+
                         <div class="text-center py-5">
-                            <img src="https://illustrations.popsy.co/gray/empty-folder.svg" style="width: 140px;" class="mb-3 opacity-50">
+                            <img src="https://illustrations.popsy.co/gray/empty-folder.svg" 
+                                 style="width: 140px;" 
+                                 class="mb-3 opacity-50">
                             <p class="text-muted fw-medium">Belum ada aktivitas baru.</p>
                         </div>
+
                     <?php endif; ?>
                 </div>
+
             </div>
         </div>
 
+        <!-- 🔹 RIGHT (SUPPORT) -->
         <div class="col-lg-4">
-
-            <div class="card card-action-blue p-4 mb-4 shadow-lg border-0">
-
-                <div class="position-relative z-1">
-
-                    <h6 class="text-uppercase small fw-bolder opacity-50 mb-4" style="letter-spacing: 2px;">Identity Security</h6>
-
-                    <div class="d-flex align-items-center mb-4">
-
-                        <div class="p-3 bg-white bg-opacity-10 rounded-4 me-3">
-
-                            <i class="bi bi-clock-history fs-3"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h5 class="mb-0 fw-bold"><?= date('l') ?></h5>
-
-                            <small class="opacity-75"><?= date('d F Y') ?></small>
-
-                        </div>
-
-                    </div>
-
-                    <p class="small opacity-75 mb-4">Enkripsi AES-256 aktif. Sesi Anda terlindungi secara menyeluruh oleh protokol keamanan sekolah.</p>
-
-                    <button class="btn btn-premium w-100 py-2 fw-bold">
-
-                        <i class="bi bi-fingerprint me-2"></i>Verifikasi Keamanan
-
-                    </button>
-
-                </div>
-
-            </div>
 
             <div class="card border-0 shadow-sm p-4 bg-white" style="border-radius: 1.5rem;">
 
-    <div class="d-flex align-items-center mb-4">
-
-        <div class="bg-primary-subtle p-3 rounded-4 me-3 text-primary">
-
-            <i class="bi bi-headset fs-4"></i>
-
-        </div>
-
-        <h6 class="fw-bold mb-0">Concierge IT</h6>
-
-    </div>
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-primary-subtle p-3 rounded-4 me-3 text-primary">
+                        <i class="bi bi-headset fs-4"></i>
+                    </div>
+                    <h6 class="fw-bold mb-0">Concierge IT</h6>
+                </div>
 
                 <p class="text-muted small mb-4">
                     <?= session()->get('role') == 'admin' 
@@ -287,19 +268,20 @@ body {
                 </p>
 
                 <div class="d-grid gap-2">
+
                     <a href="<?= base_url('support') ?>" class="btn btn-primary fw-bold py-2 shadow-sm">
-                        <i class="bi bi-ticket-perforated me-2"></i> Lihat Semua Tiket
+                        <i class="bi bi-ticket-perforated me-2"></i> 
+                        Lihat Semua Tiket
                     </a>
 
-                    <?php if(session()->get('role') == 'pelapor'): ?>
-                    <a href="<?= base_url('support/create') ?>" class="btn btn-dark fw-bold py-2 shadow-sm">
-                        <i class="bi bi-plus-lg me-1"></i> Buat Tiket Baru
-                    </a>
-                    <?php endif; ?>
+                    
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
 </div>
 

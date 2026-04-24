@@ -228,24 +228,35 @@
             <?php endif; ?>
 
             <div class="detail-card p-4">
-                <h6 class="fw-800 text-dark mb-4 pb-2 border-bottom">Informasi Metadata</h6>
-                <div class="vstack gap-4">
-                    <div>
-                        <span class="meta-label">Tanggal Pengiriman</span>
-                        <span class="fw-bold text-dark"><i class="bi bi-calendar3 me-2 text-muted"></i>12 April 2026</span>
-                    </div>
-                    <div>
-                        <span class="meta-label">Waktu Presisi</span>
-                        <span class="fw-bold text-dark"><i class="bi bi-clock me-2 text-muted"></i>08:30:45 WIB</span>
-                    </div>
-                    <div>
-                        <span class="meta-label">Klasifikasi</span>
-                        <span class="badge bg-soft-info text-info py-2 px-3 rounded-pill fw-bold">
-                            <i class="bi bi-tags-fill me-1"></i> Sarana Prasarana
-                        </span>
-                    </div>
-                </div>
-            </div>
+    <h6 class="fw-800 text-dark mb-4 pb-2 border-bottom">Informasi Metadata</h6>
+    <div class="vstack gap-4">
+        
+        <div>
+            <span class="meta-label">Tanggal Pengiriman</span>
+            <span class="fw-bold text-dark">
+                <i class="bi bi-calendar3 me-2 text-muted"></i>
+                <?= date('d F Y', strtotime($pengaduan['tanggal'])) ?>
+            </span>
+        </div>
+
+        <div>
+            <span class="meta-label">Waktu Presisi</span>
+            <span class="fw-bold text-dark">
+                <i class="bi bi-clock me-2 text-muted"></i>
+                <?= date('H:i:s', strtotime($pengaduan['tanggal'])) ?> WIB
+            </span>
+        </div>
+
+        <div>
+            <span class="meta-label">Klasifikasi</span>
+            <span class="badge bg-soft-info text-info py-2 px-3 rounded-pill fw-bold">
+                <i class="bi bi-tags-fill me-1"></i>
+                <?= $pengaduan['nama_jenis'] ?>
+            </span>
+        </div>
+
+    </div>
+</div>
 
             <div class="mt-4 p-4 rounded-4 bg-blue-soft border border-blue-200">
                 <div class="d-flex gap-3">
