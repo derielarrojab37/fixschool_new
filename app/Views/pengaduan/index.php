@@ -231,19 +231,29 @@
                             </td>
                         </tr>
                     <?php endif; ?>
-<div>
-                    <?php 
-$warna = 'secondary';
+                    
+<?php foreach ($pengaduan as $p): ?>
+<tr>
 
-if ($p['status_sla'] == 'aman') $warna = 'success';
-elseif ($p['status_sla'] == 'hampir') $warna = 'warning';
-elseif ($p['status_sla'] == 'terlambat') $warna = 'danger';
-?>
+    <!-- kolom lain -->
 
-<span class="badge bg-<?= $warna ?>">
-    <?= strtoupper($p['status_sla']) ?>
-</span>
-</div>
+    <!-- SLA -->
+    <td>
+        <?php 
+        $warna = 'secondary';
+
+        if ($p['status_sla'] == 'aman') $warna = 'success';
+        elseif ($p['status_sla'] == 'hampir') $warna = 'warning';
+        elseif ($p['status_sla'] == 'terlambat') $warna = 'danger';
+        ?>
+
+        <span class="badge bg-<?= $warna ?>">
+            <?= strtoupper($p['status_sla']) ?>
+        </span>
+    </td>
+
+</tr>
+<?php endforeach; ?>
                 </tbody>
             </table>
         </div>

@@ -242,6 +242,8 @@
                                 </div>
 
                                 <!-- ROLE -->
+                                <?php if(session()->get('role') == 'admin'): ?>
+                                <!-- ADMIN BOLEH PILIH ROLE -->
                                 <div class="col-12">
                                     <label class="form-label">Administrative Role</label>
                                     <select name="role" class="form-select" required>
@@ -251,6 +253,10 @@
                                         <option value="pelapor">General Reporter</option>
                                     </select>
                                 </div>
+                                <?php else: ?>
+                                <!-- USER BIASA → AUTO PELAPOR -->
+                                    <input type="hidden" name="role" value="pelapor">
+                                <?php endif; ?>
 
                                 <!-- FOTO -->
                                 <div class="col-12">
@@ -272,14 +278,24 @@
                             </div>
 
                             <!-- LOGIN LINK -->
-                            <div class="text-center mt-4 pt-2 border-top">
-                                <p class="small text-muted mb-0">
-                                    Already a member? 
-                                    <a href="<?= base_url('login') ?>" class="auth-link">
+                            <?php if(!session()->get('id_user')): ?>
+                                <div class="text-center mt-4 pt-2 border-top">
+                                    <p class="small text-muted mb-0">
+                                        Already a member? 
+                                        <a href="<?= base_url('login') ?>" class="auth-link">
                                         Sign In to Dashboard
+                                        </a>
+                                    </p>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if(session()->get('role') == 'admin'): ?>
+                                <div class="mt-3 text-start">
+                                    <a href="<?= base_url('users') ?>" class="btn btn-outline-secondary btn-sm">
+                                        <i class="bi bi-arrow-left me-1"></i> Kembali ke Data User
                                     </a>
-                                </p>
-                            </div>
+                                </div>
+                            <?php endif; ?>
 
                         </form>
                     </div>
