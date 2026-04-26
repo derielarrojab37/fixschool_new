@@ -10,49 +10,46 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class BaseController
- *
- * BaseController provides a convenient place for loading components
- * and performing functions that are needed by all your controllers.
- * Extend this class in any new controllers:
- *     class Home extends BaseController
- *
- * For security be sure to declare any new methods as protected or private.
+ * --- CLASS BASECONTROLLER ---
+ * Kelas induk (Parent) yang menyediakan tempat untuk memuat komponen global 
+ * agar dapat digunakan oleh semua controller lainnya.
  */
 abstract class BaseController extends Controller
 {
     /**
-     * Instance of the main Request object.
-     *
+     * --- INSTANCE REQUEST ---
+     * Menyimpan objek Request utama, baik dari terminal (CLI) maupun browser (HTTP).
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
 
     /**
-     * An array of helpers to be loaded automatically upon
-     * class instantiation. These helpers will be available
-     * to all other controllers that extend BaseController.
-     *
+     * --- AUTO-LOAD HELPERS ---
+     * Daftar helper yang akan dimuat secara otomatis saat class ini dipanggil.
+     * Contoh: ['form', 'url', 'html']
      * @var list<string>
      */
     protected $helpers = [];
 
     /**
-     * Be sure to declare properties for any property fetch you initialized.
-     * The creation of dynamic property is deprecated in PHP 8.2.
+     * --- DEKLARASI PROPERTI ---
+     * Menyiapkan properti agar tidak terjadi error "Dynamic Property" pada PHP 8.2+.
      */
     // protected $session;
 
     /**
+     * --- INISIALISASI CONTROLLER ---
+     * Fungsi yang pertama kali dijalankan saat controller dipanggil.
+     * Tempat terbaik untuk memuat Model, Library, atau Service global.
      * @return void
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
-        // Do Not Edit This Line
+        // PERINGATAN: Jangan hapus baris parent ini agar sistem CI4 tetap berjalan normal
         parent::initController($request, $response, $logger);
 
-        // Preload any models, libraries, etc, here.
-
-        // E.g.: $this->session = service('session');
+        // --- PRELOAD KOMPONEN ---
+        // Contoh pemuatan session agar bisa diakses di semua controller:
+        // $this->session = \Config\Services::session();
     }
 }

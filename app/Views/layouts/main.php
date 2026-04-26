@@ -8,7 +8,7 @@
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="<?= base_url('assets/img/emote.png') ?>">
+    <link rel="icon" href="<?= base_url('assets/img/FS_No_BG.png') ?>">
 
     <style>
         :root {
@@ -124,20 +124,37 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Update atau Tambahkan CSS ini */
+.brand-logo-img {
+    width: 42px; /* Ukuran sedikit lebih besar dari icon sebelumnya agar detail terlihat */
+    height: auto;
+    object-fit: contain;
+    /* Memberikan efek glow tipis agar logo lebih "hidup" di background gelap */
+    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.4)); 
+}
+
+/* Sedikit penyesuaian pada sidebar-brand agar jaraknya pas */
+.sidebar-brand {
+    padding: 1.5rem 1.5rem; /* Padding sedikit diperkecil agar lebih compact */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antara logo dan tulisan FixSchool */
+}
     </style>
 </head>
 
 <body>
     <aside class="sidebar-wrapper" id="sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-icon">FS</div>
-            <h5 class="mb-0 fw-800 text-white" style="letter-spacing: -0.02em;">FixSchool</h5>
-        </div>
-        
-        <div class="sidebar-menu-container px-3">
-            <?php include(APPPATH . 'Views/layouts/menu.php'); ?>
-        </div>
-    </aside>
+    <div class="sidebar-brand">
+        <img src="<?= base_url('assets/img/FS_No_BG.png') ?>" alt="Logo FixSchool" class="brand-logo-img">
+        <h5 class="mb-0 fw-800 text-white" style="letter-spacing: -0.02em;">FixSchool</h5>
+    </div>
+    
+    <div class="sidebar-menu-container px-3">
+        <?php include(APPPATH . 'Views/layouts/menu.php'); ?>
+    </div>
+</aside>
 
     <div class="main-content">
         <header class="top-navbar d-flex justify-content-between align-items-center">

@@ -4,247 +4,261 @@ namespace App\Controllers;
 
 use App\Models\PenugasanModel;
 
+/**
+ * Controller Penugasan
+ * Mengelola alur kerja penugasan dari Admin ke Teknisi, termasuk sinkronisasi status pengaduan.
+ */
 class Penugasan extends BaseController
 {
     protected $model;
 
+    /**
+     * Inisialisasi model penugasan agar dapat digunakan di seluruh method.
+     */
     public function __construct()
     {
         $this->model = new PenugasanModel();
     }
 
-    // 🔹 INDEX
+    /**
+     * Menampilkan daftar penugasan dengan fitur filter pencarian dan hak akses per role.
+     */
     public function index()
-{
-    $db = db_connect();
+    {
+        $db = db_connect();
 
-    // ✅ ambil parameter search DI ATAS
-    $pengaduan = $this->request->getGet('pengaduan');
-    $teknisi   = $this->request->getGet('teknisi');
-    $tanggal   = $this->request->getGet('tanggal');
+        // Mengambil parameter pencarian dari URL
+        $pengaduan = $this->request->getGet('pengaduan');
+        $teknisi   = $this->request->getGet('teknisi');
+        $tanggal   = $this->request->getGet('tanggal');
 
-    // ✅ buat builder dulu (INI KUNCI NYA)
-    $builder = $this->model
-        ->select('penugasan.*, pengaduan.judul, users.nama')
-        ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
-        ->join('users', 'users.id_user = penugasan.id_teknisi');
+        // Membangun query dengan join ke tabel pengaduan dan users
+        $builder = $this->model
+            ->select('penugasan.*, pengaduan.judul, users.nama')
+            ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+            ->join('users', 'users.id_user = penugasan.id_teknisi');
 
-    // 🔐 ROLE FILTER
-    if(session()->get('role') == 'teknisi'){
-        $builder->where('id_teknisi', session()->get('id_user'));
+        // Filter Role: Jika teknisi, hanya tampilkan tugas yang diberikan kepadanya
+        if(session()->get('role') == 'teknisi'){
+            $builder->where('id_teknisi', session()->get('id_user'));
+        }
+
+        // Filter Pencarian: Berdasarkan judul pengaduan
+        if($pengaduan){
+            $builder->like('pengaduan.judul', $pengaduan);
+        }
+
+        // Filter Pencarian: Berdasarkan teknisi tertentu
+        if($teknisi){
+            $builder->where('penugasan.id_teknisi', $teknisi);
+        }
+
+        // Filter Pencarian: Berdasarkan tanggal penugasan
+        if($tanggal){
+            $builder->where('DATE(penugasan.tanggal_penugasan)', $tanggal);
+        }
+
+        // Eksekusi pengambilan data
+        $data['penugasan'] = $builder->findAll();
+
+        // Mengambil daftar teknisi untuk dropdown filter
+        $data['teknisiList'] = $db->table('users')
+            ->where('role','teknisi')
+            ->get()->getResultArray();
+
+        return view('penugasan/index', $data);
     }
 
-    // 🔍 SEARCH FILTER (DITARUH SEBELUM findAll)
-    if($pengaduan){
-        $builder->like('pengaduan.judul', $pengaduan);
-    }
-
-    if($teknisi){
-        $builder->where('penugasan.id_teknisi', $teknisi);
-    }
-
-    if($tanggal){
-        $builder->where('DATE(penugasan.tanggal_penugasan)', $tanggal);
-    }
-
-    // ✅ EKSEKUSI DI AKHIR
-    $data['penugasan'] = $builder->findAll();
-
-    // dropdown teknisi
-    $data['teknisiList'] = $db->table('users')
-        ->where('role','teknisi')
-        ->get()->getResultArray();
-
-    return view('penugasan/index', $data);
-}
-
-    // 🔹 CREATE (dari pengaduan)
+    /**
+     * Menampilkan formulir pembuatan tugas baru untuk Admin.
+     */
     public function create()
-{
-    if(session()->get('role') != 'admin'){
-        return redirect()->to('/');
+    {
+        // Validasi: Hanya Admin yang boleh membuat penugasan
+        if(session()->get('role') != 'admin'){
+            return redirect()->to('/');
+        }
+
+        $db = db_connect();
+
+        // Mengambil pengaduan yang sedang dalam status diproses
+        $data['pengaduan'] = $db->table('pengaduan')
+            ->where('status', 'diproses')
+            ->get()
+            ->getResultArray();
+
+        // Mengambil daftar user dengan role teknisi
+        $data['teknisi'] = $db->table('users')
+            ->where('role', 'teknisi')
+            ->get()->getResultArray();
+
+        return view('penugasan/create', $data);
     }
 
-    $db = db_connect();
-
-    // ambil semua pengaduan
-    $data['pengaduan'] = $db->table('pengaduan')
-    ->where('status', 'diproses')
-    ->get()
-    ->getResultArray();
-
-    // ambil semua teknisi
-    $data['teknisi'] = $db->table('users')
-        ->where('role', 'teknisi')
-        ->get()->getResultArray();
-
-    return view('penugasan/create', $data);
-}
-
-    // 🔹 STORE
+    /**
+     * Menyimpan data penugasan baru dan memperbarui status pengaduan terkait.
+     */
     public function store()
-{
-    if(session()->get('role') != 'admin'){
-        return redirect()->to('/');
+    {
+        if(session()->get('role') != 'admin'){
+            return redirect()->to('/');
+        }
+
+        $id_pengaduan = $this->request->getPost('id_pengaduan');
+        $id_teknisi   = $this->request->getPost('id_teknisi');
+
+        // Simpan data penugasan
+        $this->model->save([
+            'id_pengaduan' => $id_pengaduan,
+            'id_teknisi' => $id_teknisi,
+            'tanggal_penugasan' => $this->request->getPost('tanggal_penugasan'),
+            'status' => 'ditugaskan'
+        ]);
+
+        // Perbarui status pada tabel pengaduan menjadi diproses
+        db_connect()->table('pengaduan')
+            ->where('id_pengaduan', $id_pengaduan)
+            ->update(['status' => 'diproses']);
+
+        // Kirim notifikasi tugas baru kepada teknisi terkait
+        db_connect()->table('notifikasi')->insert([
+            'id_user' => $id_teknisi,
+            'pesan' => 'Anda mendapatkan tugas baru',
+            'status' => 'belum'
+        ]);
+
+        return redirect()->to('/penugasan');
     }
 
-    $id_pengaduan = $this->request->getPost('id_pengaduan');
-    $id_teknisi   = $this->request->getPost('id_teknisi');
-
-    $this->model->save([
-        'id_pengaduan' => $id_pengaduan,
-        'id_teknisi' => $id_teknisi,
-        'tanggal_penugasan' => $this->request->getPost('tanggal_penugasan'),
-        'status' => 'ditugaskan'
-    ]);
-
-    // update status pengaduan
-    db_connect()->table('pengaduan')
-        ->where('id_pengaduan', $id_pengaduan)
-        ->update(['status' => 'diproses']);
-
-    // 🔔 NOTIF KE TEKNISI (cukup 1x, jangan dobel)
-    db_connect()->table('notifikasi')->insert([
-    'id_user' => $id_teknisi,
-    'pesan' => 'Anda mendapatkan tugas baru',
-    'status' => 'belum'
-]);
-
-    return redirect()->to('/penugasan');
-}
-
-
-    // 🔹 EDIT (untuk teknisi update status)
+    /**
+     * Menampilkan form edit penugasan (biasanya digunakan teknisi untuk update progres).
+     */
     public function edit($id)
     {
         $data['penugasan'] = $this->model->find($id);
-
         return view('penugasan/edit', $data);
     }
 
-    // deelete
+    /**
+     * Menghapus riwayat penugasan yang sudah selesai (Khusus Admin).
+     */
     public function delete($id)
-{
-    // 🔐 hanya admin
-    if(session()->get('role') != 'admin'){
+    {
+        if(session()->get('role') != 'admin'){
+            return redirect()->to('/penugasan')
+                ->with('error','Tidak punya akses');
+        }
+
+        $data = $this->model->find($id);
+
+        // Validasi: Hanya data dengan status selesai yang boleh dihapus
+        if($data['status'] != 'selesai'){
+            return redirect()->to('/penugasan')
+                ->with('error','Hanya penugasan selesai yang boleh dihapus');
+        }
+
+        $this->model->delete($id);
+
         return redirect()->to('/penugasan')
-            ->with('error','Tidak punya akses');
+            ->with('success','Penugasan berhasil dihapus');
     }
 
-    $data = $this->model->find($id);
-
-if($data['status'] != 'selesai'){
-    return redirect()->to('/penugasan')
-        ->with('error','Hanya penugasan selesai yang boleh dihapus');
-}
-
-    return redirect()->to('/penugasan')
-        ->with('success','Penugasan berhasil dihapus');
-}
-
-    // 🔹 UPDATE
+    /**
+     * Memproses pembaruan status penugasan, upload bukti, dan notifikasi ke berbagai pihak.
+     */
     public function update($id)
-{
-    // 🔐 HANYA TEKNISI BOLEH UPDATE STATUS
-    if(session()->get('role') != 'teknisi'){
-        return redirect()->to('/penugasan')
-            ->with('error','Hanya teknisi yang boleh mengubah status');
-    }
+    {
+        // Validasi: Hanya teknisi yang boleh memperbarui progres tugas
+        if(session()->get('role') != 'teknisi'){
+            return redirect()->to('/penugasan')
+                ->with('error','Hanya teknisi yang boleh mengubah status');
+        }
 
-    $status = $this->request->getPost('status');
+        $status = $this->request->getPost('status');
+        $data = ['status' => $status];
 
-    $data = [
-        'status' => $status
-    ];
+        // Hak akses Admin: Hanya admin yang boleh mengubah tanggal penugasan
+        if(session()->get('role') == 'admin'){
+            $data['tanggal_penugasan'] = $this->request->getPost('tanggal_penugasan');
+        }
 
-    // ❗ HANYA ADMIN BOLEH UBAH TANGGAL
-    if(session()->get('role') == 'admin'){
-        $data['tanggal_penugasan'] = $this->request->getPost('tanggal_penugasan');
-    }
+        // Proses unggah foto bukti pengerjaan oleh teknisi
+        $file = $this->request->getFile('foto_bukti');
+        if ($file && $file->isValid()) {
+            $nama = $file->getRandomName();
+            $file->move('uploads/bukti/', $nama);
+            $data['foto_bukti'] = $nama;
+        }
 
-    // upload bukti (teknisi)
-    $file = $this->request->getFile('foto_bukti');
+        // Simpan perubahan pada tabel penugasan
+        $this->model->update($id, $data);
 
-    if ($file && $file->isValid()) {
-        $nama = $file->getRandomName();
-        $file->move('uploads/bukti/', $nama);
-        $data['foto_bukti'] = $nama;
-    }
+        // Sinkronisasi: Jika penugasan selesai, maka status pengaduan juga menjadi selesai
+        if($status == 'selesai'){
+            $penugasan = $this->model->find($id);
+            $db = db_connect();
+            $db->table('pengaduan')
+                ->where('id_pengaduan', $penugasan['id_pengaduan'])
+                ->update(['status' => 'selesai']);
 
-    // ✅ update penugasan
-    $this->model->update($id, $data);
+            // Ambil data pengaduan untuk mendapatkan ID pelapor
+            $pengaduan = $db->table('pengaduan')
+                ->where('id_pengaduan', $penugasan['id_pengaduan'])
+                ->get()->getRowArray();
 
-    // 🔥 TAMBAHAN PENTING (SINKRON STATUS)
-    if($status == 'selesai'){
-        $penugasan = $this->model->find($id);
+            // Kirim notifikasi penyelesaian tugas kepada pelapor
+            $db->table('notifikasi')->insert([
+                'id_user' => $pengaduan['id_user'],
+                'pesan' => 'Pengaduan Anda telah selesai',
+                'status' => 'belum'
+            ]);
+        }
 
+        // Kirim notifikasi perubahan status kepada semua Admin
         $db = db_connect();
-        $db->table('pengaduan')
-            ->where('id_pengaduan', $penugasan['id_pengaduan'])
-            ->update(['status' => 'selesai']);
+        $admin = $db->table('users')
+            ->where('role', 'admin')
+            ->get()
+            ->getResultArray();
+
+        foreach($admin as $a){
+            $db->table('notifikasi')->insert([
+                'id_user' => $a['id_user'],
+                'pesan' => 'Status penugasan diperbarui menjadi: '.$status,
+                'status' => 'belum',
+                'tanggal' => date('Y-m-d H:i:s')
+            ]);
+        }
+
+        return redirect()->to('/penugasan');
     }
-    
-    $id_teknisi = $this->request->getPost('id_teknisi');
 
-    if($data['status'] == 'selesai'){
+    /**
+     * Mengambil seluruh data penugasan untuk keperluan cetak laporan.
+     */
+    public function print()
+    {
+        $data['penugasan'] = $this->model
+            ->select('penugasan.*, pengaduan.judul, users.nama')
+            ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+            ->join('users', 'users.id_user = penugasan.id_teknisi')
+            ->findAll();
 
-    // ambil data penugasan
-    $penugasan = $this->model->find($id);
+        return view('penugasan/print', $data);
+    }
 
-    // ambil pengaduan
-    $pengaduan = db_connect()->table('pengaduan')
-        ->where('id_pengaduan', $penugasan['id_pengaduan'])
-        ->get()->getRowArray();
+    /**
+     * Menampilkan detail spesifik dari satu record penugasan.
+     */
+    public function detail($id)
+    {
+        $data['penugasan'] = $this->model
+            ->select('penugasan.*, pengaduan.judul, users.nama')
+            ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
+            ->join('users', 'users.id_user = penugasan.id_teknisi')
+            ->where('id_penugasan', $id)
+            ->first();
 
-    // 🔔 NOTIF KE PELAPOR
-    db_connect()->table('notifikasi')->insert([
-    'id_user' => $pengaduan['id_user'],
-    'pesan' => 'Pengaduan Anda telah selesai',
-    'status' => 'belum'
-]);
-}
-
-// 🔔 NOTIF KE ADMIN (status berubah)
-$db = db_connect();
-
-// ambil semua admin
-$admin = $db->table('users')
-    ->where('role', 'admin')
-    ->get()
-    ->getResultArray();
-
-foreach($admin as $a){
-    $db->table('notifikasi')->insert([
-        'id_user' => $a['id_user'],
-        'pesan' => 'Status penugasan diperbarui menjadi: '.$status,
-        'status' => 'belum',
-        'tanggal' => date('Y-m-d H:i:s')
-    ]);
-}
-
-    return redirect()->to('/penugasan');
-}
-
-public function print()
-{
-    $data['penugasan'] = $this->model
-        ->select('penugasan.*, pengaduan.judul, users.nama')
-        ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
-        ->join('users', 'users.id_user = penugasan.id_teknisi')
-        ->findAll();
-
-    return view('penugasan/print', $data);
-}
-
-public function detail($id)
-{
-    $data['penugasan'] = $this->model
-        ->select('penugasan.*, pengaduan.judul, users.nama')
-        ->join('pengaduan', 'pengaduan.id_pengaduan = penugasan.id_pengaduan')
-        ->join('users', 'users.id_user = penugasan.id_teknisi')
-        ->where('id_penugasan', $id)
-        ->first();
-
-    return view('penugasan/detail', $data);
-}
+        return view('penugasan/detail', $data);
+    }
 }

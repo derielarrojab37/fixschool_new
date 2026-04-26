@@ -9,6 +9,7 @@ class SupportModel extends Model
     protected $table = 'support';
     protected $primaryKey = 'id_support';
 
+    // Menyimpan informasi judul bantuan, pesan utama, dan status tiket (open/closed)
     protected $allowedFields = [
         'id_user',
         'judul',
@@ -16,5 +17,4 @@ class SupportModel extends Model
         'status',
         'created_at'
     ];
-
 }

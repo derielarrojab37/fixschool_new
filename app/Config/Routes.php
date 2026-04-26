@@ -6,46 +6,40 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// Variabel Filter
+// --- KONFIGURASI FILTER & ROLE ---
+// Mendefinisikan variabel filter untuk mempermudah penulisan hak akses pada routes
 $authFilter = ['filter' => 'auth'];
+$admin      = ['filter' => 'role:admin'];
+$teknisi    = ['filter' => 'role:teknisi'];
+$pelapor    = ['filter' => 'role:pelapor'];
+$allRole    = ['filter' => 'role:admin, teknisi, pelapor'];
 
-// Variabel Role
-$admin     = ['filter' => 'role:admin'];
-$teknisi     = ['filter' => 'role:teknisi'];
-$pelapor     = ['filter' => 'role:pelapor'];
-$allRole   = ['filter' => 'role:admin, teknisi, pelapor'];
-
-// Login
+// --- AUTENTIKASI ---
+// Mengatur rute untuk proses masuk, keluar, dan validasi akun
 $routes->get('/login', 'Auth::login');
 $routes->post('/proses-login', 'Auth::prosesLogin');
 $routes->get('/logout', 'Auth::logout');
 
-// Halaman utama
+// --- HALAMAN UTAMA ---
+// Rute untuk beranda dan dashboard utama setelah login
 $routes->get('/', 'Home::index', $authFilter);
 $routes->get('/dashboard', 'Dashboard::index', $authFilter);
 
-$routes->get('/users/create', 'Users::create'); // form tambah user
-$routes->post('/users/store', 'Users::store'); // aksi simpan user
-
-$routes->get('/users', 'Users::index', $allRole); // menampilkan data user
-$routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole); // form edit user
-$routes->post('/users/update/(:num)', 'Users::update/$1', $allRole); // aksi update user
-$routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole); // aksi hapus user
-
-$routes->get('users/detail/(:num)', 'Users::detail/$1', $allRole); // aksi detail user
-$routes->get('users/print', 'Users::print', $allRole); // aksi print data user
-$routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke whatsapp
-
-// USERS
-$routes->get('/users', 'Users::index');
+// --- MANAJEMEN PENGGUNA (USERS) ---
+// Mengelola data akun pengguna, pendaftaran, pengeditan, hingga fitur WhatsApp
+$routes->get('/users', 'Users::index', $allRole);
 $routes->get('/users/create', 'Users::create');
 $routes->post('/users/store', 'Users::store');
-$routes->get('/users/edit/(:num)', 'Users::edit/$1');
-$routes->post('/users/update/(:num)', 'Users::update/$1');
-$routes->get('/users/delete/(:num)', 'Users::delete/$1');
+$routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole);
+$routes->post('/users/update/(:num)', 'Users::update/$1', $allRole);
+$routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole);
+$routes->get('/users/detail/(:num)', 'Users::detail/$1', $allRole);
+$routes->get('/users/print', 'Users::print', $allRole);
+$routes->get('/users/wa/(:num)', 'Users::wa/$1', $allRole);
 $routes->get('/users/search', 'Users::search');
 
-// JENIS PELAPOR
+// --- MASTER DATA: JENIS PELAPOR ---
+// Mengelola kategori atau klasifikasi tipe pelapor
 $routes->get('/jenis', 'JenisPelapor::index');
 $routes->get('/jenis/create', 'JenisPelapor::create');
 $routes->post('/jenis/store', 'JenisPelapor::store');
@@ -53,7 +47,8 @@ $routes->get('/jenis/edit/(:num)', 'JenisPelapor::edit/$1');
 $routes->post('/jenis/update/(:num)', 'JenisPelapor::update/$1');
 $routes->get('/jenis/delete/(:num)', 'JenisPelapor::delete/$1');
 
-// PENGADUAN
+// --- MANAJEMEN PENGADUAN ---
+// Inti sistem untuk mengelola input laporan, penolakan, dan cetak laporan
 $routes->get('/pengaduan', 'Pengaduan::index');
 $routes->get('/pengaduan/create', 'Pengaduan::create');
 $routes->post('/pengaduan/store', 'Pengaduan::store');
@@ -65,10 +60,10 @@ $routes->get('/pengaduan/tolak/(:num)', 'Pengaduan::tolakForm/$1');
 $routes->post('/pengaduan/tolak/(:num)', 'Pengaduan::tolak/$1');
 $routes->get('/pengaduan/print', 'Pengaduan::print');
 
-// TANGGAPAN
+// --- MANAJEMEN TANGGAPAN ---
+// Mengelola balasan atau respon teknis terhadap pengaduan yang masuk
 $routes->get('/tanggapan', 'Tanggapan::index');
 $routes->get('/tanggapan/create/(:num)', 'Tanggapan::create/$1');
-$routes->get('/penugasan/create', 'Penugasan::create');
 $routes->post('/tanggapan/store', 'Tanggapan::store');
 $routes->get('/tanggapan/edit/(:num)', 'Tanggapan::edit/$1');
 $routes->post('/tanggapan/update/(:num)', 'Tanggapan::update/$1');
@@ -76,9 +71,11 @@ $routes->get('/tanggapan/delete/(:num)', 'Tanggapan::delete/$1');
 $routes->get('tanggapan/detail/(:num)', 'Tanggapan::detail/$1');
 $routes->get('/tanggapan/print', 'Tanggapan::print');
 
-// PENUGASAN
+// --- MANAJEMEN PENUGASAN ---
+// Mengatur instruksi kerja atau disposisi kepada teknisi di lapangan
 $routes->get('/penugasan', 'Penugasan::index');
 $routes->get('/penugasan/create/(:num)', 'Penugasan::create/$1');
+$routes->get('/penugasan/create', 'Penugasan::create');
 $routes->post('/penugasan/store', 'Penugasan::store');
 $routes->get('/penugasan/edit/(:num)', 'Penugasan::edit/$1');
 $routes->post('/penugasan/update/(:num)', 'Penugasan::update/$1');
@@ -86,24 +83,28 @@ $routes->get('/penugasan/print', 'Penugasan::print');
 $routes->get('/penugasan/detail/(:num)', 'Penugasan::detail/$1');
 $routes->get('/penugasan/delete/(:num)', 'Penugasan::delete/$1');
 
-// NOTIFIKASI
+// --- SISTEM NOTIFIKASI ---
+// Fitur pemberitahuan untuk pengguna mengenai update status laporan
 $routes->get('/notifikasi', 'Notifikasi::index');
 $routes->get('/notifikasi/read/(:num)', 'Notifikasi::read/$1');
 $routes->get('/notifikasi/read-all', 'Notifikasi::readAll');
 $routes->get('/notifikasi/clear', 'Notifikasi::clear');
 
-// restore database
+// --- PEMELIHARAAN SISTEM: RESTORE DATABASE ---
+// Fitur untuk mengembalikan data dari file cadangan (backup)
 $routes->get('/restore', 'Restore::index');
 $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
 
-//backup database
+// --- PEMELIHARAAN SISTEM: BACKUP DATABASE ---
+// Fitur untuk mencadangkan database sistem saat ini
 $routes->get('/backup', 'Backup::index');
 
-//Pusat bantuan
+// --- PUSAT BANTUAN (SUPPORT) ---
+// Saluran komunikasi bantuan teknis dan FAQ aplikasi
 $routes->get('/support', 'Support::index');
 $routes->get('/support/create', 'Support::create');
-$routes->post('/support/store', 'Support::store'); // 🔥 WAJIB ADA
+$routes->post('/support/store', 'Support::store');
 $routes->get('/support/detail/(:num)', 'Support::detail/$1');
 $routes->post('/support/reply/(:num)', 'Support::reply/$1');

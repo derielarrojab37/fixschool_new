@@ -1,280 +1,296 @@
 <?php
 
-// Namespace controller (menentukan lokasi file dalam struktur CI4)
 namespace App\Controllers;
 
-// Menggunakan model UsersModel untuk interaksi database
 use App\Models\PengaduanModel;
 
-// Class Users mewarisi BaseController (class utama di CI4)
+/**
+ * Controller Pengaduan
+ * Menangani seluruh alur pelaporan, validasi SLA, filter data, hingga cetak laporan.
+ */
 class Pengaduan extends BaseController {
+    
     protected $model;
 
+    /**
+     * Constructor untuk inisialisasi PengaduanModel agar tersedia di seluruh method.
+     */
     public function __construct() {
         $this->model = new PengaduanModel();
     }
 
+    /**
+     * Menampilkan daftar pengaduan dengan sistem filter keyword, jenis, tanggal, dan hak akses.
+     */
     public function index()
-{
-    $keyword = $this->request->getGet('keyword');
-    $jenis   = $this->request->getGet('jenis');
-    $tanggal = $this->request->getGet('tanggal');
+    {
+        // Mengambil input filter dari URL (metode GET)
+        $keyword = $this->request->getGet('keyword');
+        $jenis   = $this->request->getGet('jenis');
+        $tanggal = $this->request->getGet('tanggal');
 
-    $builder = $this->model
-        ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
-        ->join('users', 'users.id_user = pengaduan.id_user')
-        ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
+        // Menyiapkan Query Builder dengan join ke tabel users dan jenis_pelapor
+        $builder = $this->model
+            ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
+            ->join('users', 'users.id_user = pengaduan.id_user')
+            ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
 
-    // 🔐 ROLE FILTER
-    if(session()->get('role') == 'pelapor'){
-        $builder->where('pengaduan.id_user', session()->get('id_user'));
+        // Filter Role: Jika login sebagai pelapor, hanya tampilkan data miliknya sendiri
+        if(session()->get('role') == 'pelapor'){
+            $builder->where('pengaduan.id_user', session()->get('id_user'));
+        }
+
+        // Filter Pencarian: Mencari berdasarkan judul pengaduan
+        if($keyword){
+            $builder->like('judul', $keyword);
+        }
+
+        // Filter Kategori: Mencari berdasarkan jenis pelapor tertentu
+        if($jenis){
+            $builder->where('pengaduan.id_jenis', $jenis);
+        }
+
+        // Filter Waktu: Mencari berdasarkan tanggal laporan dibuat
+        if($tanggal){
+            $builder->where('DATE(tanggal)', $tanggal);
+        }
+
+        $data['pengaduan'] = $builder->findAll();
+
+        // Mengambil data master jenis pelapor untuk kebutuhan dropdown di view
+        $data['jenis'] = db_connect()->table('jenis_pelapor')->get()->getResultArray();
+
+        return view('pengaduan/index', $data);
     }
 
-    // 🔍 SEARCH FILTER
-    if($keyword){
-        $builder->like('judul', $keyword);
-    }
-
-    if($jenis){
-        $builder->where('pengaduan.id_jenis', $jenis);
-    }
-
-    if($tanggal){
-        $builder->where('DATE(tanggal)', $tanggal);
-    }
-
-    $data['pengaduan'] = $builder->findAll();
-
-    // ambil jenis pelapor untuk dropdown
-    $data['jenis'] = db_connect()->table('jenis_pelapor')->get()->getResultArray();
-
-    return view('pengaduan/index', $data);
-}
-
-
+    /**
+     * Menampilkan form input pengaduan baru khusus untuk role pelapor.
+     */
     public function create()
     {
-    // CEK ROLE
-    if (session()->get('role') != 'pelapor') {
-        return redirect()->to('/pengaduan')->with('error', 'Akses ditolak!');
+        // Validasi hak akses: Hanya pelapor yang boleh membuat pengaduan
+        if (session()->get('role') != 'pelapor') {
+            return redirect()->to('/pengaduan')->with('error', 'Akses ditolak!');
+        }
+
+        $db = db_connect();
+        $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
+
+        return view('pengaduan/create', $data);
     }
 
-    $db = db_connect();
-    $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
-
-    return view('pengaduan/create', $data);
-    }
-
+    /**
+     * Memproses penyimpanan data pengaduan baru serta menghitung deadline (SLA).
+     */
     public function store()
-{
-    if (session()->get('role') != 'pelapor') {
-        return redirect()->to('/pengaduan')->with('error', 'Akses ditolak!');
-    }
+    {
+        // Proteksi keamanan role pelapor
+        if (session()->get('role') != 'pelapor') {
+            return redirect()->to('/pengaduan')->with('error', 'Akses ditolak!');
+        }
 
-    $file = $this->request->getFile('foto');
-    $namaFoto = null;
+        // Penanganan upload file foto pengaduan
+        $file = $this->request->getFile('foto');
+        $namaFoto = null;
 
-    if ($file && $file->isValid()) {
-        $namaFoto = $file->getRandomName();
-        $file->move('uploads/pengaduan/', $namaFoto);
-    }
+        if ($file && $file->isValid()) {
+            $namaFoto = $file->getRandomName();
+            $file->move('uploads/pengaduan/', $namaFoto);
+        }
 
-    // ✅ SLA LOGIC (LETARUH DI SINI, BUKAN DI LOOP)
-    $kategori = $this->request->getPost('kategori');
+        // Logika SLA: Menentukan batas waktu penanganan berdasarkan kategori laporan
+        $kategori = $this->request->getPost('kategori');
 
-    if ($kategori == 'ringan') {
-        $deadline = date('Y-m-d H:i:s', strtotime('+2 days'));
-    } else {
-        $deadline = date('Y-m-d H:i:s', strtotime('+7 days'));
-    }
+        if ($kategori == 'ringan') {
+            $deadline = date('Y-m-d H:i:s', strtotime('+2 days'));
+        } else {
+            $deadline = date('Y-m-d H:i:s', strtotime('+7 days'));
+        }
 
-    // ✅ SAVE SEKALI SAJA
-    $this->model->save([
-        'id_user' => session()->get('id_user'),
-        'id_jenis' => $this->request->getPost('id_jenis'),
-        'judul' => $this->request->getPost('judul'),
-        'deskripsi' => $this->request->getPost('deskripsi'),
-        'lokasi' => $this->request->getPost('lokasi'),
-        'foto' => $namaFoto,
-        'status' => 'menunggu',
-
-        // SLA
-        'kategori' => $kategori,
-        'deadline' => $deadline,
-        'status_sla' => 'aman'
-    ]);
-
-    // 🔔 NOTIF KE ADMIN
-    $db = db_connect();
-    $admin = $db->table('users')
-        ->where('role', 'admin')
-        ->get()
-        ->getResultArray();
-
-    foreach($admin as $a){
-        $db->table('notifikasi')->insert([
-            'id_user' => $a['id_user'],
-            'pesan' => 'Pengaduan baru telah dibuat',
-            'status' => 'belum',
-            'tanggal' => date('Y-m-d H:i:s')
+        // Menyimpan data utama pengaduan ke database
+        $this->model->save([
+            'id_user'    => session()->get('id_user'),
+            'id_jenis'   => $this->request->getPost('id_jenis'),
+            'judul'      => $this->request->getPost('judul'),
+            'deskripsi'  => $this->request->getPost('deskripsi'),
+            'lokasi'     => $this->request->getPost('lokasi'),
+            'foto'       => $namaFoto,
+            'status'     => 'menunggu',
+            'kategori'   => $kategori,
+            'deadline'   => $deadline,
+            'status_sla' => 'aman'
         ]);
+
+        // Mengirim notifikasi otomatis kepada semua user dengan role admin
+        $db = db_connect();
+        $admin = $db->table('users')
+            ->where('role', 'admin')
+            ->get()
+            ->getResultArray();
+
+        foreach($admin as $a){
+            $db->table('notifikasi')->insert([
+                'id_user' => $a['id_user'],
+                'pesan'   => 'Pengaduan baru telah dibuat',
+                'status'  => 'belum',
+                'tanggal' => date('Y-m-d H:i:s')
+            ]);
+        }
+
+        return redirect()->to('/pengaduan')->with('success', 'Pengaduan berhasil dikirim');
     }
 
-    // ✅ RETURN HARUS DI DALAM FUNCTION
-    return redirect()->to('/pengaduan')
-        ->with('success', 'Pengaduan berhasil dikirim');
-}
-// ✅ WAJIB ADA INI (penutup function)
-
+    /**
+     * Menampilkan form edit pengaduan selama status masih 'menunggu' dan belum ada tanggapan.
+     */
     public function edit($id)
-{
-    $pengaduan = $this->model->find($id);
+    {
+        $pengaduan = $this->model->find($id);
 
-    // ambil tanggapan (validasi)
-    $db = db_connect();
-    $tanggapan = $db->table('tanggapan')
-        ->where('id_pengaduan', $id)
-        ->get()
-        ->getResultArray();
+        // Memeriksa apakah pengaduan ini sudah memiliki tanggapan
+        $db = db_connect();
+        $tanggapan = $db->table('tanggapan')
+            ->where('id_pengaduan', $id)
+            ->get()
+            ->getResultArray();
 
-    // VALIDASI (seperti sebelumnya)
-    if (
-        session()->get('role') != 'pelapor' ||
-        $pengaduan['status'] != 'menunggu' ||
-        !empty($tanggapan)
-    ) {
-        return redirect()->to('/pengaduan')->with('error', 'Tidak bisa mengubah pengaduan');
+        // Validasi: Cegah edit jika bukan pelapor pemilik, status bukan menunggu, atau sudah ditanggapi
+        if (
+            session()->get('role') != 'pelapor' ||
+            $pengaduan['status'] != 'menunggu' ||
+            !empty($tanggapan)
+        ) {
+            return redirect()->to('/pengaduan')->with('error', 'Tidak bisa mengubah pengaduan');
+        }
+
+        $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
+        $data['pengaduan'] = $pengaduan;
+
+        return view('pengaduan/edit', $data);
     }
 
-    // 🔥 TAMBAHAN INI (PENTING)
-    $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
-
-    $data['pengaduan'] = $pengaduan;
-
-    return view('pengaduan/edit', $data);
-}
-
+    /**
+     * Memproses pembaharuan data pengaduan yang sudah ada.
+     */
     public function update($id) {
         $this->model->update($id, $this->request->getPost());
         return redirect()->to('/pengaduan');
     }
 
+    /**
+     * Menghapus data pengaduan beserta relasi penugasannya (khusus Admin).
+     */
     public function delete($id)
-{
-    if(session()->get('role') != 'admin'){
-        return redirect()->to('/pengaduan')
-            ->with('error','Tidak punya akses');
+    {
+        // Validasi: Hanya Admin yang diizinkan menghapus data
+        if(session()->get('role') != 'admin'){
+            return redirect()->to('/pengaduan')->with('error','Tidak punya akses');
+        }
+
+        $data = $this->model->find($id);
+
+        // Aturan: Data hanya boleh dihapus jika status akhirnya Selesai atau Ditolak
+        if(!in_array($data['status'], ['selesai','ditolak'])){
+            return redirect()->to('/pengaduan')->with('error','Data hanya bisa dihapus jika selesai atau ditolak');
+        }
+
+        // Menghapus relasi data di tabel penugasan terlebih dahulu untuk menjaga integritas database
+        db_connect()->table('penugasan')->where('id_pengaduan', $id)->delete();
+
+        $this->model->delete($id);
+
+        return redirect()->to('/pengaduan')->with('success','Data berhasil dihapus');
     }
 
-    $data = $this->model->find($id);
-
-    // ✅ hanya boleh hapus jika selesai / ditolak
-    if(!in_array($data['status'], ['selesai','ditolak'])){
-        return redirect()->to('/pengaduan')
-            ->with('error','Data hanya bisa dihapus jika selesai atau ditolak');
-    }
-
-    // 🔥 optional: hapus relasi dulu
-    db_connect()->table('penugasan')
-        ->where('id_pengaduan', $id)
-        ->delete();
-
-    $this->model->delete($id);
-
-    return redirect()->to('/pengaduan')
-        ->with('success','Data berhasil dihapus');
-}
-
+    /**
+     * Menampilkan rincian lengkap pengaduan termasuk riwayat tanggapannya.
+     */
     public function detail($id)
-{
-    // Ambil pengaduan + relasi
-    $data['pengaduan'] = $this->model
-        ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
-        ->join('users', 'users.id_user = pengaduan.id_user')
-        ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis')
-        ->where('id_pengaduan', $id)
-        ->first();
+    {
+        // Mengambil data detail pengaduan dengan join tabel terkait
+        $data['pengaduan'] = $this->model
+            ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
+            ->join('users', 'users.id_user = pengaduan.id_user')
+            ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis')
+            ->where('id_pengaduan', $id)
+            ->first();
 
-    // Ambil tanggapan
-    $db = db_connect();
-    $data['tanggapan'] = $db->table('tanggapan')
-        ->select('tanggapan.*, users.nama')
-        ->join('users', 'users.id_user = tanggapan.id_user')
-        ->where('id_pengaduan', $id)
-        ->get()
-        ->getResultArray();
+        // Mengambil seluruh daftar tanggapan yang berkaitan dengan pengaduan ini
+        $db = db_connect();
+        $data['tanggapan'] = $db->table('tanggapan')
+            ->select('tanggapan.*, users.nama')
+            ->join('users', 'users.id_user = tanggapan.id_user')
+            ->where('id_pengaduan', $id)
+            ->get()
+            ->getResultArray();
 
-    return view('pengaduan/detail', $data);
-}
-
-public function tolakForm($id)
-{
-    if(session()->get('role') != 'admin'){
-        return redirect()->to('/pengaduan');
+        return view('pengaduan/detail', $data);
     }
 
-    $data['pengaduan'] = $this->model->find($id);
+    /**
+     * Menampilkan halaman formulir penolakan pengaduan bagi Admin.
+     */
+    public function tolakForm($id)
+    {
+        if(session()->get('role') != 'admin'){
+            return redirect()->to('/pengaduan');
+        }
 
-    return view('pengaduan/tolak', $data);
-}
-
-public function tolak($id)
-{
-    // 🔥 ambil alasan dari form
-    $alasan = $this->request->getPost('alasan');
-
-    // update pengaduan
-    $this->model->update($id, [
-        'status' => 'ditolak',
-        'alasan_ditolak' => $alasan
-    ]);
-
-    // ambil data pengaduan
-    $pengaduan = db_connect()->table('pengaduan')
-        ->where('id_pengaduan', $id)
-        ->get()->getRowArray();
-
-    // 🔔 kirim notifikasi
-    $alasan = $this->request->getPost('alasan');
-
-db_connect()->table('notifikasi')->insert([
-    'id_user' => $pengaduan['id_user'],
-    'pesan' => 'Pengaduan ditolak: '.$alasan,
-    'status' => 'belum'
-]);
-
-    return redirect()->to('/pengaduan/detail/'.$id);
-}
-
-public function print()
-{
-    $keyword = $this->request->getGet('keyword');
-    $jenis   = $this->request->getGet('jenis');
-    $tanggal = $this->request->getGet('tanggal');
-
-    // 1. Inisialisasi Builder dari model
-    $builder = $this->model->builder();
-
-    // 2. Susun Query
-    $builder->select('pengaduan.*, users.nama as nama_pelapor, jenis_pelapor.nama_jenis, tanggapan.isi_tanggapan');
-    $builder->join('users', 'users.id_user = pengaduan.id_user');
-    $builder->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
-    $builder->join('tanggapan', 'tanggapan.id_pengaduan = pengaduan.id_pengaduan', 'left'); // Ini cara nulis left join yang benar
-
-    // 3. Filter (sama dengan di index)
-    if ($keyword) {
-        $builder->like('pengaduan.judul', $keyword);
-    }
-    if ($jenis) {
-        $builder->where('pengaduan.id_jenis', $jenis);
-    }
-    if ($tanggal) {
-        $builder->where('DATE(pengaduan.tanggal)', $tanggal);
+        $data['pengaduan'] = $this->model->find($id);
+        return view('pengaduan/tolak', $data);
     }
 
-    // 4. Eksekusi
-    $data['pengaduan'] = $builder->get()->getResultArray();
+    /**
+     * Memproses status penolakan pengaduan dan mengirimkan notifikasi alasan penolakan ke pelapor.
+     */
+    public function tolak($id)
+    {
+        $alasan = $this->request->getPost('alasan');
 
-    return view('pengaduan/print', $data);
-}
+        // Memperbaharui status pengaduan menjadi ditolak beserta alasannya
+        $this->model->update($id, [
+            'status' => 'ditolak',
+            'alasan_ditolak' => $alasan
+        ]);
+
+        $pengaduan = db_connect()->table('pengaduan')
+            ->where('id_pengaduan', $id)
+            ->get()->getRowArray();
+
+        // Mengirimkan notifikasi ke user pelapor agar mereka mengetahui alasan penolakan
+        db_connect()->table('notifikasi')->insert([
+            'id_user' => $pengaduan['id_user'],
+            'pesan'   => 'Pengaduan ditolak: '.$alasan,
+            'status'  => 'belum'
+        ]);
+
+        return redirect()->to('/pengaduan/detail/'.$id);
+    }
+
+    /**
+     * Menghasilkan data laporan pengaduan untuk kebutuhan cetak (Print).
+     */
+    public function print()
+    {
+        $keyword = $this->request->getGet('keyword');
+        $jenis   = $this->request->getGet('jenis');
+        $tanggal = $this->request->getGet('tanggal');
+
+        $builder = $this->model->builder();
+
+        // Query lengkap dengan Left Join ke tanggapan agar data pengaduan tetap muncul meski belum ada respon
+        $builder->select('pengaduan.*, users.nama as nama_pelapor, jenis_pelapor.nama_jenis, tanggapan.isi_tanggapan');
+        $builder->join('users', 'users.id_user = pengaduan.id_user');
+        $builder->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
+        $builder->join('tanggapan', 'tanggapan.id_pengaduan = pengaduan.id_pengaduan', 'left');
+
+        // Konsistensi filter antara halaman index dan halaman cetak
+        if ($keyword) { $builder->like('pengaduan.judul', $keyword); }
+        if ($jenis) { $builder->where('pengaduan.id_jenis', $jenis); }
+        if ($tanggal) { $builder->where('DATE(pengaduan.tanggal)', $tanggal); }
+
+        $data['pengaduan'] = $builder->get()->getResultArray();
+
+        return view('pengaduan/print', $data);
+    }
 }
