@@ -56,7 +56,7 @@ CREATE TABLE `notifikasi` (
   PRIMARY KEY (`id_notifikasi`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `notifikasi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `notifikasi` (
 
 LOCK TABLES `notifikasi` WRITE;
 /*!40000 ALTER TABLE `notifikasi` DISABLE KEYS */;
-INSERT INTO `notifikasi` VALUES (1,2,'Pengaduan Anda telah selesai dikerjakan','sudah',NULL,'2026-04-16 11:16:21'),(2,2,'Pengaduan ditolak: teu puguh','sudah',NULL,'2026-04-16 11:56:05'),(3,3,'Anda mendapatkan tugas baru!','sudah',NULL,'2026-04-16 11:57:16'),(4,3,'Anda mendapatkan tugas baru!','sudah',NULL,'2026-04-16 11:58:28'),(5,3,'Anda mendapatkan tugas baru','sudah',NULL,'2026-04-16 12:59:02'),(6,2,'Pengaduan Anda telah selesai','sudah',NULL,'2026-04-16 13:15:55'),(7,2,'Pengaduan Anda telah selesai','sudah',NULL,'2026-04-18 09:55:40'),(8,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-18 13:12:42'),(9,4,'Pengaduan ditolak: koplok teh, pan geus puguh ngaran aplikasi na oge fix school, lain repair hp plok sateh','sudah',NULL,'2026-04-18 13:13:33'),(10,4,'Pengaduan ditolak: ingkah kaditu ah, hariwang','sudah',NULL,'2026-04-18 23:24:54'),(11,3,'Anda mendapatkan tugas baru','sudah',NULL,'2026-04-19 00:13:47'),(13,2,'Pengaduan ditolak: aya aya wae','sudah',NULL,'2026-04-20 11:29:05'),(14,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-20 11:31:52'),(19,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-20 13:52:33'),(22,4,'Pengaduan ditolak: gaje','belum',NULL,'2026-04-20 22:50:53'),(24,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-20 22:54:28'),(25,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-20 22:54:39'),(27,4,'Pengaduan Anda telah selesai','belum',NULL,'2026-04-20 22:56:41'),(30,4,'Pengaduan ditolak: tong sok minuhan tabel plok','belum',NULL,'2026-04-21 22:16:45'),(32,1,'Tiket support baru masuk','belum',NULL,'2026-04-22 06:09:09'),(33,1,'Paqih PKL membalas tiket: tweuuwjs','belum',NULL,'2026-04-22 07:04:03'),(34,1,'Paqih PKL membalas tiket: tweuuwjs','belum',NULL,'2026-04-23 04:34:55'),(35,1,'Tiket support baru masuk','belum',NULL,'2026-04-23 11:49:03'),(36,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-24 22:35:54'),(37,4,'Pengaduan Anda telah selesai','belum',NULL,'2026-04-24 22:46:31'),(38,1,'Status penugasan diperbarui menjadi: selesai','belum',NULL,'2026-04-24 22:46:31'),(39,1,'Pengaduan baru telah dibuat','belum',NULL,'2026-04-24 22:50:16'),(40,1,'Pengaduan baru telah dibuat','belum',NULL,'2026-04-24 22:53:34'),(41,4,'Pengaduan ditolak: tai lu','belum',NULL,'2026-04-24 22:54:13'),(42,1,'Pengaduan baru telah dibuat','belum',NULL,'2026-04-25 00:35:15'),(43,1,'Tiket support baru masuk','belum',NULL,'2026-04-26 13:02:22'),(44,1,'Pengaduan baru telah dibuat','belum',NULL,'2026-04-26 13:03:54'),(45,4,'Pengaduan ditolak: dfdf','belum',NULL,'2026-04-26 13:04:46'),(46,1,'Pengaduan baru telah dibuat','belum',NULL,'2026-04-26 13:05:39'),(47,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-26 13:06:11'),(48,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-26 13:06:33'),(49,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-26 13:06:52'),(50,1,'Status penugasan diperbarui menjadi: dikerjakan','belum',NULL,'2026-04-26 13:07:52'),(51,4,'Pengaduan Anda telah selesai','belum',NULL,'2026-04-26 13:09:22'),(52,1,'Status penugasan diperbarui menjadi: selesai','belum',NULL,'2026-04-26 13:09:22'),(53,1,'Tiket support baru masuk','belum',NULL,'2026-04-26 13:12:37'),(54,1,'Pengaduan baru telah dibuat','belum',NULL,'2026-04-26 13:14:31');
+INSERT INTO `notifikasi` VALUES (3,3,'Anda mendapatkan tugas baru!','sudah',NULL,'2026-04-16 11:57:16'),(4,3,'Anda mendapatkan tugas baru!','sudah',NULL,'2026-04-16 11:58:28'),(5,3,'Anda mendapatkan tugas baru','sudah',NULL,'2026-04-16 12:59:02'),(8,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-18 13:12:42'),(11,3,'Anda mendapatkan tugas baru','sudah',NULL,'2026-04-19 00:13:47'),(14,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-20 11:31:52'),(19,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-20 13:52:33'),(24,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-20 22:54:28'),(25,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-20 22:54:39'),(36,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-24 22:35:54'),(47,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-26 13:06:11'),(48,NULL,'Pengaduan Anda sedang diproses','belum',NULL,'2026-04-26 13:06:33'),(49,3,'Anda mendapatkan tugas baru','belum',NULL,'2026-04-26 13:06:52');
 /*!40000 ALTER TABLE `notifikasi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,7 +101,6 @@ CREATE TABLE `pengaduan` (
 
 LOCK TABLES `pengaduan` WRITE;
 /*!40000 ALTER TABLE `pengaduan` DISABLE KEYS */;
-INSERT INTO `pengaduan` VALUES (10,4,2,'Layar Monitor PC 4','P Layarnya agak ada glitch mengganggu, dan terkadang layar mati lalu hidup kembali dan itu sangat mengganggu terutama disaat pengerjaan aplikasi','Lab Komputer SMK','1776533605_396da756b0afad0f90ee.jpg','diproses',NULL,''),(11,4,2,'Paqih','aman sih','Kediaman paqih','1776667911_f98c868e2e9b35e8d7e7.jpg','selesai',NULL,''),(15,4,2,'AC di lab gak kerasa dingin','intinya sering bocor dan tidak kerasa suhunya','Lab Komputer','1776785396_1fca2a28e14a83abe1ae.jpg','diproses',NULL,''),(16,4,2,'ada lah','naon we ah','aya we','1777045816_5099a199aec71bf4d4aa.jpg','ditolak',NULL,'tai lu'),(17,4,2,'Gayung WC','Gayung di ruang WC Cowok ilang, tolong ganti dengan yang baru atau cari lah minimal','WC Sekolah','1777046014_ac2afbadeed664450aac.png','menunggu',NULL,''),(18,4,2,'dld','uifsdu8f','jiisad','1777052115_c51a72d5a3a52f34c257.png','menunggu','2026-04-25 00:35:15',''),(20,4,2,'cek','sefdsdf','cek','1777183539_7bf9672c6efb970c0bba.png','selesai','2026-04-26 13:05:39',''),(21,6,1,'cek 2','fjfusdhf','cek','1777184071_68337d5caf033b434733.png','ditolak','2026-04-26 13:14:31','uedfygea');
 /*!40000 ALTER TABLE `pengaduan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,7 +135,6 @@ CREATE TABLE `penugasan` (
 
 LOCK TABLES `penugasan` WRITE;
 /*!40000 ALTER TABLE `penugasan` DISABLE KEYS */;
-INSERT INTO `penugasan` VALUES (7,11,NULL,3,'selesai','1776667993_367191e811d39bee9ffa.jpg','2026-04-20 13:52:33'),(9,15,NULL,3,'ditugaskan',NULL,'2026-04-24 22:35:54'),(10,20,NULL,3,'selesai','1777183762_78c5bfffb9d18291115b.jpg','2026-04-26 13:06:51');
 /*!40000 ALTER TABLE `penugasan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,7 +249,6 @@ CREATE TABLE `tanggapan` (
 
 LOCK TABLES `tanggapan` WRITE;
 /*!40000 ALTER TABLE `tanggapan` DISABLE KEYS */;
-INSERT INTO `tanggapan` VALUES (10,10,1,'baik laporan anda telah diterima, mohon ditunggu info selanjutnya',NULL,'2026-04-20 11:31:52'),(12,20,1,'santai',NULL,'2026-04-26 13:06:11'),(13,20,1,'keur di gawean','1777183593_2b9900408b4d885187fc.png','2026-04-26 13:06:33');
 /*!40000 ALTER TABLE `tanggapan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,7 +278,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin',NULL,'admin','$2y$10$zMK6iiH4U9dt3vDy.h.2pO0kg6b9jD4XrUpN.nW7cZZNmZeszrr1K','admin','1776304369_34947b3d54a1bdb91c22.png','2026-04-11 17:27:43'),(2,'pelapor',NULL,'pelapor','$2y$10$Lms5Tw3g86uiBPvFEay30ewDVss7FYwDD0a2QNYkLyrDpZa7Gwq/e','pelapor','1775929967_278f8f13b52843fe0210.jpg','2026-04-11 17:52:47'),(3,'Jamboadz',NULL,'teknisi_jamz','$2y$10$hTmBZ5JfDKFVVsVgkLkAVuZGEp3AQRffpN.PiLntIqa5ujPriDOMO','teknisi','1775930007_8c0a5205611f0d9f4c51.jpg','2026-04-11 17:53:27'),(4,'Paqih PKL',NULL,'hikap','$2y$10$Xn.l973KyIkfVKahZJdPWOmBvrTkLwrFxMWzDlVeia9cBLeGuL.qO','pelapor','1776492474_c591346c490a0675d30a.jpg','2026-04-18 06:07:54'),(6,'deriel',NULL,'deriel','$2y$10$dVBUhbiIE0fqf5HF08xXV.sE0ARak9HzetyQXM7UngV3Od9qEzfra','pelapor','1777047341_0abef9243c66ea3af965.png','2026-04-24 16:15:41');
+INSERT INTO `users` VALUES (1,'Atmin Real',NULL,'real_admin','$2y$10$zMK6iiH4U9dt3vDy.h.2pO0kg6b9jD4XrUpN.nW7cZZNmZeszrr1K','admin','1777199148_b488b88b868f368a84ba.jpg','2026-04-11 17:27:43'),(3,'Jamboadz',NULL,'teknisi_jamz','$2y$10$hTmBZ5JfDKFVVsVgkLkAVuZGEp3AQRffpN.PiLntIqa5ujPriDOMO','teknisi','1777199173_d67b6c23f88d39c551e7.jpg','2026-04-11 17:53:27');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -294,4 +291,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-26 13:42:07
+-- Dump completed on 2026-04-26 17:27:15
