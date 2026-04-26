@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="icon" href="<?= base_url('assets/img/FS_No_BG.png') ?>">
 
 <!-- ===================== HEAD ===================== -->
 <head>

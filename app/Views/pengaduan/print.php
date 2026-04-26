@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <link rel="icon" href="<?= base_url('assets/img/FS_No_BG.png') ?>">
 <head>
     <title>Laporan Pengaduan - Fix School</title>
     <style>

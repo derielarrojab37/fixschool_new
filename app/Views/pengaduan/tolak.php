@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
+<link rel="icon" href="<?= base_url('assets/img/FS_No_BG.png') ?>">
 
 <style>
     /* 🔴 Danger Slate Design System */
