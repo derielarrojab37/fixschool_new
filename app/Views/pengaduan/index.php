@@ -232,28 +232,7 @@
                         </tr>
                     <?php endif; ?>
                     
-<?php foreach ($pengaduan as $p): ?>
-<tr>
 
-    <!-- kolom lain -->
-
-    <!-- SLA -->
-    <td>
-        <?php 
-        $warna = 'secondary';
-
-        if ($p['status_sla'] == 'aman') $warna = 'success';
-        elseif ($p['status_sla'] == 'hampir') $warna = 'warning';
-        elseif ($p['status_sla'] == 'terlambat') $warna = 'danger';
-        ?>
-
-        <span class="badge bg-<?= $warna ?>">
-            <?= strtoupper($p['status_sla']) ?>
-        </span>
-    </td>
-
-</tr>
-<?php endforeach; ?>
                 </tbody>
             </table>
         </div>
