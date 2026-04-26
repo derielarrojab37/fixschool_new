@@ -159,18 +159,33 @@ class Users extends BaseController
      * Menghapus pengguna secara permanen dari database dan menghapus file fotonya.
      */
     public function delete($id)
-    {
-        $user = $this->users->find($id);
+{
+    $db = db_connect();
 
-        // Menghapus file fisik jika record pengguna memiliki data foto
-        if ($user['foto'] && file_exists(FCPATH . 'uploads/users/' . $user['foto'])) {
-            unlink(FCPATH . 'uploads/users/' . $user['foto']);
-        }
+    $user = $this->users->find($id);
 
-        $this->users->delete($id);
-
-        return redirect()->to('/users')->with('success', 'User berhasil dihapus!');
+    // CEGAH ADMIN HAPUS DIRI SENDIRI
+    if(session()->get('id_user') == $id){
+        return redirect()->to('/users')
+            ->with('error','Tidak bisa menghapus akun sendiri!');
     }
+
+    // HAPUS RELASI DULU (PENTING)
+    $db->table('notifikasi')->where('id_user', $id)->delete();
+    $db->table('pengaduan')->where('id_user', $id)->delete();
+    $db->table('tanggapan')->where('id_user', $id)->delete();
+    $db->table('penugasan')->where('id_teknisi', $id)->delete();
+
+    // HAPUS FOTO
+    if ($user['foto'] && file_exists(FCPATH . 'uploads/users/' . $user['foto'])) {
+        unlink(FCPATH . 'uploads/users/' . $user['foto']);
+    }
+
+    // HAPUS USER
+    $this->users->delete($id);
+
+    return redirect()->to('/users')->with('success', 'User berhasil dihapus!');
+}
 
     /**
      * Menampilkan informasi rincian lengkap dari satu pengguna.
