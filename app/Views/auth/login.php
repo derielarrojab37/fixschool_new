@@ -185,7 +185,7 @@
                     <div class="mb-4">
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <label class="form-label fw-bold small text-uppercase text-muted mb-0">Security Key</label>
-                            <a href="#" class="text-primary text-decoration-none small fw-bold" style="font-size: 0.75rem;">Recover?</a>
+                           
                         </div>
                         <div class="input-group">
                             <span class="input-group-text bg-light border-end-0">

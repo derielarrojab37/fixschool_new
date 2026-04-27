@@ -11,7 +11,7 @@ class PengaduanModel extends Model
     
     // Mengizinkan penyimpanan data dasar laporan 
     protected $allowedFields = [
-        'id_user', 'id_jenis', 'judul', 'deskripsi', 'lokasi', 'foto', 'status', 'alasan_ditolak'
+        'id_user', 'judul', 'deskripsi', 'lokasi', 'foto', 'status', 'alasan_ditolak'
 
         
     ];

@@ -29,9 +29,14 @@ class Users extends BaseController
      * Menampilkan halaman formulir untuk menambah pengguna baru.
      */
     public function create()
-    {
-        return view('users/create');
-    }
+{
+    $db = db_connect();
+
+    $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
+
+    return view('users/create', $data);
+}
+    
 
     /**
      * Memproses penyimpanan data pengguna baru.
@@ -73,8 +78,10 @@ class Users extends BaseController
             'username' => $this->request->getPost('username'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Enkripsi satu arah
             'role'     => $this->request->getPost('role'),
-            'foto'     => $namaFoto
+            'foto'     => $namaFoto,
+            'id_jenis' => $this->request->getPost('id_jenis')
         ]);
+        
 
         return redirect()->to('/login')->with('success', 'User berhasil ditambahkan!');
     }

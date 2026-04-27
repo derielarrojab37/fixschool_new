@@ -153,15 +153,7 @@
                                 <input type="text" name="lokasi" class="form-control input-elite" placeholder="Gedung, Lantai, atau Ruangan" required>
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="label-elite"><i class="bi bi-grid-fill text-warning"></i> Klasifikasi</label>
-                                <select name="id_jenis" class="form-select input-elite" required>
-                                    <option value="" disabled selected>Pilih Kategori</option>
-                                    <?php foreach($jenis as $j): ?>
-                                        <option value="<?= $j['id_jenis'] ?>"><?= $j['nama_jenis'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                            
 
                             <div class="col-12">
                                 <label class="label-elite"><i class="bi bi-text-paragraph text-primary"></i> Penjelasan Detail</label>

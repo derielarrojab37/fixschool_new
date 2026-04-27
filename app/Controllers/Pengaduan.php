@@ -23,45 +23,46 @@ class Pengaduan extends BaseController {
      * Menampilkan daftar pengaduan dengan sistem filter keyword, jenis, tanggal, dan hak akses.
      */
     public function index()
-    {
-        // Mengambil input filter dari URL (metode GET)
-        $keyword = $this->request->getGet('keyword');
-        $jenis   = $this->request->getGet('jenis');
-        $tanggal = $this->request->getGet('tanggal');
+{
+    $keyword = $this->request->getGet('keyword');
+    $jenis   = $this->request->getGet('jenis');
+    $tanggal = $this->request->getGet('tanggal');
 
-        // Menyiapkan Query Builder dengan join ke tabel users dan jenis_pelapor
-        $builder = $this->model
-            ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
-            ->join('users', 'users.id_user = pengaduan.id_user')
-            ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
+    $builder = $this->model
+        ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
+        ->join('users', 'users.id_user = pengaduan.id_user')
+        ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = users.id_jenis', 'left');
 
-        // Filter Role: Jika login sebagai pelapor, hanya tampilkan data miliknya sendiri
-        if(session()->get('role') == 'pelapor'){
-            $builder->where('pengaduan.id_user', session()->get('id_user'));
-        }
-
-        // Filter Pencarian: Mencari berdasarkan judul pengaduan
-        if($keyword){
-            $builder->like('judul', $keyword);
-        }
-
-        // Filter Kategori: Mencari berdasarkan jenis pelapor tertentu
-        if($jenis){
-            $builder->where('pengaduan.id_jenis', $jenis);
-        }
-
-        // Filter Waktu: Mencari berdasarkan tanggal laporan dibuat
-        if($tanggal){
-            $builder->where('DATE(tanggal)', $tanggal);
-        }
-
-        $data['pengaduan'] = $builder->findAll();
-
-        // Mengambil data master jenis pelapor untuk kebutuhan dropdown di view
-        $data['jenis'] = db_connect()->table('jenis_pelapor')->get()->getResultArray();
-
-        return view('pengaduan/index', $data);
+    // 🔐 Filter role
+    if(session()->get('role') == 'pelapor'){
+        $builder->where('pengaduan.id_user', session()->get('id_user'));
     }
+
+    // 🔍 Filter keyword
+    if($keyword){
+        $builder->like('pengaduan.judul', $keyword);
+    }
+
+    // 🔥 FILTER JENIS (INI YANG KAMU MAU)
+    if($jenis){
+        $builder->where('users.id_jenis', $jenis);
+    }
+
+    // 📅 Filter tanggal
+    if($tanggal){
+        $builder->where('DATE(pengaduan.tanggal)', $tanggal);
+    }
+
+    $data['pengaduan'] = $builder->findAll();
+
+    // 🔽 Dropdown tetap tampil
+    $data['jenis'] = db_connect()
+        ->table('jenis_pelapor')
+        ->get()
+        ->getResultArray();
+
+    return view('pengaduan/index', $data);
+}
 
     /**
      * Menampilkan form input pengaduan baru khusus untuk role pelapor.
@@ -73,10 +74,10 @@ class Pengaduan extends BaseController {
             return redirect()->to('/pengaduan')->with('error', 'Akses ditolak!');
         }
 
-        $db = db_connect();
-        $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
+        //$db = db_connect();
+        //$data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
 
-        return view('pengaduan/create', $data);
+        return view('pengaduan/create');
     }
 
     /**
@@ -110,7 +111,7 @@ class Pengaduan extends BaseController {
         // Menyimpan data utama pengaduan ke database
         $this->model->save([
             'id_user'    => session()->get('id_user'),
-            'id_jenis'   => $this->request->getPost('id_jenis'),
+            //'id_jenis'   => $this->request->getPost('id_jenis'),
             'judul'      => $this->request->getPost('judul'),
             'deskripsi'  => $this->request->getPost('deskripsi'),
             'lokasi'     => $this->request->getPost('lokasi'),
@@ -144,30 +145,31 @@ class Pengaduan extends BaseController {
      * Menampilkan form edit pengaduan selama status masih 'menunggu' dan belum ada tanggapan.
      */
     public function edit($id)
-    {
-        $pengaduan = $this->model->find($id);
+{
+    $pengaduan = $this->model->find($id);
 
-        // Memeriksa apakah pengaduan ini sudah memiliki tanggapan
-        $db = db_connect();
-        $tanggapan = $db->table('tanggapan')
-            ->where('id_pengaduan', $id)
-            ->get()
-            ->getResultArray();
+    $db = db_connect();
+    $tanggapan = $db->table('tanggapan')
+        ->where('id_pengaduan', $id)
+        ->get()
+        ->getResultArray();
 
-        // Validasi: Cegah edit jika bukan pelapor pemilik, status bukan menunggu, atau sudah ditanggapi
-        if (
-            session()->get('role') != 'pelapor' ||
-            $pengaduan['status'] != 'menunggu' ||
-            !empty($tanggapan)
-        ) {
-            return redirect()->to('/pengaduan')->with('error', 'Tidak bisa mengubah pengaduan');
-        }
-
-        $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
-        $data['pengaduan'] = $pengaduan;
-
-        return view('pengaduan/edit', $data);
+     //valdasi admin       
+    if (
+        session()->get('role') != 'pelapor' ||
+        $pengaduan['status'] != 'menunggu' ||
+        !empty($tanggapan)
+    ) {
+        return redirect()->to('/pengaduan')->with('error', 'Tidak bisa mengubah pengaduan');
     }
+
+    // ✅ TAMBAHKAN INI
+    $data['jenis'] = $db->table('jenis_pelapor')->get()->getResultArray();
+
+    $data['pengaduan'] = $pengaduan;
+
+    return view('pengaduan/edit', $data);
+}
 
     /**
      * Memproses pembaharuan data pengaduan yang sudah ada.
@@ -209,11 +211,11 @@ class Pengaduan extends BaseController {
     {
         // Mengambil data detail pengaduan dengan join tabel terkait
         $data['pengaduan'] = $this->model
-            ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
-            ->join('users', 'users.id_user = pengaduan.id_user')
-            ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis')
-            ->where('id_pengaduan', $id)
-            ->first();
+    ->select('pengaduan.*, users.nama, jenis_pelapor.nama_jenis')
+    ->join('users', 'users.id_user = pengaduan.id_user')
+    ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = users.id_jenis', 'left')
+    ->where('id_pengaduan', $id)
+    ->first();
 
         // Mengambil seluruh daftar tanggapan yang berkaitan dengan pengaduan ini
         $db = db_connect();
@@ -279,7 +281,7 @@ class Pengaduan extends BaseController {
         $builder = $this->model->builder();
 
         // Query lengkap dengan Left Join ke tanggapan agar data pengaduan tetap muncul meski belum ada respon
-        $builder->select('pengaduan.*, users.nama as nama_pelapor, jenis_pelapor.nama_jenis, tanggapan.isi_tanggapan');
+        $builder->select('pengaduan.*, users.nama as nama_pelapor, tanggapan.isi_tanggapan'); //jenis_pelapor.nama_jenis
         $builder->join('users', 'users.id_user = pengaduan.id_user');
         $builder->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
         $builder->join('tanggapan', 'tanggapan.id_pengaduan = pengaduan.id_pengaduan', 'left');

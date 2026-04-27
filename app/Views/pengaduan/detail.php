@@ -139,6 +139,19 @@
                         </div>
                     </div>
 
+                    <?php if (!empty($pengaduan['foto'])): ?>
+    <div class="mb-5">
+        <span class="meta-label mb-2">Dokumentasi Visual</span>
+        <div class="p-3 bg-light rounded-4 border">
+            <img 
+                src="<?= base_url('uploads/pengaduan/' . $pengaduan['foto']) ?>" 
+                class="img-evidence w-100 shadow-sm border"
+                style="max-height: 400px;"
+            >
+        </div>
+    </div>
+<?php endif; ?>
+
                     <?php if ($statusRaw == 'ditolak'): ?>
                         <div class="alert sb-danger border-0 rounded-4 p-4 d-flex align-items-start gap-3 shadow-sm">
                             <i class="bi bi-exclamation-triangle-fill fs-3"></i>

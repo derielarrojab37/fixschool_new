@@ -102,16 +102,7 @@
                                 <input type="text" name="lokasi" class="form-control" value="<?= $pengaduan['lokasi'] ?>" required>
                             </div>
 
-                            <div class="col-md-6 mb-4">
-                                <label class="form-label"><i class="bi bi-tag me-2"></i> Kategori</label>
-                                <select name="id_jenis" class="form-select" required>
-                                    <?php foreach($jenis as $j): ?>
-                                        <option value="<?= $j['id_jenis'] ?>" <?= $j['id_jenis'] == $pengaduan['id_jenis'] ? 'selected' : '' ?>>
-                                            <?= $j['nama_jenis'] ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                            
 
                             <div class="col-md-12 mb-4">
                                 <label class="form-label"><i class="bi bi-justify-left me-2"></i> Detail Laporan</label>

@@ -259,6 +259,16 @@
                                     <input type="hidden" name="role" value="pelapor">
                                 <?php endif; ?>
 
+                                <div class="col-12">
+    <label class="form-label">Jenis Pelapor</label>
+    <select name="id_jenis" class="form-select" required>
+        <option value="" disabled selected>Pilih Jenis</option>
+        <?php foreach($jenis as $j): ?>
+            <option value="<?= $j['id_jenis'] ?>"><?= $j['nama_jenis'] ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
                                 <!-- FOTO -->
                                 <div class="col-12">
                                     <label class="form-label">Profile Identification</label>

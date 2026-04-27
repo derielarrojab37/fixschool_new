@@ -10,8 +10,7 @@ class UsersModel extends Model
     protected $primaryKey = 'id_user';
     
     // Menyimpan profil user termasuk password_hash dan role (admin/teknisi/pelapor)
-    protected $allowedFields = ['nama', 'username', 'password', 'role', 'foto', 'status'];
-
+    protected $allowedFields = ['nama', 'username', 'password', 'role', 'foto', 'status', 'id_jenis'];
     /**
      * Method untuk mencari satu user berdasarkan username.
      * Biasanya digunakan dalam proses autentikasi (Login).
@@ -20,4 +19,5 @@ class UsersModel extends Model
     {
         return $this->where('username', $username)->first();
     }
+
 }
