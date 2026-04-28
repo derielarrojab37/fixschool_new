@@ -33,29 +33,29 @@ class Pengaduan extends BaseController {
         ->join('users', 'users.id_user = pengaduan.id_user')
         ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = users.id_jenis', 'left');
 
-    // 🔐 Filter role
+    // Filter role
     if(session()->get('role') == 'pelapor'){
         $builder->where('pengaduan.id_user', session()->get('id_user'));
     }
 
-    // 🔍 Filter keyword
+    // Filter keyword
     if($keyword){
         $builder->like('pengaduan.judul', $keyword);
     }
 
-    // 🔥 FILTER JENIS (INI YANG KAMU MAU)
+    //  FILTER JENIS (INI YANG KAMU MAU)
     if($jenis){
         $builder->where('users.id_jenis', $jenis);
     }
 
-    // 📅 Filter tanggal
+    // Filter tanggal
     if($tanggal){
         $builder->where('DATE(pengaduan.tanggal)', $tanggal);
     }
 
     $data['pengaduan'] = $builder->findAll();
 
-    // 🔽 Dropdown tetap tampil
+    // Dropdown tetap tampil
     $data['jenis'] = db_connect()
         ->table('jenis_pelapor')
         ->get()
@@ -81,65 +81,56 @@ class Pengaduan extends BaseController {
     }
 
     /**
-     * Memproses penyimpanan data pengaduan baru serta menghitung deadline (SLA).
+     * Memproses penyimpanan data pengaduan baru.
      */
-    public function store()
-    {
-        // Proteksi keamanan role pelapor
-        if (session()->get('role') != 'pelapor') {
-            return redirect()->to('/pengaduan')->with('error', 'Akses ditolak!');
-        }
-
-        // Penanganan upload file foto pengaduan
-        $file = $this->request->getFile('foto');
-        $namaFoto = null;
-
-        if ($file && $file->isValid()) {
-            $namaFoto = $file->getRandomName();
-            $file->move('uploads/pengaduan/', $namaFoto);
-        }
-
-        // Logika SLA: Menentukan batas waktu penanganan berdasarkan kategori laporan
-        $kategori = $this->request->getPost('kategori');
-
-        if ($kategori == 'ringan') {
-            $deadline = date('Y-m-d H:i:s', strtotime('+2 days'));
-        } else {
-            $deadline = date('Y-m-d H:i:s', strtotime('+7 days'));
-        }
-
-        // Menyimpan data utama pengaduan ke database
-        $this->model->save([
-            'id_user'    => session()->get('id_user'),
-            //'id_jenis'   => $this->request->getPost('id_jenis'),
-            'judul'      => $this->request->getPost('judul'),
-            'deskripsi'  => $this->request->getPost('deskripsi'),
-            'lokasi'     => $this->request->getPost('lokasi'),
-            'foto'       => $namaFoto,
-            'status'     => 'menunggu',
-            'kategori'   => $kategori,
-            'deadline'   => $deadline,
-            'status_sla' => 'aman'
-        ]);
-
-        // Mengirim notifikasi otomatis kepada semua user dengan role admin
-        $db = db_connect();
-        $admin = $db->table('users')
-            ->where('role', 'admin')
-            ->get()
-            ->getResultArray();
-
-        foreach($admin as $a){
-            $db->table('notifikasi')->insert([
-                'id_user' => $a['id_user'],
-                'pesan'   => 'Pengaduan baru telah dibuat',
-                'status'  => 'belum',
-                'tanggal' => date('Y-m-d H:i:s')
-            ]);
-        }
-
-        return redirect()->to('/pengaduan')->with('success', 'Pengaduan berhasil dikirim');
+public function store()
+{
+    // Proteksi keamanan role pelapor
+    if (session()->get('role') != 'pelapor') {
+        return redirect()->to('/pengaduan')->with('error', 'Akses ditolak!');
     }
+
+    // Upload foto
+    $file = $this->request->getFile('foto');
+    $namaFoto = null;
+
+    if ($file && $file->isValid()) {
+        $namaFoto = $file->getRandomName();
+        $file->move('uploads/pengaduan/', $namaFoto);
+    }
+
+    // Simpan data 
+    $this->model->save([
+        'id_user'   => session()->get('id_user'),
+        'judul'     => $this->request->getPost('judul'),
+        'deskripsi' => $this->request->getPost('deskripsi'),
+        'lokasi'    => $this->request->getPost('lokasi'),
+        'foto'      => $namaFoto,
+        'status'    => 'menunggu'
+    ]);
+
+    // Notifikasi ke admin
+    $db = db_connect();
+    $admin = $db->table('users')
+        ->where('role', 'admin')
+        ->get()
+        ->getResultArray();
+
+
+foreach($admin as $a){
+
+    // simpan notif database
+    $db->table('notifikasi')->insert([
+        'id_user' => $a['id_user'],
+        'pesan'   => 'Pengaduan baru telah dibuat',
+        'status'  => 'belum',
+        'tanggal' => date('Y-m-d H:i:s')
+    ]);
+
+}
+
+    return redirect()->to('/pengaduan')->with('success', 'Pengaduan berhasil dikirim');
+}
 
     /**
      * Menampilkan form edit pengaduan selama status masih 'menunggu' dan belum ada tanggapan.
@@ -272,27 +263,28 @@ class Pengaduan extends BaseController {
     /**
      * Menghasilkan data laporan pengaduan untuk kebutuhan cetak (Print).
      */
-    public function print()
-    {
-        $keyword = $this->request->getGet('keyword');
-        $jenis   = $this->request->getGet('jenis');
-        $tanggal = $this->request->getGet('tanggal');
+public function print()
+{
+    $keyword = $this->request->getGet('keyword');
+    $role = $this->request->getGet('role');
 
-        $builder = $this->model->builder();
+    $builder = $this->users->builder();
+    $builder->select('id_user, nama, no_hp, username, role');
 
-        // Query lengkap dengan Left Join ke tanggapan agar data pengaduan tetap muncul meski belum ada respon
-        $builder->select('pengaduan.*, users.nama as nama_pelapor, tanggapan.isi_tanggapan'); //jenis_pelapor.nama_jenis
-        $builder->join('users', 'users.id_user = pengaduan.id_user');
-        $builder->join('jenis_pelapor', 'jenis_pelapor.id_jenis = pengaduan.id_jenis');
-        $builder->join('tanggapan', 'tanggapan.id_pengaduan = pengaduan.id_pengaduan', 'left');
-
-        // Konsistensi filter antara halaman index dan halaman cetak
-        if ($keyword) { $builder->like('pengaduan.judul', $keyword); }
-        if ($jenis) { $builder->where('pengaduan.id_jenis', $jenis); }
-        if ($tanggal) { $builder->where('DATE(pengaduan.tanggal)', $tanggal); }
-
-        $data['pengaduan'] = $builder->get()->getResultArray();
-
-        return view('pengaduan/print', $data);
+    if ($keyword) {
+        $builder->groupStart()
+            ->like('nama', $keyword)
+            ->orLike('no_hp', $keyword)
+            ->orLike('username', $keyword)
+        ->groupEnd();
     }
+
+    if ($role) {
+        $builder->where('role', $role);
+    }
+
+    $data['users'] = $builder->get()->getResultArray();
+
+    return view('users/print', $data);
+}
 }

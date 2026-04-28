@@ -166,10 +166,10 @@
 
                     <div class="tanggapan-section">
                         <div class="d-flex justify-content-between align-items-center mb-5">
-                            <h4 class="fw-800 text-dark mb-0">Riwayat Perbaikan</h4>
+                            <h4 class="fw-800 text-dark mb-0">Tanggapan Admin</h4>
                             <?php if(session('role') == 'admin'): ?>
                                 <a href="<?= base_url('tanggapan/create/' . $pengaduan['id_pengaduan']) ?>" class="btn btn-primary btn-sm rounded-3 fw-bold px-3">
-                                    <i class="bi bi-plus-circle me-2"></i> Tambah Update
+                                    <i class="bi bi-plus-circle me-2"></i> Tambah/Update
                                 </a>
                             <?php endif; ?>
                         </div>
@@ -232,7 +232,7 @@
                                 </a>
                             </div>
                         <?php else: ?>
-                            <div class="p-3 bg-white bg-opacity-10 rounded-3 text-center">
+                            <div class="p-3 bg-gray bg-opacity-80 rounded-3 text-center">
                                 <p class="small text-light opacity-50 mb-1">Status Laporan Dikunci:</p>
                                 <span class="fw-bold text-white text-uppercase"><?= $pengaduan['status'] ?></span>
                             </div>

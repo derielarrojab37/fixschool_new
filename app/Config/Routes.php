@@ -35,7 +35,7 @@ $routes->post('/users/update/(:num)', 'Users::update/$1', $allRole);
 $routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole);
 $routes->get('/users/detail/(:num)', 'Users::detail/$1', $allRole);
 $routes->get('/users/print', 'Users::print', $allRole);
-$routes->get('/users/wa/(:num)', 'Users::wa/$1', $allRole);
+//$routes->get('/users/wa/(:num)', 'Users::wa/$1', $allRole);
 $routes->get('/users/search', 'Users::search');
 
 // --- MASTER DATA: JENIS PELAPOR ---

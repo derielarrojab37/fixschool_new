@@ -41,7 +41,7 @@ class Auth extends Controller
                 $session->set([
                     'id_user'   => $users['id_user'],
                     'nama'      => $users['nama'],
-                    'email'     => $users['email'],
+                    'no_hp'     => $users['no_hp'],
                     'username'  => $users['username'],
                     'role'      => $users['role'],
                     'foto'      => $users['foto'],

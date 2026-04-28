@@ -131,7 +131,7 @@
                     <label class="form-label small fw-800 text-muted text-uppercase" style="letter-spacing: 0.1em;">Pencarian</label>
                     <div class="input-group">
                         <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-search"></i></span>
-                        <input type="text" name="keyword" class="form-control border-start-0 shadow-none" placeholder="Nama, email, atau username..." value="<?= $_GET['keyword'] ?? '' ?>">
+                        <input type="text" name="keyword" class="form-control border-start-0 shadow-none" placeholder="Nama, no_hp, atau username..." value="<?= $_GET['keyword'] ?? '' ?>">
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -156,7 +156,7 @@
                     <tr>
                         <th class="text-center" width="80">UID</th>
                         <th>Personil</th>
-                        <th>Kredensial</th>
+                        <th>Username</th>
                         <th class="text-center">Otoritas</th>
                         <th class="text-center" width="160">Aksi Cepat</th>
                     </tr>
@@ -176,7 +176,7 @@
                                         </a>
                                         <div>
                                             <a href="<?= base_url('users/detail/' . $u['id_user']) ?>" class="fw-bold text-dark text-decoration-none d-block lh-1 mb-1"><?= $u['nama'] ?></a>
-                                            <span class="text-muted small"><?= $u['email'] ?></span>
+                                            <span class="text-muted small"><?= $u['no_hp'] ?></span>
                                         </div>
                                     </div>
                                 </td>

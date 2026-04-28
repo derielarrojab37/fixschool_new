@@ -119,6 +119,8 @@ class Tanggapan extends BaseController
             'tanggal' => date('Y-m-d H:i:s')
         ]);
 
+
+
         return redirect()->to('/pengaduan/detail/' . $id_pengaduan);
     }
 

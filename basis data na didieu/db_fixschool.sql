@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Apr 2026 pada 12.28
+-- Waktu pembuatan: 28 Apr 2026 pada 04.27
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -74,7 +74,23 @@ INSERT INTO `notifikasi` (`id_notifikasi`, `id_user`, `pesan`, `status`, `foto`,
 (36, 3, 'Anda mendapatkan tugas baru', 'belum', NULL, '2026-04-24 22:35:54'),
 (47, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-26 13:06:11'),
 (48, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-26 13:06:33'),
-(49, 3, 'Anda mendapatkan tugas baru', 'belum', NULL, '2026-04-26 13:06:52');
+(49, 3, 'Anda mendapatkan tugas baru', 'belum', NULL, '2026-04-26 13:06:52'),
+(60, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-27 15:29:56'),
+(61, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-27 16:15:31'),
+(62, 3, 'Anda mendapatkan tugas baru', 'belum', NULL, '2026-04-27 16:15:43'),
+(63, 1, 'Status penugasan diperbarui menjadi: dikerjakan', 'belum', NULL, '2026-04-27 16:17:47'),
+(64, 1, 'Status penugasan diperbarui menjadi: dikerjakan', 'belum', NULL, '2026-04-27 16:18:02'),
+(65, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-27 16:20:00'),
+(66, 7, 'Pengaduan Anda telah selesai', 'belum', NULL, '2026-04-27 16:20:56'),
+(67, 1, 'Status penugasan diperbarui menjadi: selesai', 'belum', NULL, '2026-04-27 16:20:56'),
+(68, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-27 16:22:01'),
+(69, 1, 'Status penugasan diperbarui menjadi: ditugaskan', 'belum', NULL, '2026-04-27 16:30:13'),
+(70, 7, 'Pengaduan Anda telah selesai', 'belum', NULL, '2026-04-27 16:30:18'),
+(71, 1, 'Status penugasan diperbarui menjadi: selesai', 'belum', NULL, '2026-04-27 16:30:18'),
+(72, 1, 'Tiket support baru masuk', 'belum', NULL, '2026-04-28 08:20:49'),
+(73, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 08:33:02'),
+(74, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-28 08:35:19'),
+(75, 8, 'Pengaduan ditolak: Pake Ai jing', 'belum', NULL, '2026-04-28 08:35:38');
 
 -- --------------------------------------------------------
 
@@ -85,7 +101,6 @@ INSERT INTO `notifikasi` (`id_notifikasi`, `id_user`, `pesan`, `status`, `foto`,
 CREATE TABLE `pengaduan` (
   `id_pengaduan` int(11) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
-  `id_jenis` int(11) DEFAULT NULL,
   `judul` varchar(150) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
   `lokasi` varchar(100) DEFAULT NULL,
@@ -94,6 +109,14 @@ CREATE TABLE `pengaduan` (
   `tanggal` datetime DEFAULT current_timestamp(),
   `alasan_ditolak` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `pengaduan`
+--
+
+INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `judul`, `deskripsi`, `lokasi`, `foto`, `status`, `tanggal`, `alasan_ditolak`) VALUES
+(22, 7, 'Kursi Bosok', 'yeuh beneran, sok', 'Lab Komputer SMK', '1777278596_e8104c9cd11af3b738b5.jpg', 'selesai', '2026-04-27 15:29:56', ''),
+(23, 8, 'Kipas Rusak', 'Ini tolong diperbaiki', 'Lab Komputer SMK', '1777339982_f833dae5f2fd13c430e1.png', 'ditolak', '2026-04-28 08:33:02', 'Pake Ai jing');
 
 -- --------------------------------------------------------
 
@@ -110,6 +133,13 @@ CREATE TABLE `penugasan` (
   `foto_bukti` varchar(255) DEFAULT NULL,
   `tanggal` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `penugasan`
+--
+
+INSERT INTO `penugasan` (`id_penugasan`, `id_pengaduan`, `id_tanggapan`, `id_teknisi`, `status`, `foto_bukti`, `tanggal`) VALUES
+(11, 22, NULL, 3, 'selesai', '1777281656_5885fa695be134bd2778.jpg', '2026-04-27 16:15:43');
 
 -- --------------------------------------------------------
 
@@ -135,7 +165,8 @@ INSERT INTO `support` (`id_support`, `id_user`, `judul`, `pesan`, `status`, `cre
 (2, 4, 'tweuuwjs', '321361', 'closed', '2026-04-22 06:09:09'),
 (3, 4, 'hai', 'hai', 'open', '2026-04-23 11:49:03'),
 (4, 4, 'fiof', 'woi', 'open', '2026-04-26 13:02:22'),
-(5, 6, 'akun gw sampah', 'sddaw', 'closed', '2026-04-26 13:12:37');
+(5, 6, 'akun gw sampah', 'sddaw', 'closed', '2026-04-26 13:12:37'),
+(6, 8, 'Minta Naik Jabatan', 'Min jadikan gw admin baru', 'open', '2026-04-28 08:20:49');
 
 -- --------------------------------------------------------
 
@@ -202,6 +233,16 @@ CREATE TABLE `tanggapan` (
   `tanggal` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `tanggapan`
+--
+
+INSERT INTO `tanggapan` (`id_tanggapan`, `id_pengaduan`, `id_user`, `isi_tanggapan`, `foto`, `tanggal`) VALUES
+(14, 22, 1, 'akan saya langsung proses yaa', NULL, '2026-04-27 16:15:31'),
+(15, 22, 1, 'Kursi sedang dikerjakan yaa', '1777281600_2729050d29caf430f607.jpg', '2026-04-27 16:20:00'),
+(16, 22, 1, 'Telah diperbaiki yaa', '1777281721_c23b0ed91fd8c5780e86.jpg', '2026-04-27 16:22:01'),
+(17, 23, 1, 'Naon etamah pake Ai koplok', '1777340119_e95629c17c21a7655fee.png', '2026-04-28 08:35:19');
+
 -- --------------------------------------------------------
 
 --
@@ -216,16 +257,19 @@ CREATE TABLE `users` (
   `password` varchar(255) DEFAULT NULL,
   `role` enum('admin','teknisi','pelapor') DEFAULT 'pelapor',
   `foto` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id_jenis` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`, `role`, `foto`, `created_at`) VALUES
-(1, 'Atmin Real', NULL, 'real_admin', '$2y$10$zMK6iiH4U9dt3vDy.h.2pO0kg6b9jD4XrUpN.nW7cZZNmZeszrr1K', 'admin', '1777199148_b488b88b868f368a84ba.jpg', '2026-04-11 17:27:43'),
-(3, 'Jamboadz', NULL, 'teknisi_jamz', '$2y$10$hTmBZ5JfDKFVVsVgkLkAVuZGEp3AQRffpN.PiLntIqa5ujPriDOMO', 'teknisi', '1777199173_d67b6c23f88d39c551e7.jpg', '2026-04-11 17:53:27');
+INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`, `role`, `foto`, `created_at`, `id_jenis`) VALUES
+(1, 'Atmin Real', NULL, 'real_admin', '$2y$10$zMK6iiH4U9dt3vDy.h.2pO0kg6b9jD4XrUpN.nW7cZZNmZeszrr1K', 'admin', '1777199148_b488b88b868f368a84ba.jpg', '2026-04-11 17:27:43', NULL),
+(3, 'Jamboadz', NULL, 'teknisi_jamz', '$2y$10$hTmBZ5JfDKFVVsVgkLkAVuZGEp3AQRffpN.PiLntIqa5ujPriDOMO', 'teknisi', '1777199173_d67b6c23f88d39c551e7.jpg', '2026-04-11 17:53:27', NULL),
+(7, 'Ahmad Mauludin', NULL, 'ahmad', '$2y$10$zynB3YUr5m/BYr6F8wFm4ejWcb2qtCqc7Dh6H5f4xBX03cQei6hru', 'pelapor', '1777277533_bbd44cdc0b7cf339f874.jpg', '2026-04-27 08:12:13', 1),
+(8, 'Deriel Arrojab', NULL, 'deriel', '$2y$10$QRyocq737Whrt/pO7i9ObenkLqQVEz3pf0TfRvr6NI0cZOdo9PW3e', 'pelapor', '1777338215_5899bccbd6a122389330.jpg', '2026-04-28 01:03:35', 2);
 
 --
 -- Indexes for dumped tables
@@ -249,8 +293,7 @@ ALTER TABLE `notifikasi`
 --
 ALTER TABLE `pengaduan`
   ADD PRIMARY KEY (`id_pengaduan`),
-  ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_jenis` (`id_jenis`);
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `penugasan`
@@ -291,7 +334,8 @@ ALTER TABLE `tanggapan`
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD KEY `fk_users_jenis` (`id_jenis`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -307,25 +351,25 @@ ALTER TABLE `jenis_pelapor`
 -- AUTO_INCREMENT untuk tabel `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `penugasan`
 --
 ALTER TABLE `penugasan`
-  MODIFY `id_penugasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_penugasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `support`
 --
 ALTER TABLE `support`
-  MODIFY `id_support` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_support` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `support_reply`
@@ -343,13 +387,13 @@ ALTER TABLE `support_ticket`
 -- AUTO_INCREMENT untuk tabel `tanggapan`
 --
 ALTER TABLE `tanggapan`
-  MODIFY `id_tanggapan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_tanggapan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -365,8 +409,7 @@ ALTER TABLE `notifikasi`
 -- Ketidakleluasaan untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  ADD CONSTRAINT `pengaduan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE,
-  ADD CONSTRAINT `pengaduan_ibfk_2` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_pelapor` (`id_jenis`);
+  ADD CONSTRAINT `pengaduan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `penugasan`
@@ -382,6 +425,12 @@ ALTER TABLE `penugasan`
 ALTER TABLE `tanggapan`
   ADD CONSTRAINT `tanggapan_ibfk_1` FOREIGN KEY (`id_pengaduan`) REFERENCES `pengaduan` (`id_pengaduan`) ON DELETE CASCADE,
   ADD CONSTRAINT `tanggapan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `fk_users_jenis` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_pelapor` (`id_jenis`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

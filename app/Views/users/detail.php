@@ -121,7 +121,7 @@
                 
                 <div class="card-body text-center pt-3 px-4">
                     <h4 class="fw-800 text-dark mb-1"><?= $user['nama'] ?></h4>
-                    <p class="text-muted small mb-3 font-monospace"><?= $user['email'] ?></p>
+                    <p class="text-muted small mb-3 font-monospace"><?= $user['no_hp']  ?></p>
                     
                     <div class="d-flex justify-content-center gap-2 mb-4">
                         <span class="role-pill bg-primary text-white shadow-sm">
@@ -180,7 +180,7 @@
                         <div class="row align-items-center">
                             <div class="col-sm-4 info-label">Kontak Elektronik</div>
                             <div class="col-sm-8">
-                                <span class="info-value text-primary border-bottom border-primary border-opacity-25"><?= $user['email'] ?></span>
+                                <span class="info-value text-primary border-bottom border-primary border-opacity-25"><?= $user['no_hp'] ?></span>
                             </div>
                         </div>
                     </div>

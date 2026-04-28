@@ -215,30 +215,30 @@
                                 <div class="col-12">
                                     <label class="form-label">Full Name</label>
                                     <div class="input-group">
-                                        <input type="text" name="nama" class="form-control" placeholder="Enter your full name" required>
+                                        <input type="text" name="nama" class="form-control" placeholder="Masukan nama lengkapmu" required>
                                     </div>
                                 </div>
 
-                                <!-- EMAIL -->
+                                <!-- NO TELP -->
                                 <div class="col-12">
-                                    <label class="form-label">Work Email Address</label>
-                                    <input type="email" name="email" class="form-control" placeholder="name@enterprise.com" required>
+                                    <label class="form-label">Nomor Telepon</label>
+<input type="text" name="no_hp" class="form-control" placeholder="08xxxxxxxxxx" required>
                                 </div>
 
                                 <!-- USERNAME -->
                                 <div class="col-md-6">
                                     <label class="form-label">Username</label>
-                                    <input type="text" name="username" class="form-control" placeholder="id_account" required>
+                                    <input type="text" name="username" class="form-control" placeholder="Nama penggunamu" required>
                                 </div>
 
                                 <!-- PASSWORD -->
                                 <div class="col-md-6">
                                     <label class="form-label">Access Password</label>
                                     <div class="input-group">
-                                        <input type="password" name="password" id="accessPassword" class="form-control" placeholder="••••••••" required>
+                                        <input type="password" name="password" id="Password" class="form-control" placeholder="Buat Password" required>
                                         <button class="btn btn-outline-secondary" type="button" id="btnToggleAccess">
                                             <i class="bi bi-eye" id="iconToggleAccess"></i>
-                                        </button>
+                                        </button> 
                                     </div>
                                 </div>
 
@@ -246,12 +246,12 @@
                                 <?php if(session()->get('role') == 'admin'): ?>
                                 <!-- ADMIN BOLEH PILIH ROLE -->
                                 <div class="col-12">
-                                    <label class="form-label">Administrative Role</label>
+                                    <label class="form-label">Role</label>
                                     <select name="role" class="form-select" required>
                                         <option value="" selected disabled>Select Access Level</option>
-                                        <option value="admin">Administrator</option>
-                                        <option value="teknisi">Field Technician</option>
-                                        <option value="pelapor">General Reporter</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="teknisi">Teknisi</option>
+                                        <option value="pelapor">Pelapor</option>
                                     </select>
                                 </div>
                                 <?php else: ?>
@@ -262,7 +262,7 @@
                                 <div class="col-12">
     <label class="form-label">Jenis Pelapor</label>
     <select name="id_jenis" class="form-select" required>
-        <option value="" disabled selected>Pilih Jenis</option>
+        <option value="" disabled selected>Pilih Jenis [Tolong Jujur] </option>
         <?php foreach($jenis as $j): ?>
             <option value="<?= $j['id_jenis'] ?>"><?= $j['nama_jenis'] ?></option>
         <?php endforeach; ?>

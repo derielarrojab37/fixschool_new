@@ -23,7 +23,7 @@
             <tr>
                 <th width="5%">No</th>
                 <th>Nama Lengkap</th>
-                <th>Email</th>
+                <th>No HP</th>
                 <th>Username</th>
                 <th width="15%">Role</th>
             </tr>
@@ -33,9 +33,15 @@
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $u['nama'] ?></td>
-                    <td><?= $u['email'] ?></td>
+                    <td><?= $u['no_hp'] ?></td>
                     <td><?= $u['username'] ?></td>
-                    <td><?= ucfirst($u['role']) ?></td>
+<td>
+    <?php 
+        if($u['role'] == 'admin') echo 'Administrator';
+        elseif($u['role'] == 'teknisi') echo 'Technician';
+        else echo 'Reporter';
+    ?>
+</td>
                 </tr>
             <?php endforeach; else: ?>
                 <tr><td colspan="5" style="text-align:center;">Tidak ada data ditemukan</td></tr>

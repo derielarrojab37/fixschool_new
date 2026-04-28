@@ -50,7 +50,7 @@ class Users extends BaseController
         // Mendefinisikan aturan validasi untuk memastikan integritas data
         $validation->setRules([
             'nama'     => 'required',
-            'email'    => 'required|valid_email',
+            'no_hp'    => 'required|numeric|min_length[10]|max_length[15]',
             'username' => 'required|is_unique[users.username]', // Mencegah duplikasi username
             'password' => 'required|min_length[4]',
             'role'     => 'required',
@@ -72,16 +72,19 @@ class Users extends BaseController
         }
 
         // Menyimpan seluruh data ke database melalui model
-        $this->users->save([
-            'nama'     => $this->request->getPost('nama'),
-            'email'    => $this->request->getPost('email'),
-            'username' => $this->request->getPost('username'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Enkripsi satu arah
-            'role'     => $this->request->getPost('role'),
-            'foto'     => $namaFoto,
-            'id_jenis' => $this->request->getPost('id_jenis')
-        ]);
+$this->users->save([
+    'nama'     => $this->request->getPost('nama'),
+    'no_hp'    => $this->request->getPost('no_hp'), // ganti dari email
+    'username' => $this->request->getPost('username'),
+    'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+    'role' => (session()->get('role') == 'admin') 
+        ? $this->request->getPost('role')
+        : 'pelapor',
+    'foto'     => $namaFoto,
+    'id_jenis' => $this->request->getPost('id_jenis')
+]);
         
+
 
         return redirect()->to('/login')->with('success', 'User berhasil ditambahkan!');
     }
@@ -144,13 +147,17 @@ class Users extends BaseController
             $fotoBaru->move(FCPATH . 'uploads/users', $namaFoto);
         }
 
-        $data = [
-            'nama'     => $this->request->getPost('nama'),
-            'email'    => $this->request->getPost('email'),
-            'username' => $this->request->getPost('username'),
-            'role'     => $this->request->getPost('role'),
-            'foto'     => $namaFoto
-        ];
+$data = [
+    'nama'     => $this->request->getPost('nama'),
+    'no_hp'    => $this->request->getPost('no_hp'), // ✅ ganti
+    'username' => $this->request->getPost('username'),
+    'foto'     => $namaFoto
+];
+
+    // HANYA ADMIN BOLEH UBAH ROLE
+    if(session()->get('role') == 'admin'){
+     $data['role'] = $this->request->getPost('role');
+    }
 
         // Hanya melakukan pembaharuan password jika kolom password diisi oleh pengguna
         if ($this->request->getPost('password') != "") {
@@ -211,50 +218,34 @@ class Users extends BaseController
     /**
      * Menghasilkan tampilan data seluruh pengguna untuk kebutuhan cetak laporan.
      */
-    public function print()
-    {
-        $keyword = $this->request->getGet('keyword');
-        $role = $this->request->getGet('role');
+public function print()
+{
+    $keyword = $this->request->getGet('keyword');
+    $role = $this->request->getGet('role');
 
-        $builder = $this->users;
+    $builder = $this->users->builder();
+    $builder->select('id_user, nama, no_hp, username, role');
 
-        if ($keyword) {
-            $builder = $builder->like('nama', $keyword);
-        }
-
-        if ($role) {
-            $builder = $builder->where('role', $role);
-        }
-
-        // Mengambil seluruh data tanpa batasan pagination untuk laporan cetak
-        $data['users'] = $builder->findAll();
-
-        return view('users/print', $data);
+    if ($keyword) {
+        $builder->groupStart()
+            ->like('nama', $keyword)
+            ->orLike('no_hp', $keyword)
+            ->orLike('username', $keyword)
+        ->groupEnd();
     }
+
+    if ($role) {
+        $builder->where('role', $role);
+    }
+
+    $data['users'] = $builder->get()->getResultArray();
+
+    return view('users/print', $data);
+}
 
     /**
      * Mengintegrasikan data pengguna ke aplikasi eksternal WhatsApp.
      * Mengonversi data pengguna menjadi format teks pesan dan melakukan pengalihan URL.
      */
-    public function wa($id)
-    {
-        $user = $this->users->find($id);
-
-        if (!$user) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan');
-        }
-
-        // Format pesan teks yang akan dikirimkan
-        $pesan = "DATA USER\n\n";
-        $pesan .= "ID: " . $user['id_user'] . "\n";
-        $pesan .= "Nama: " . $user['nama'] . "\n";
-        $pesan .= "Email: " . $user['email'] . "\n";
-        $pesan .= "Username: " . $user['username'] . "\n";
-        $pesan .= "Role: " . ucfirst($user['role']) . "\n";
-
-        // Menggunakan urlencode untuk memastikan karakter khusus dapat terbaca dengan benar oleh browser
-        $url = "https://wa.me/6281212418446?text=" . urlencode($pesan);
-
-        return redirect()->to($url);
-    }
+    
 }

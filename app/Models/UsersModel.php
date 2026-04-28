@@ -10,7 +10,16 @@ class UsersModel extends Model
     protected $primaryKey = 'id_user';
     
     // Menyimpan profil user termasuk password_hash dan role (admin/teknisi/pelapor)
-    protected $allowedFields = ['nama', 'username', 'password', 'role', 'foto', 'status', 'id_jenis'];
+protected $allowedFields = [
+    'nama',
+    'username',
+    'no_hp', // ganti email
+    'password',
+    'role',
+    'foto',
+    'status',
+    'id_jenis'
+];
     /**
      * Method untuk mencari satu user berdasarkan username.
      * Biasanya digunakan dalam proses autentikasi (Login).

@@ -137,10 +137,10 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label form-label-admin">Alamat Email</label>
+                                <label class="form-label form-label-admin">No Telpon/WA</label>
                                 <div class="input-group">
                                     <span class="input-group-text input-group-text-admin"><i class="bi bi-envelope"></i></span>
-                                    <input type="email" name="email" class="form-control form-control-admin with-group" value="<?= $user['email'] ?>" required placeholder="name@school.com">
+                                    <input type="text" name="no_hp" class="form-control form-control-admin with-group" value="<?= $user['no_hp'] ?>" required>
                                 </div>
                             </div>
 
@@ -154,14 +154,16 @@
                                 <input type="password" name="password" class="form-control form-control-admin" placeholder="Kosongkan jika tidak ingin diubah">
                             </div>
 
-                            <div class="col-md-12">
-                                <label class="form-label form-label-admin">Otoritas Sistem (Role)</label>
-                                <select name="role" class="form-select form-select-admin">
-                                    <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Administrator (Full Control)</option>
-                                    <option value="teknisi" <?= $user['role'] == 'teknisi' ? 'selected' : '' ?>>Technician (Service Handler)</option>
-                                    <option value="pelapor" <?= $user['role'] == 'pelapor' ? 'selected' : '' ?>>Reporter (Standard User)</option>
-                                </select>
-                            </div>
+<?php if(session()->get('role') == 'admin'): ?>
+<div class="col-md-12">
+    <label class="form-label form-label-admin">Otoritas Sistem (Role)</label>
+    <select name="role" class="form-select form-select-admin">
+        <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+        <option value="teknisi" <?= $user['role'] == 'teknisi' ? 'selected' : '' ?>>Teknisi</option>
+        <option value="pelapor" <?= $user['role'] == 'pelapor' ? 'selected' : '' ?>>Pelapor</option>
+    </select>
+</div>
+<?php endif; ?>
 
                             <div class="col-md-12">
                                 <label class="form-label form-label-admin">Foto Profil</label>
