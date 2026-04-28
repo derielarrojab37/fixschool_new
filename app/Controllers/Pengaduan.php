@@ -265,26 +265,16 @@ foreach($admin as $a){
      */
 public function print()
 {
-    $keyword = $this->request->getGet('keyword');
-    $role = $this->request->getGet('role');
+    $db = db_connect();
 
-    $builder = $this->users->builder();
-    $builder->select('id_user, nama, no_hp, username, role');
+    $data['pengaduan'] = $db->table('pengaduan')
+        ->select('pengaduan.*, users.nama as nama_pelapor, jenis_pelapor.nama_jenis, tanggapan.isi_tanggapan')
+        ->join('users', 'users.id_user = pengaduan.id_user')
+        ->join('jenis_pelapor', 'jenis_pelapor.id_jenis = users.id_jenis', 'left')
+        ->join('tanggapan', 'tanggapan.id_pengaduan = pengaduan.id_pengaduan', 'left')
+        ->get()
+        ->getResultArray();
 
-    if ($keyword) {
-        $builder->groupStart()
-            ->like('nama', $keyword)
-            ->orLike('no_hp', $keyword)
-            ->orLike('username', $keyword)
-        ->groupEnd();
-    }
-
-    if ($role) {
-        $builder->where('role', $role);
-    }
-
-    $data['users'] = $builder->get()->getResultArray();
-
-    return view('users/print', $data);
+    return view('pengaduan/print', $data);
 }
 }
