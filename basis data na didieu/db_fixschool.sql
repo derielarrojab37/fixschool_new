@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Apr 2026 pada 04.27
+-- Waktu pembuatan: 28 Apr 2026 pada 07.06
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -75,22 +75,25 @@ INSERT INTO `notifikasi` (`id_notifikasi`, `id_user`, `pesan`, `status`, `foto`,
 (47, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-26 13:06:11'),
 (48, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-26 13:06:33'),
 (49, 3, 'Anda mendapatkan tugas baru', 'belum', NULL, '2026-04-26 13:06:52'),
-(60, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-27 15:29:56'),
 (61, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-27 16:15:31'),
 (62, 3, 'Anda mendapatkan tugas baru', 'belum', NULL, '2026-04-27 16:15:43'),
-(63, 1, 'Status penugasan diperbarui menjadi: dikerjakan', 'belum', NULL, '2026-04-27 16:17:47'),
-(64, 1, 'Status penugasan diperbarui menjadi: dikerjakan', 'belum', NULL, '2026-04-27 16:18:02'),
 (65, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-27 16:20:00'),
 (66, 7, 'Pengaduan Anda telah selesai', 'belum', NULL, '2026-04-27 16:20:56'),
-(67, 1, 'Status penugasan diperbarui menjadi: selesai', 'belum', NULL, '2026-04-27 16:20:56'),
 (68, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-27 16:22:01'),
-(69, 1, 'Status penugasan diperbarui menjadi: ditugaskan', 'belum', NULL, '2026-04-27 16:30:13'),
 (70, 7, 'Pengaduan Anda telah selesai', 'belum', NULL, '2026-04-27 16:30:18'),
-(71, 1, 'Status penugasan diperbarui menjadi: selesai', 'belum', NULL, '2026-04-27 16:30:18'),
-(72, 1, 'Tiket support baru masuk', 'belum', NULL, '2026-04-28 08:20:49'),
-(73, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 08:33:02'),
 (74, NULL, 'Pengaduan Anda sedang diproses', 'belum', NULL, '2026-04-28 08:35:19'),
-(75, 8, 'Pengaduan ditolak: Pake Ai jing', 'belum', NULL, '2026-04-28 08:35:38');
+(75, 8, 'Pengaduan ditolak: Pake Ai jing', 'belum', NULL, '2026-04-28 08:35:38'),
+(77, 8, 'Pengaduan ditolak: gambar gajelas jembot', 'belum', NULL, '2026-04-28 10:38:43'),
+(79, 8, 'Pengaduan ditolak: fsfs', 'belum', NULL, '2026-04-28 10:46:01'),
+(80, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 11:25:17'),
+(81, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 11:29:04'),
+(82, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 11:34:13'),
+(83, 9, 'Pengaduan ditolak: hthfg', 'belum', NULL, '2026-04-28 11:36:01'),
+(84, 9, 'Pengaduan ditolak: fhfh', 'belum', NULL, '2026-04-28 11:36:20'),
+(85, 9, 'Pengaduan ditolak: dd', 'belum', NULL, '2026-04-28 11:36:32'),
+(86, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 11:37:21'),
+(87, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 11:44:40'),
+(88, 1, 'Pengaduan baru telah dibuat', 'belum', NULL, '2026-04-28 11:56:47');
 
 -- --------------------------------------------------------
 
@@ -116,7 +119,11 @@ CREATE TABLE `pengaduan` (
 
 INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `judul`, `deskripsi`, `lokasi`, `foto`, `status`, `tanggal`, `alasan_ditolak`) VALUES
 (22, 7, 'Kursi Bosok', 'yeuh beneran, sok', 'Lab Komputer SMK', '1777278596_e8104c9cd11af3b738b5.jpg', 'selesai', '2026-04-27 15:29:56', ''),
-(23, 8, 'Kipas Rusak', 'Ini tolong diperbaiki', 'Lab Komputer SMK', '1777339982_f833dae5f2fd13c430e1.png', 'ditolak', '2026-04-28 08:33:02', 'Pake Ai jing');
+(23, 8, 'Kipas Rusak', 'Ini tolong diperbaiki', 'Lab Komputer SMK', '1777339982_f833dae5f2fd13c430e1.png', 'ditolak', '2026-04-28 08:33:02', 'Pake Ai jing'),
+(24, 8, 'PC Tidak Berfungsi', 'ada lah', 'Lab Komputer SMK', '1777347338_23effaef7a21bb7f850f.jpeg', 'ditolak', '2026-04-28 10:35:38', 'gambar gajelas jembot'),
+(29, 9, 'fsfs', 'asfsaf', 'afsf', '1777351041_f2990ffe9e8daa196bd9.png', 'menunggu', '2026-04-28 11:37:21', ''),
+(30, 9, 'fdstruyth', 'gdfg', 'fdgtfr5', NULL, 'menunggu', '2026-04-28 11:44:40', ''),
+(31, 9, 'dsffdd', 'sdfsaf', 'dsfsdfsd', '1777352207_3fca61ff2f60079e19ff.png', 'menunggu', '2026-04-28 11:56:47', '');
 
 -- --------------------------------------------------------
 
@@ -252,7 +259,7 @@ INSERT INTO `tanggapan` (`id_tanggapan`, `id_pengaduan`, `id_user`, `isi_tanggap
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
+  `no_hp` varchar(20) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role` enum('admin','teknisi','pelapor') DEFAULT 'pelapor',
@@ -265,11 +272,12 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`, `role`, `foto`, `created_at`, `id_jenis`) VALUES
-(1, 'Atmin Real', NULL, 'real_admin', '$2y$10$zMK6iiH4U9dt3vDy.h.2pO0kg6b9jD4XrUpN.nW7cZZNmZeszrr1K', 'admin', '1777199148_b488b88b868f368a84ba.jpg', '2026-04-11 17:27:43', NULL),
-(3, 'Jamboadz', NULL, 'teknisi_jamz', '$2y$10$hTmBZ5JfDKFVVsVgkLkAVuZGEp3AQRffpN.PiLntIqa5ujPriDOMO', 'teknisi', '1777199173_d67b6c23f88d39c551e7.jpg', '2026-04-11 17:53:27', NULL),
-(7, 'Ahmad Mauludin', NULL, 'ahmad', '$2y$10$zynB3YUr5m/BYr6F8wFm4ejWcb2qtCqc7Dh6H5f4xBX03cQei6hru', 'pelapor', '1777277533_bbd44cdc0b7cf339f874.jpg', '2026-04-27 08:12:13', 1),
-(8, 'Deriel Arrojab', NULL, 'deriel', '$2y$10$QRyocq737Whrt/pO7i9ObenkLqQVEz3pf0TfRvr6NI0cZOdo9PW3e', 'pelapor', '1777338215_5899bccbd6a122389330.jpg', '2026-04-28 01:03:35', 2);
+INSERT INTO `users` (`id_user`, `nama`, `no_hp`, `username`, `password`, `role`, `foto`, `created_at`, `id_jenis`) VALUES
+(1, 'Atmin Real', '6282286869263', 'real_admin', '$2y$10$zMK6iiH4U9dt3vDy.h.2pO0kg6b9jD4XrUpN.nW7cZZNmZeszrr1K', 'admin', '1777199148_b488b88b868f368a84ba.jpg', '2026-04-11 17:27:43', NULL),
+(3, 'Jamboadz', 'jamz@gmail.com', 'teknisi_jamz', '$2y$10$hTmBZ5JfDKFVVsVgkLkAVuZGEp3AQRffpN.PiLntIqa5ujPriDOMO', 'teknisi', '1777199173_d67b6c23f88d39c551e7.jpg', '2026-04-11 17:53:27', NULL),
+(7, 'Ahmad Mauludin', '6285175017991', 'ahmad', '$2y$10$zynB3YUr5m/BYr6F8wFm4ejWcb2qtCqc7Dh6H5f4xBX03cQei6hru', 'pelapor', '1777277533_bbd44cdc0b7cf339f874.jpg', '2026-04-27 08:12:13', 1),
+(8, 'Deriel Arrojab', 'deriel@gmail.com', 'deriel', '$2y$10$QRyocq737Whrt/pO7i9ObenkLqQVEz3pf0TfRvr6NI0cZOdo9PW3e', 'pelapor', '1777338215_5899bccbd6a122389330.jpg', '2026-04-28 01:03:35', 2),
+(9, 'Nasrul Rizki Mispalah', '6281212418446', 'nasrul', '$2y$10$kYFBOWeHSqljT1H73tyBPuLLmGoJgxwxBpH1iTZikZs.E5VUXv.9a', 'pelapor', '1777343643_8635f8e03cbae31017ca.png', '2026-04-28 02:34:03', 2);
 
 --
 -- Indexes for dumped tables
@@ -351,13 +359,13 @@ ALTER TABLE `jenis_pelapor`
 -- AUTO_INCREMENT untuk tabel `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `penugasan`
@@ -393,7 +401,7 @@ ALTER TABLE `tanggapan`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
