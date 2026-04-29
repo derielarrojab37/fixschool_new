@@ -198,14 +198,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="remember">
-                            <label class="form-check-label text-muted small fw-medium" for="remember">
-                                Trust this device
-                            </label>
-                        </div>
-                    </div>
+                    
 
                     <button type="submit" class="btn btn-primary w-100 mb-3 shadow-sm text-white">
                         Access Dashboard 
